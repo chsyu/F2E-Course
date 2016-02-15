@@ -1,0 +1,28 @@
+.container {
+  width: 300px;
+  height: 60px;
+  margin: 0 auto;
+  padding: 0px;
+  background-color: lightblue;
+  position: relative;
+}
+
+img {
+  margin: 0px;
+  width: 45px;
+  height: 45px;
+  margin: 7.5px 0 7.5px 70px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.32);
+}
+
+.triangle:after{
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 135px;
+  display:block;
+  border-top: 10px solid lightblue;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+}

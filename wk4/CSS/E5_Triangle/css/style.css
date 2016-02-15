@@ -1,0 +1,21 @@
+.square {
+  border-top: 25px solid #000;
+  border-right: 25px solid #2D89EF;
+  border-bottom: 25px solid #9a7;
+  border-left: 25px solid #13E918;
+  display:inline-block;
+}
+
+.triangle {
+  border-top: 25px solid #000;
+  border-right: 25px solid transparent;
+  border-left: 25px solid transparent;
+  display:inline-block;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: blue;
+}
