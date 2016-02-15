@@ -6,10 +6,10 @@
 - wk1:課程簡介與起手勢
 - wk2:HTML5
 - wk3:CSS3
-- wk4:Javascript+jQuery
-- wk5:jQuery
-- wk6:設計案例
-- wk7:UI設計
+- wk4:CSS3+Javascript
+- wk5:UI設計
+- wk6:jQuery
+- wk7:jQuery
 - wk8:SASS＋RWD簡介
 - wk9:期中專題DEMO
 - wk10:BootStrap＋案例
@@ -18,7 +18,7 @@
 - wk13:Firebase應用
 - wk14:UX設計
 - wk15:期末專題企劃報告
-- wk16:Javascript進階
-- wk17:案例說明
+- wk16:API應用
+- wk17:Javascript進階
 - wk18:期末專題DEMO
 ~                  
