@@ -14,11 +14,11 @@
 - wk9:期中專題DEMO
 - wk10:BootStrap＋案例
 - wk11:BootStrap＋案例
-- wk12:建立一個有特效的網頁
-- wk13:Firebase應用
-- wk14:UX設計
+- wk12:UX設計
+- wk13:建立一個有特效的網頁
+- wk14:Firebase應用
 - wk15:期末專題企劃報告
-- wk16:API應用
-- wk17:Javascript進階
+- wk16:網站企劃檢討
+- wk17:API教學
 - wk18:期末專題DEMO
 ~                  
