@@ -1,0 +1,185 @@
+/*Global Style*/
+html {
+	background-color: #869960;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 87%;
+	font-weight: 300;
+}
+
+.container {
+	width: 940px;
+	margin-left: auto;
+	margin-right: auto;
+	background: url(../images/color-tile.png) left bottom repeat-x, url(../images/color-tile.png) left top repeat-x;
+	background-color: #fff;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 40px;
+	padding-right: 40px;
+	box-sizing: border-box;
+}
+
+/*Header Style*/
+header {
+	padding-top: 20px;
+	color: #617140;
+	font-weight: 400;
+	background: #fff url(../images/leaf-title.jpg) right center no-repeat;
+}
+
+header h1 {
+	margin: 0;
+	font-size: 165%;
+}
+
+header p {
+	margin: 0;
+}
+
+/* Navigator Style */
+.site-nav {
+	margin-top: 20px;
+}
+
+.site-nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+.site-nav li {
+	list-style: none;
+	float: left;
+	margin-right: 5px;
+	background-color: white;
+}
+
+.site-nav a {
+	display: block;
+	color: #617140;
+	text-decoration: none;
+	padding: 10px 20px;
+	border: 3px solid #e5e9dc;
+	border-bottom: none;
+}
+
+.site-nav li:hover > a {
+	background-color: #e5e9dc;
+}
+
+/*SubMenu Style*/
+
+.site-nav li ul {
+	position: absolute;
+	background-color: #e5e9dc;
+	display: none;
+	box-shadow: 0 3px 6px 0px rgba(0,0,0,0.32);
+	z-index: 9999;
+}
+
+.site-nav li:hover ul {
+	display: block;
+}
+
+.site-nav li li {
+	float: none;
+	margin-right: 0;
+	background-color: #e5e9dc;
+}
+
+.site-nav li li a:hover {
+	background-color: #869960;
+	color: #FFF;
+}
+
+/*Content Style*/
+.content-area {
+	border-top: 3px solid #e5e9dc;
+	border-bottom: 3px solid #e5e9dc;
+}
+
+/*Article Style*/
+.main-area {
+	width: 100%;
+	float: left;
+	box-sizing: border-box;
+	margin-bottom: 30px;
+}
+
+.main-area p {
+	text-indent: 1.8em;
+	line-height: 1.7;
+}
+
+/*Gallery Style*/
+#gallery{
+	list-style:none;
+	margin:0;
+	padding:0;
+	width:100%;
+}
+
+#gallery li{
+	/*display:block;*/
+	float:left;
+	cursor:pointer;
+	margin: 30px 0px 0px 30px;
+	width: calc(800px/3);
+	box-sizing:border-box;
+	position:relative;
+}
+
+#gallery .first-fig {
+	margin-left:0px;
+}
+
+#gallery img{
+	width:100%;
+	display: block;
+}
+
+.overlay{
+	display:none;
+	background:rgba(0, 0, 0, .65);
+	color:#fff;
+	position:absolute;
+	bottom:0;
+	left:0;
+	z-index:100;
+	width:100%;
+	padding:10px;
+	box-sizing:border-box;
+	pointer-events:none;
+	fontweight: 100;
+}
+
+.overlay h3{
+	font-weight: 100;
+	margin:0;
+	padding:0;
+}
+
+.overlay p{
+	font-weight: 100;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+/*Footer Style*/
+footer {
+	text-align: center;
+	font-size: 85%;
+	color: #999;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+/*Float CLear*/
+.clear:after {
+	content:"";
+	display: block;
+	clear: both;
+}

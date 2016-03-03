@@ -1,0 +1,174 @@
+/*Global Style*/
+html {
+	background-color: #869960;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 87%;
+	font-weight: 300;
+}
+
+.container {
+	width: 940px;
+	margin-left: auto;
+	margin-right: auto;
+	background: url(../images/color-tile.png) left bottom repeat-x, url(../images/color-tile.png) left top repeat-x;
+	background-color: #fff;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 40px;
+	padding-right: 40px;
+	box-sizing: border-box;
+}
+
+/*Header Style*/
+header {
+	padding-top: 20px;
+	color: #617140;
+	font-weight: 400;
+	background: #fff url(../images/leaf-title.jpg) right center no-repeat;
+}
+
+header h1 {
+	margin: 0;
+	font-size: 165%;
+}
+
+header p {
+	margin: 0;
+}
+
+/* Navigator Style */
+.site-nav {
+	margin-top: 20px;
+}
+
+.site-nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+.site-nav li {
+	list-style: none;
+	float: left;
+	margin-right: 5px;
+	background-color: white;
+}
+
+.site-nav a {
+	display: block;
+	color: #617140;
+	text-decoration: none;
+	padding: 10px 20px;
+	border: 3px solid #e5e9dc;
+	border-bottom: none;
+}
+
+.site-nav li:hover > a {
+	background-color: #e5e9dc;
+	box-shadow: 0 3px 6px 0px rgba(0,0,0,0.32);
+}
+
+/*SubMenu Style*/
+
+.site-nav li ul {
+	position: absolute;
+	background-color: #e5e9dc;
+	display: none;
+	box-shadow: 0 3px 6px 0px rgba(0,0,0,0.32);
+	z-index: 9999;
+}
+
+.site-nav li:hover ul {
+	display: block;
+}
+
+.site-nav li li {
+	float: none;
+	margin-right: 0;
+	background-color: #e5e9dc;
+}
+
+.site-nav li li a:hover {
+	background-color: #869960;
+	color: #FFF;
+}
+
+/*Content Style*/
+.content-area {
+	border-top: 3px solid #e5e9dc;
+	border-bottom: 3px solid #e5e9dc;
+}
+
+/*Article Style*/
+.main-area {
+	width: 66%;
+	float: left;
+	padding-right: 40px;
+	box-sizing: border-box;
+}
+
+.main-area p {
+	text-indent: 1.8em;
+	line-height: 1.7;
+}
+
+/*Image Style*/
+.image-banner {
+	position: relative;
+}
+
+.image-banner img {
+	width: 100%;
+	display: block;
+}
+
+.banner-description{
+	/*positioning*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	/*format style*/
+	margin: 0px;
+	line-height: 50px;
+	width: 200px;
+	margin-left: -100px;
+	margin-top: -25px;
+	text-align: center;
+	font-size: 165%;
+	font-weight: 100;
+	color: #e5e9dc;
+	background-color: rgba(0,0,0,0.5);
+}
+
+/*Aside Style*/
+.sidebar {
+	width: 34%;
+	float: left;
+	background-color: #e5e9dc;
+	padding: 20px 40px;
+	box-sizing: border-box;
+	font-size: 85%;
+}
+
+.sidebar p {
+	text-indent: 1.8em;
+	line-height: 1.7;
+}
+
+/*Footer Style*/
+footer {
+	text-align: center;
+	font-size: 85%;
+	color: #999;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+/*Float CLear*/
+.clear:after {
+	content:"";
+	display: block;
+	clear: both;
+}
