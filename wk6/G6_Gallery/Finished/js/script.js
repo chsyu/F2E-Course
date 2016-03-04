@@ -1,9 +1,9 @@
 $(document).ready(function(){
 	// Mouseenter Overlay Effect
-	$('ul#gallery li').mouseenter(function(){
+	$('ul#gallery li .wrapper').mouseenter(function(){
 		// Get data attribute values
-		var title = $(this).data('title');
-		var desc = $(this).data('desc');
+		var title = $(this).parent('li').data('title');
+		var desc = $(this).parent('li').data('desc');
 		if(!$(this).children("div").length){
 			$(this).append('<div class="overlay"></div>');
 		}
@@ -19,7 +19,7 @@ $(document).ready(function(){
 	});
 
 	// Mouseleave Overlay Effect
-	$('ul#gallery li').mouseleave(function(){
+	$('ul#gallery li .wrapper').mouseleave(function(){
 		// Get the overlay div
 		var overlay = $(this).children('.overlay');
 
