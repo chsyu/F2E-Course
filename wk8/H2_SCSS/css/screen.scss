@@ -1,0 +1,43 @@
+$beautifulHue: #059dec;
+
+body {
+	font-family: Helvetica, sans-serif;
+}
+
+a {
+	color: $beautifulHue;
+}
+
+@import 'header';
+
+.btn-a {
+	display: inline-block;
+	padding: 15px;
+	margin-right: 10px;
+	border: 1px solid $beautifulHue;
+	border-radius: 7px;
+	font-size: 80%;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.btn-b {
+	@extend .btn-a;
+	background-color: lighten($beautifulHue, 45%);
+}
+
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+
+.group:after {
+  clear: both;
+}
+
+.group {
+  zoom: 1;
+}
