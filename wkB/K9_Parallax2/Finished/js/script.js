@@ -26,7 +26,7 @@ $(function(){
 
     // Parallax movement computations
     var mparalltop = -(paralltop + jumboheight - (wintop + winheight))*0.5;
-    $('.fixed').css('transform',`rotate(${mparalltop}deg)`);
+    // $('.fixed').css('transform',`rotate(${mparalltop}deg)`);
 
     // check animate1
     $thumbs.each(function(index){
