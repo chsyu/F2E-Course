@@ -1,0 +1,174 @@
+/*
+
+My Custom CSS
+
+*/
+
+
+/* --------------------------------------
+   Layout
+   -------------------------------------- */
+
+
+
+
+/* --------------------------------------
+   Typography
+   -------------------------------------- */
+
+
+
+/* --------------------------------------
+   Navbar
+   -------------------------------------- */
+
+  .navbar-brand {
+    padding: 12px 15px;
+  }
+
+/* --------------------------------------
+   Carousel
+   -------------------------------------- */
+
+   #myCarousel {
+     margin-top: 60px;
+     font-size: 1rem;
+   }
+
+   .carousel-caption {
+     font-size: 1.5em;
+   }
+
+   .carousel-caption h4 {
+     font-size: 2em;
+   }
+
+   #myCarousel .item {height: 400px;}
+
+   #slide1 {
+     background: url('../images/carousel_medium_01.jpg') top center repeat;
+   }
+
+   #slide2 {
+     background: url('../images/carousel_medium_02.jpg') top center repeat;
+   }
+
+   #slide3 {
+     background: url('../images/carousel_medium_03.jpg') top center repeat;
+   }
+
+
+   @media (min-width: 1200px) {
+
+     #myCarousel .item {height: 500px;}
+
+     #myCarousel {font-size: 1.5rem;}
+
+     #slide1 {
+       background: url('../images/carousel_large_01.jpg') top center repeat;
+     }
+
+     #slide2 {
+       background: url('../images/carousel_large_02.jpg') top center repeat;
+     }
+
+     #slide3 {
+       background: url('../images/carousel_large_03.jpg') top center repeat;
+     }
+   }
+
+   @media (max-width: 768px) {
+
+     #myCarousel .item {height: 310px;}
+
+     #myCarousel {font-size: 0.8rem;}
+
+    #slide1 {
+      background: url('../images/carousel_small_01.jpg') top center repeat;
+    }
+
+    #slide2 {
+      background: url('../images/carousel_small_02.jpg') top center repeat;
+    }
+
+    #slide3 {
+      background: url('../images/carousel_small_03.jpg') top center repeat;
+    }
+  }
+
+/* --------------------------------------
+   Jumbotron
+   -------------------------------------- */
+
+  #myJumbotron .jumbotron{
+     background: url('../images/background.png');
+  }
+
+  #myJumbotron .jumbotron h1 {
+      color: white;
+  }
+
+  #myJumbotron .jumbotron p {
+      color: white;
+  }
+
+  #myJumbotron .jumbotron small {
+      color: lightgray;
+  }
+
+/* --------------------------------------
+   Thumbnail
+   -------------------------------------- */
+
+  #myThumbnail {
+    text-align: center;
+  }
+
+  #myThumbnail img {
+    margin: 20px auto;
+    background-color: black;
+    box-shadow: 1px 1px 2px #111010;
+  }
+
+  @media (max-width: 1200px) {
+    #myThumbnail img {
+      max-width: 80%;
+    }
+  }
+
+  /* --------------------------------------
+     Footer
+     -------------------------------------- */
+
+  footer {
+  	background: #333;
+  	color: #eee;
+  	font-size: 11px;
+  	padding: 20px;
+  }
+
+
+/* --------------------------------------
+   Global Styles
+   -------------------------------------- */
+
+
+
+/* --------------------------------------
+   Media Queries
+   -------------------------------------- */
+
+/* Portrait & landscape phone */
+@media (max-width: 480px) {
+
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+
+}

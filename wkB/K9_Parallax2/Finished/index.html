@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 101 Template</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle"
+                data-target="#navbar-hanburger"
+                data-toggle="collapse" type="button">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="images/logo.png" alt="Web-Logo">
+        </a>
+      </div> <!-- navbar-header -->
+      <div class="navbar-collapse collapse" id="navbar-hanburger">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Service <strong class="caret"></strong></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Web Design</a></li>
+              <li><a href="#">Web Development</a></li>
+              <li><a href="#">SEO</a></li>
+              <li class="divider"> </li>
+              <li class="dropdown-header">More Services</li>
+              <li><a href="#">Content Creation</a></li>
+              <li><a href="#">Social Media Maker</a></li>
+            </ul><!-- end dropdown-menu -->
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left" role="search">
+          <input type="text" class="form-control"
+          placeholder="Search">
+          <button type="submit" class="btn btn-default">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> My account <strong class="caret"></strong></a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Update Profile</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Billing</a></li>
+              <li class="divider"></li>
+              <li><a href="#"><span class="glyphicon glyphicon-off"></span> Sign out</a></li>
+            </ul>
+          </li>
+        </ul><!-- end nav pull-right -->
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+  </nav>
+
+  <div class="container" id="main">
+
+    <div class="row carousel slide" id="myCarousel">
+
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li class="active" data-slide-to="0" data-target="#myCarousel"></li>
+				<li data-slide-to="1" data-target="#myCarousel"></li>
+				<li data-slide-to="2" data-target="#myCarousel"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+				<div class="item active" id="slide1">
+					<div class="carousel-caption">
+						<h4>Bootstrap 3</h4>
+						<p>Learn how to build your first responsive website
+							with the brand new Twitter Bootstrap 3 !</p>
+					</div><!-- end carousel-caption -->
+				</div><!-- end item -->
+
+				<div class="item" id="slide2">
+					<div class="carousel-caption">
+						<h4>F2E</h4>
+						<p>Learn how to build your first front-end website
+							with HTML5/CSS3/Javascript !</p>
+					</div><!-- end carousel-caption -->
+				</div><!-- end item -->
+
+				<div class="item" id="slide3">
+					<div class="carousel-caption">
+						<h4>IOT Arduino</h4>
+						<p>Learn how to build your first Interactive toy
+							with the super easy Arduino board!</p>
+					</div><!-- end carousel-caption -->
+				</div><!-- end item -->
+			</div><!-- end carousel-inner -->
+
+			<!-- Controls -->
+			<a class="left carousel-control" data-slide="prev" href="#myCarousel">
+				<span class="icon-prev"></span></a>
+			<a class="right carousel-control" data-slide="next" href="#myCarousel">
+				<span class="icon-next"></span></a>
+
+		</div><!-- end myCarousel -->
+
+    <div class="row" id="myJumbotron">
+			<!-- Visible only on small devices -->
+			<div class="col-sm-12 well well-sm visible-xs">
+				<a href="" class="btn btn-lg btn-block btn-primary">
+					<span class="glyphicon glyphicon-phone"></span> Give us a call!</a>
+			</div><!-- end well-small -->
+
+      <div class="col-sm-12 jumbotron parallax1 fixed">
+				<div class="page-header">
+					<h1>A Fancy Header <small>A subheader</small></h1>
+				</div><!-- end page-header -->
+        <p>This is a template for a jumbotron.
+					Use it as a starting point to create something more unique.</p>
+        <a class="btn btn-primary btn-lg wow tada" href="#">Click a nice big button</a>
+				<a class="btn btn-default btn-lg" href="#">or a secondary link</a>
+			</div><!-- end jumbotron -->
+
+			<div class="col-sm-12 jumbotron parallax2 fixed">
+				<div class="page-header">
+					<h1>A Fancy Header <small>A subheader</small></h1>
+				</div><!-- end page-header -->
+        <p>This is a template for a jumbotron.
+					Use it as a starting point to create something more unique.</p>
+        <a class="btn btn-primary btn-lg wow tada" href="#">Click a nice big button</a>
+				<a class="btn btn-default btn-lg" href="#">or a secondary link</a>
+			</div><!-- end jumbotron -->
+		</div><!-- end myJumbotron-->
+
+    <div class="row" id="myThumbnailHeading">
+			<div class="col-sm-12">
+				<h2>Teachers</h2>
+				<p class="lead">More details can be found...</p>
+			</div><!-- end col-12 -->
+		</div><!-- end myThumbnailHeading -->
+
+		<div class="row" id="myThumbnail">
+
+			<div class="col-sm-4 thumbnail animate1">
+				<div class="panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">范丙林老師</h3>
+					</div><!-- end panel-heading -->
+					<img src="http://dtd.ntue.edu.tw/wp-content/uploads/2015/09/1-1.png" alt="HTML5" class="img-circle">
+					<p>專長 : 多媒體美工與實務、視訊互動程式設計、2D與3D遊戲程式設計、多媒體互動裝置研究與開發</p>
+					<a href="http://dtd.ntue.edu.tw/gdlab" class="btn btn-warning btn-block">更了解范老師</a>
+				</div><!-- end panel -->
+			</div><!-- end thumbnail -->
+
+			<div class="col-sm-4 thumbnail animate1">
+				<div class="panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">俞齊山老師</h3>
+					</div><!-- end panel-heading -->
+					<img src="http://dtd.ntue.edu.tw/wp-content/uploads/2015/09/1-7.png" alt="CSS3" class="img-circle">
+
+					<p>專長 : 行動裝置應用、互動裝置設計、互動媒體設計、人機介面設計、擴增實境應用</p>
+
+					<a href="http://dtd.ntue.edu.tw/chsyu" class="btn btn-danger btn-block">更了解俞老師</a>
+				</div><!-- end panel -->
+			</div><!-- end thumbnail -->
+
+			<div class="col-sm-4 thumbnail animate1">
+				<div class="panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">王學武老師</h3>
+					</div><!-- end panel-heading -->
+					<img src="http://dtd.ntue.edu.tw/wp-content/uploads/2015/09/1-10.jpg" alt="Bootstrap 3" class="img-circle">
+
+					<p>專長 : 數位遊戲式學習、資訊科技融入教學、計算機圖學、數位遊戲設計與開發</p>
+
+					<a href="http://tea.ntue.edu.tw/~hwwang" class="btn btn-info btn-block">更了解王老師</a>
+				</div><!-- end panel -->
+			</div><!-- end thumbnail -->
+
+		</div><!-- end myThumbnail -->
+
+    <div class="row" id="myTabInfo">
+			<div class="col-sm-6">
+				<h3>Neat Tabbable Content</h3>
+				<div class="tabbable">
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a href="#tab1" data-toggle="tab">Section 1</a></li>
+						<li>
+							<a href="#tab2" data-toggle="tab">Section 2</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="tab1">
+							<h4><span class="glyphicon glyphicon-map-marker"></span> Our Location <small>More like our favourite surf spot</small></h4>
+							<iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.3148506853713!2d121.5431559157406!3d25.02338698397735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a908a8232611%3A0xeebfb2d71a5025c7!2z5ZyL56uL6Ie65YyX5pWZ6IKy5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1447671971717"></iframe>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</div><!-- end tab-pane -->
+						<div class="tab-pane" id="tab2">
+							<h4>A Left Floated Picture <small>Using Placehold.it</small></h4>
+							<img src="http://placehold.it/140" class="thumbnail pull-left" alt="Placeholder image">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+						</div><!-- end tab-pane -->
+					</div><!-- end tab-content -->
+				</div><!-- end tabbable -->
+			</div><!-- end col-sm-6 -->
+			<div class="col-sm-6">
+				<h3>Some Text Info</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+					sed do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+					ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					Duis aute irure dolor in reprehenderit in voluptate velit
+					esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+					occaecat cupidatat non proident, sunt in culpa qui officia
+					deserunt mollit anim id est laborum.</p>
+				<h4>A List Group</h4>
+				<div class="list-group">
+					<a href="#" class="list-group-item">
+						<h4 class="list-group-item-heading">Kale</h4>
+						<p class="list-group-item-text">Kale or borecole is a vegetable
+							with green or purple leaves, in which the central leaves do not
+							form a head.</p>
+					</a>
+					<a href="#" class="list-group-item">
+						<h4 class="list-group-item-heading">Carrots</h4>
+						<p class="list-group-item-text">The carrot is a root vegetable,
+							usually orange in colour, though purple, red, white, and yellow
+							varieties exist. It has a crisp texture when fresh.</p>
+					</a>
+					<a href="#" class="list-group-item">
+						<h4 class="list-group-item-heading">Steel-cut oats</h4>
+						<p class="list-group-item-text">Steel-cut oats are whole grain
+							groats which have been cut into pieces. They are commonly used
+							in Scotland and Ireland to make porridge.</p>
+					</a>
+				</div><!-- list-group -->
+				<h5>A small heading</h5>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+					ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+					aliquip ex ea commodo consequat. Duis aute irure dolor in
+					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+					culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div><!-- end col-sm-6 -->
+		</div><!-- end myTabInfo -->
+
+  </div><!-- end container -->
+
+  <footer>
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-3">
+					<h6>Copyright &copy; 2016</h6>
+				</div><!-- end col-sm-3 -->
+
+				<div class="col-sm-9">
+					<h6>ADDRESS: He-Ping East Road, Section 2, No.134,
+						Taipei University of Education, Taipei, Taiwan</h6>
+				</div><!-- end col-sm-9 -->
+
+			</div><!-- end row -->
+		</div><!-- end container -->
+	</footer>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
