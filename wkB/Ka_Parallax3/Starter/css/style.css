@@ -143,7 +143,6 @@ body, #myCarousel, #myThumbnail {
   .fixed {
     overflow: hidden;
     height:800px;
-    position: relative;
     z-index: 1;
   }
 
