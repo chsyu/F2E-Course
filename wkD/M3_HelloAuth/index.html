@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello Authentication</title>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+
+  <!-- Custom JS -->
+  <script src="js/script.js"></script>
+
+  <!-- Material Design Lite -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+
+  <!-- Custom Style -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__supporting-text">
+      <!-- SignIn/SignUp Form -->
+      <form action="#">
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="text" id="email">
+          <label class="mdl-textfield__label" for="sample1">E-mail</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="text" id="password">
+          <label class="mdl-textfield__label" for="sample1">Password</label>
+        </div>
+      </form>
+
+      <!-- SignIn/SignUp/Logout Button -->
+      <button class="mdl-button mdl-js-button mdl-button--raised" id="btnSignIn">Sign In</button>
+      <button class="mdl-button mdl-js-button mdl-button--raised" id="btnSignUp">Sign Up</button>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id ="btnSignOut">Sign Out</button>
+    </div>
+  </div>
+</body>
+</html>
