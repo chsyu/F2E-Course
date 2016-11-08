@@ -11,6 +11,9 @@ ul {
   overflow: auto;
 }
 ul li {
+    font-family: Roboto;
+    font-size: 120%;
+    font-weight: 300;
     margin-bottom: 10px;
     line-height: 24px;
 }

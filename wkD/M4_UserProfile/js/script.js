@@ -59,7 +59,7 @@ $(document).ready(function(){
     }
   });
 
-  // Logout
+  // SignOut
   $btnSignOut.click(function(){
     firebase.auth().signOut();
   });
