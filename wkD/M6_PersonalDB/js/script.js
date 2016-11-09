@@ -9,6 +9,7 @@ $(document).ready(function(){
   };
   firebase.initializeApp(config);
 
+  // Firebase database reference
   var dbChatRoom = firebase.database().ref().child('chatroom');
   var dbUser = firebase.database().ref().child('user');
 
@@ -22,7 +23,19 @@ $(document).ready(function(){
   const $btnSignUp = $('#btnSignUp');
   const $btnSignOut = $('#btnSignOut');
   const $message = $('#example-messages');
+  const $hovershadow = $('.hover-shadow');
 
+  // Hovershadow
+  $hovershadow.hover(
+    function(){
+      $(this).addClass("mdl-shadow--4dp");
+    },
+    function(){
+      $(this).removeClass("mdl-shadow--4dp");
+    }
+  );
+
+  // SignIn/SignUp/SignOut Button status
   var user = firebase.auth().currentUser;
   if (user) {
     $btnSignIn.attr('disabled', 'disabled');
@@ -33,7 +46,6 @@ $(document).ready(function(){
     $btnSignIn.removeAttr('disabled')
     $btnSignUp.removeAttr('disabled')
   }
-
 
   // Sign In
   $btnSignIn.click(function(e){
@@ -47,8 +59,7 @@ $(document).ready(function(){
     });
     promise.then(function(){
       console.log('SignIn User');
-
-    });//promise
+    });
   });
 
   // SignUp
