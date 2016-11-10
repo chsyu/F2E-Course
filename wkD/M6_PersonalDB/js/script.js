@@ -76,7 +76,7 @@ $(document).ready(function(){
       $signInfo.html(e.message);
     });
     promise.then(function(user){
-      console.log("SignUp user ＝ " ＋ user);
+      console.log("SignUp user is "+user.email);
       const dbUserid = dbUser.child(user.uid);
       dbUserid.push({email:user.email});
     });
