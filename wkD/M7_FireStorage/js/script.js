@@ -1,12 +1,12 @@
 $(document).ready(function(){
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyBG2Rp9w8QOBKypmFFsR7ZjGfsU7l83VVY",
-    authDomain: "authchatwithpersonaldata.firebaseapp.com",
-    databaseURL: "https://authchatwithpersonaldata.firebaseio.com",
-    storageBucket: "authchatwithpersonaldata.appspot.com",
-    messagingSenderId: "253660279157"
-  };
+    apiKey: "AIzaSyAz6tucd2PQq58-_AwNx_UjTjAlFCDnctI",
+    authDomain: "firestorage-chsyu.firebaseapp.com",
+    databaseURL: "https://firestorage-chsyu.firebaseio.com",
+    storageBucket: "firestorage-chsyu.appspot.com",
+    messagingSenderId: "284899960354"
+   };
   firebase.initializeApp(config);
 
   // Firebase database reference
