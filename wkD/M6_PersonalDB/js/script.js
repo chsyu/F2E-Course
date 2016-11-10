@@ -24,6 +24,7 @@ $(document).ready(function(){
   const $btnSignOut = $('#btnSignOut');
   const $message = $('#example-messages');
   const $hovershadow = $('.hover-shadow');
+  const $signInfo = $('#sign-info');
 
   // Hovershadow
   $hovershadow.hover(
@@ -56,6 +57,7 @@ $(document).ready(function(){
     const promise = auth.signInWithEmailAndPassword(email, pass);
     promise.catch(function(e){
       console.log(e.message);
+      $signInfo.html(e.message);
     });
     promise.then(function(){
       console.log('SignIn User');
@@ -71,10 +73,10 @@ $(document).ready(function(){
     const promise = auth.createUserWithEmailAndPassword(email, pass);
     promise.catch(function(e){
       console.log(e.message);
+      $signInfo.html(e.message);
     });
     promise.then(function(user){
-      console.log("SignUp user");
-      console.log(user);
+      console.log("SignUp user ＝ " ＋ user);
       const dbUserid = dbUser.child(user.uid);
       dbUserid.push({email:user.email});
     });
@@ -84,6 +86,7 @@ $(document).ready(function(){
   firebase.auth().onAuthStateChanged(function(user){
     if(user) {
       console.log(user);
+      $signInfo.html(user.email+" is login...");
       $btnSignIn.attr('disabled', 'disabled');
       $btnSignUp.attr('disabled', 'disabled');
       $btnSignOut.removeAttr('disabled')
@@ -123,6 +126,7 @@ $(document).ready(function(){
   $btnSignOut.click(function(){
     firebase.auth().signOut();
     console.log('LogOut');
+    $signInfo.html('No one login...');
     $btnSignOut.attr('disabled', 'disabled');
     $btnSignIn.removeAttr('disabled')
     $btnSignUp.removeAttr('disabled')

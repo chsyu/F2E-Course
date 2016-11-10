@@ -14,7 +14,6 @@ $(document).ready(function(){
   const $btnSignIn = $('#btnSignIn');
   const $btnSignUp = $('#btnSignUp');
   const $btnSignOut = $('#btnSignOut');
-  const $btnSubmit = $('#btnSubmit');
   const $signInfo = $('#sign-info');
 
   // SignIn
@@ -41,9 +40,6 @@ $(document).ready(function(){
       console.log(e.message);
       $signInfo.html(e.message);
     });
-    promise.then(function(e){
-      window.location.href = "./profile.html";
-    });
   });
 
   // Listening Login User
@@ -63,25 +59,9 @@ $(document).ready(function(){
     }
   });
 
-  // SignOut
+  // Signout
   $btnSignOut.click(function(){
     firebase.auth().signOut();
     $signInfo.html('No one login...');
-  });
-
-  // Submit
-  $btnSubmit.click(function(){
-    const user = firebase.auth().currentUser;
-    const $userName = $('#userName').val();
-    const $photoURL = $('#photoURL').val();
-
-    const promise = user.updateProfile({
-      displayName: $userName,
-      photoURL: $photoURL
-    });
-    promise.then(function() {
-      console.log("Update successful.");
-      window.location.href = "./index.html";
-    });
   });
 });

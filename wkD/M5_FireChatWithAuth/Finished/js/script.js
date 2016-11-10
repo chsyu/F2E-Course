@@ -19,6 +19,8 @@ $(document).ready(function(){
   const $btnSignIn = $('#btnSignIn');
   const $btnSignOut = $('#btnSignOut');
   const $message = $('#example-messages');
+  const $signInfo = $('#sign-info');
+
   var user = firebase.auth().currentUser;
   if (user) {
     $btnSignIn.attr('disabled', 'disabled');
@@ -29,7 +31,6 @@ $(document).ready(function(){
   }
 
 
-  // Sign In
   // SignIn
   $btnSignIn.click(function(e){
     const email = $email.val();
@@ -39,9 +40,15 @@ $(document).ready(function(){
     const promise = auth.signInWithEmailAndPassword(email, pass);
     promise.catch(function(e){
       console.log(e.message);
+      $signInfo.html(e.message);
     });
-    promise.then(function(){
-      console.log('Login');
+  });
+
+  // Listening Login User
+  firebase.auth().onAuthStateChanged(function(user){
+    if(user) {
+      console.log('SignIn '+user.email);
+      $signInfo.html(user.email+" is login...");
       $btnSignIn.attr('disabled', 'disabled');
       $btnSignOut.removeAttr('disabled')
 
@@ -64,14 +71,17 @@ $(document).ready(function(){
         //SCROLL TO BOTTOM OF MESSAGE LIST
         $messageList[0].scrollTop = $messageList[0].scrollHeight;
       });
-
-    });
+    } else {
+      console.log("not logged in");
+    }
   });
+
 
   // SignOut
   $btnSignOut.click(function(){
     firebase.auth().signOut();
     console.log('LogOut');
+    $signInfo.html('No one login...');
     $btnSignOut.attr('disabled', 'disabled');
     $btnSignIn.removeAttr('disabled')
     $message.html('');

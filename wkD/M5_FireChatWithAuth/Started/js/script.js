@@ -18,6 +18,7 @@ $(document).ready(function(){
   const $password = $('#password');
   const $btnSignIn = $('#btnSignIn');
   const $btnSignOut = $('#btnSignOut');
+  const $signInfo = $('#sign-info');
 
   // Sign In
   // SignIn
@@ -29,9 +30,11 @@ $(document).ready(function(){
     const promise = auth.signInWithEmailAndPassword(email, pass);
     promise.catch(function(e){
       console.log(e.message);
+      $signInfo.html(e.message);
     });
     promise.then(function(){
       console.log('Login');
+      $signInfo.html(user.email+" is login...");
       // Add a callback that is triggered for each chat message.
       dbRef.limitToLast(10).on('child_added', function (snapshot) {
         //GET DATA
@@ -59,6 +62,7 @@ $(document).ready(function(){
   $btnSignOut.click(function(){
     firebase.auth().signOut();
     console.log('LogOut');
+    $signInfo.html('No one login...');
   });
 
   // LISTEN FOR KEYPRESS EVENT
