@@ -14,22 +14,20 @@ $(document).ready(function(){
   var dbUser = firebase.database().ref().child('user');
 
   var photoURL;
+  var $img = $('img');
 
   // REGISTER DOM ELEMENTS
-  const $messageField = $('#messageInput');
-  const $nameField = $('#nameInput');
-  const $messageList = $('#example-messages');
   const $email = $('#email');
   const $password = $('#password');
   const $btnSignIn = $('#btnSignIn');
   const $btnSignUp = $('#btnSignUp');
   const $btnSignOut = $('#btnSignOut');
-  const $message = $('#example-messages');
   const $hovershadow = $('.hover-shadow');
   const $btnSubmit = $('#btnSubmit');
   const $signInfo = $('#sign-info');
   const $file = $('#file');
-
+  const $profileName = $('#profile-name');
+  const $profileEmail = $('#profile-email');
 
   // Hovershadow
   $hovershadow.hover(
@@ -122,39 +120,19 @@ $(document).ready(function(){
   firebase.auth().onAuthStateChanged(function(user){
     if(user) {
       console.log(user);
-      $signInfo.html(user.email+" is login...");
+      const loginName = user.displayName || user.email;
+      $signInfo.html(loginName+" is login...");
       $btnSignIn.attr('disabled', 'disabled');
       $btnSignUp.attr('disabled', 'disabled');
       $btnSignOut.removeAttr('disabled')
-      // Add a callback that is triggered for each chat message.
-      dbChatRoom.limitToLast(10).on('child_added', function (snapshot) {
-        //GET DATA
-        var data = snapshot.val();
-        var username = data.name || "anonymous";
-        var message = data.text;
-
-        //CREATE ELEMENTS MESSAGE & SANITIZE TEXT
-        var $messageElement = $("<li>");
-        var $nameElement = $("<strong class='example-chat-username'></strong>");
-        $nameElement.text(username);
-        $messageElement.text(message).prepend($nameElement);
-
-        //ADD MESSAGE
-        $messageList.append($messageElement)
-
-        //SCROLL TO BOTTOM OF MESSAGE LIST
-        $messageList[0].scrollTop = $messageList[0].scrollHeight;
-      });//child_added callback
-
-      user.providerData.forEach(function (profile) {
-        console.log("Sign-in provider: "+profile.providerId);
-        console.log("  Provider-specific UID: "+profile.uid);
-        console.log("  Name: "+profile.displayName);
-        console.log("  Email: "+profile.email);
-        console.log("  Photo URL: "+profile.photoURL);
-      });
+      $profileName.html(user.displayName);
+      $profileEmail.html(user.email);
+      $img.attr("src",user.photoURL);
     } else {
       console.log("not logged in");
+      $profileName.html("N/A");
+      $profileEmail.html('N/A');
+      $img.attr("src","");
     }
   });
 
@@ -166,27 +144,11 @@ $(document).ready(function(){
     $btnSignOut.attr('disabled', 'disabled');
     $btnSignIn.removeAttr('disabled')
     $btnSignUp.removeAttr('disabled')
-    $message.html('');
-  });
-
-  // LISTEN FOR KEYPRESS EVENT
-  $messageField.keypress(function (e) {
-    if (e.keyCode == 13) {
-      //FIELD VALUES
-      var username = $nameField.val();
-      var message = $messageField.val();
-      console.log(username);
-      console.log(message);
-
-      //SAVE DATA TO FIREBASE AND EMPTY FIELD
-      dbChatRoom.push({name:username, text:message});
-      $messageField.val('');
-    }
   });
 
   // Submit
   $btnSubmit.click(function(){
-    const user = firebase.auth().currentUser;
+    var user = firebase.auth().currentUser;
     const $userName = $('#userName').val();
 
     const promise = user.updateProfile({
@@ -195,6 +157,14 @@ $(document).ready(function(){
     });
     promise.then(function() {
       console.log("Update successful.");
+      user = firebase.auth().currentUser;
+      if (user) {
+        $profileName.html(user.displayName);
+        $profileEmail.html(user.email);
+        $img.attr("src",user.photoURL);
+        const loginName = user.displayName || user.email;
+        $signInfo.html(loginName+" is login...");
+      }
     });
   });
 

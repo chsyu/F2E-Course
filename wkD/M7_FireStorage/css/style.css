@@ -9,23 +9,32 @@
   font-size: 120%;
 }
 
+#user-info {
+  padding: 10px;
+  width: 216px;
+  box-sizing: border-box;
+}
+
+#user-pic {
+  padding:10px;
+  width: 72px;
+  box-sizing: border-box;
+}
+.demo-avatar {
+    width: 60px;
+    height: 60px;
+    padding: 0px;
+}
+
 ul {
   list-style: none;
   margin: 0px;
-  padding: 20px;
-  height: 200px;
-  overflow: auto;
+  padding: 0px;
 }
 ul li {
     font-family: Roboto;
-    font-size: 120%;
-    font-weight: 300;
-    margin-bottom: 10px;
+    /*font-size: 120%;*/
+    /*font-weight: 300;*/
+    /*margin-bottom: 10px;*/
     line-height: 24px;
-}
-ul li:last-child {
-    margin: 0px;
-}
-ul .example-chat-username {
-    margin-right: 10px;
 }
