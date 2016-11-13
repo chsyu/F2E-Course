@@ -20,6 +20,12 @@
   width: 72px;
   box-sizing: border-box;
 }
+
+input(type="password") {
+  font:large;
+  font-size:150%;
+}
+
 .demo-avatar {
     width: 60px;
     height: 60px;
