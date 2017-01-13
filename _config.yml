@@ -2,7 +2,7 @@ title: F2E-Course
 description: week course examples
 google_analytics: UA-000000-01
 show_downloads: true
-theme: jekyll-theme-hacker
+theme: jekyll-theme-cayman
 
 gems:
   - jekyll-mentions
