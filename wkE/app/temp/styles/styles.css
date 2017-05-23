@@ -459,24 +459,6 @@ img {
   height: auto;
 }
 
-@define-mixin atSmall {
-  @media (min-width: 530px) {
-    @mixin-content;
-  }
-}
-
-@define-mixin atMedium {
-  @media (min-width: 800px) {
-    @mixin-content;
-  }
-}
-
-@define-mixin atLarge {
-  @media (min-width: 1200px) {
-    @mixin-content;
-  }
-}
-
 .large-hero {
   position: relative;
 
@@ -497,19 +479,31 @@ img {
     color: #2f5572;
     margin: 0;
     font-size: 1.1rem;
-  
-    @mixin atSmall {
-      font-size: 2rem;
-    }
 
-    @mixin atMedium {
-      font-size: 3.2rem;
-    }
+  }
 
-    @mixin atLarge {
-      font-size: 4.8rem;
-    }
+@media (min-width: 530px) {
 
+.large-hero__title {
+      font-size: 2rem
+
+  }
+  }
+
+@media (min-width: 800px) {
+
+.large-hero__title {
+      font-size: 3.2rem
+
+  }
+  }
+
+@media (min-width: 1200px) {
+
+.large-hero__title {
+      font-size: 4.8rem
+
+  }
   }
 
 .large-hero__subtitle {
@@ -518,10 +512,14 @@ img {
     font-size: 1.1rem;
     margin: 0;
 
-    @mixin atSmall {
-      font-size: 2.9rem;
-    }
+  }
 
+@media (min-width: 530px) {
+
+.large-hero__subtitle {
+      font-size: 2.9rem
+
+  }
   }
 
 .large-hero__description {
