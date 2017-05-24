@@ -8,19 +8,19 @@
 - wk2:HTML5
 - wk3:CSS3
 - wk4:CSS3+Javascript
-- wk5:UI設計
+- wk5:版面設計與視覺設計
 - wk6:jQuery
-- wk7:jQuery
-- wk8:SASS＋RWD簡介
+- wk7:網站行銷與Landing Page製作
+- wk8:RWD設計
 - wk9:期中專題DEMO
-- wk10:BootStrap＋案例
-- wk11:動畫設計
-- wk12:UX設計
+- wk10:BootStrap＋案例設計
+- wk11:CSS與SVG動畫設計
+- wk12:響應式網頁設計與易用性
 - wk13:Firebase應用
-- wk14:網站企劃教學
-- wk15:API教學
-- wk16:期末專題企劃報告
-- wk17:回顧
+- wk14:網站 Use Case流程規劃
+- wk15:GULP網站自動化設計與PostCSS教學
+- wk16:網站趨勢與企劃
+- wk17:期末專題企劃報告
 - wk18:期末專題DEMO
 
 ~                  
