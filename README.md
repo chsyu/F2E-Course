@@ -18,7 +18,7 @@
 - wk12:響應式網頁設計與易用性
 - wk13:Firebase應用
 - wk14:網站 Use Case流程規劃
-- wk15:GULP網站自動化設計與PostCSS教學
+- wk15:GULP網站自動化開發與PostCSS教學
 - wk16:網站趨勢與企劃
 - wk17:期末專題企劃報告
 - wk18:期末專題DEMO
