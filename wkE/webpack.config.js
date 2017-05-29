@@ -1,19 +1,19 @@
+var path = require('path');
+
 module.exports = {
-  entry: "./app/assets/scripts/App.js",
+  entry: './app/assets/scripts/App.js',
   output: {
-    path: "./app/temp/scripts",
-    filename: "App.js"
+    path: path.join(__dirname, './app/temp/scripts'),
+    filename: 'App.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
-        loader: 'babel',
-        query: {
-          presets: ['es2015']
-        },
         test: /\.js$/,
+        use: 'babel-loader',
         exclude: /node_modules/
       }
     ]
   }
 }
+
