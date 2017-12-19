@@ -1,0 +1,23 @@
+.container {
+  width: 500px;
+  height: 500px;
+  border: solid black 2px;
+  margin-left:auto;
+  margin-right:auto;
+  position: relative;
+}
+
+.box1 {
+  width: 50px;
+  height: 50px;
+  background-color: darkgray;
+}
+
+.box2 {
+  position:absolute;
+  left: 225px;
+  top: 0px;
+  width: 50px;
+  height: 50px;
+  background-color: darkred;
+}
