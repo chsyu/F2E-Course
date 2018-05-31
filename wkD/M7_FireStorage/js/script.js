@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBWkL1ZDkWwGW8IaEVFEhniEJFfM284wwE",
@@ -7,12 +7,12 @@ $(document).ready(function(){
     projectId: "f2e2018-10e3d",
     storageBucket: "f2e2018-10e3d.appspot.com",
     messagingSenderId: "315995849194"
-   };
+  };
   firebase.initializeApp(config);
 
   // Firebase database reference
   var dbChatRoom = firebase.database().ref().child('chatroom');
-  var dbUser = firebase.database().ref().child('user');
+  var dbUser = firebase.database().ref().child('users');
 
   var photoURL;
   var $img = $('img');
@@ -29,13 +29,14 @@ $(document).ready(function(){
   const $file = $('#file');
   const $profileName = $('#profile-name');
   const $profileEmail = $('#profile-email');
+  const $profileUserIntro = $('#profile-userIntro');
 
   // Hovershadow
   $hovershadow.hover(
-    function(){
+    function () {
       $(this).addClass("mdl-shadow--4dp");
     },
-    function(){
+    function () {
       $(this).removeClass("mdl-shadow--4dp");
     }
   );
@@ -53,12 +54,12 @@ $(document).ready(function(){
 
     // Push to child path.
     // [START oncomplete]
-    storageRef.child('images/' + file.name).put(file, metadata).then(function(snapshot) {
+    storageRef.child('images/' + file.name).put(file, metadata).then(function (snapshot) {
       console.log('Uploaded', snapshot.totalBytes, 'bytes.');
       console.log(snapshot.metadata);
       photoURL = snapshot.metadata.downloadURLs[0];
       console.log('File available at', photoURL);
-    }).catch(function(error) {
+    }).catch(function (error) {
       // [START onfailure]
       console.error('Upload failed:', error);
       // [END onfailure]
@@ -66,7 +67,7 @@ $(document).ready(function(){
     // [END oncomplete]
   }
 
-  window.onload = function() {
+  window.onload = function () {
     $file.change(handleFileSelect);
     // $file.disabled = false;
   }
@@ -84,61 +85,58 @@ $(document).ready(function(){
   }
 
   // Sign In
-  $btnSignIn.click(function(e){
+  $btnSignIn.click(function (e) {
     const email = $email.val();
     const pass = $password.val();
     const auth = firebase.auth();
     // signIn
     const promise = auth.signInWithEmailAndPassword(email, pass);
-    promise.catch(function(e){
+    promise.catch(function (e) {
       console.log(e.message);
       $signInfo.html(e.message);
     });
-    promise.then(function(){
+    promise.then(function () {
       console.log('SignIn User');
     });
   });
 
   // SignUp
-  $btnSignUp.click(function(e){
+  $btnSignUp.click(function (e) {
     const email = $email.val();
     const pass = $password.val();
     const auth = firebase.auth();
     // signUp
     const promise = auth.createUserWithEmailAndPassword(email, pass);
-    promise.catch(function(e){
+    promise.catch(function (e) {
       console.log(e.message);
       $signInfo.html(e.message);
     });
-    promise.then(function(user){
-      console.log("SignUp user is "+user.email);
+    promise.then(function (user) {
+      console.log("SignUp user is " + user.email);
       const dbUserid = dbUser.child(user.uid);
-      dbUserid.push({email:user.email});
+      dbUserid.push({ email: user.email });
     });
   });
 
   // Listening Login User
-  firebase.auth().onAuthStateChanged(function(user){
-    if(user) {
-      console.log(user);
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
       const loginName = user.displayName || user.email;
-      $signInfo.html(loginName+" is login...");
+      $signInfo.html(loginName + " is login...");
       $btnSignIn.attr('disabled', 'disabled');
       $btnSignUp.attr('disabled', 'disabled');
       $btnSignOut.removeAttr('disabled')
-      $profileName.html(user.displayName);
-      $profileEmail.html(user.email);
-      $img.attr("src",user.photoURL);
+      showLoginInfo();
     } else {
       console.log("not logged in");
       $profileName.html("N/A");
       $profileEmail.html('N/A');
-      $img.attr("src","");
+      $img.attr("src", "");
     }
   });
 
   // SignOut
-  $btnSignOut.click(function(){
+  $btnSignOut.click(function () {
     firebase.auth().signOut();
     console.log('LogOut');
     $signInfo.html('No one login...');
@@ -148,25 +146,47 @@ $(document).ready(function(){
   });
 
   // Submit
-  $btnSubmit.click(function(){
-    var user = firebase.auth().currentUser;
+  $btnSubmit.click(function () {
+    const user = firebase.auth().currentUser;
     const $userName = $('#userName').val();
+    const $userIntro = $('#userIntro').val();
+    console.log($userIntro);
+    let dbUserid = dbUser.child(user.uid);
+    dbUserid.set({
+      email: user.email,
+      name: $userName,
+      intro: $userIntro,
+      photoURL: photoURL
+    });
 
-    const promise = user.updateProfile({
+    showLoginInfo();
+
+    promise = user.updateProfile({
       displayName: $userName,
       photoURL: photoURL
     });
-    promise.then(function() {
-      console.log("Update successful.");
-      user = firebase.auth().currentUser;
-      if (user) {
-        $profileName.html(user.displayName);
-        $profileEmail.html(user.email);
-        $img.attr("src",user.photoURL);
-        const loginName = user.displayName || user.email;
-        $signInfo.html(loginName+" is login...");
-      }
+    promise.then(function () {
+      console.log("Profile Update successful.");
     });
   });
+
+  function showLoginInfo() {
+    const dbUserid = firebase.auth().currentUser.uid;
+    const user = firebase.auth().currentUser;
+    firebase.database().ref('/users/' + dbUserid).once('value')
+      .then(function(snapshot) {
+        console.log("User private Info Update successful.");
+        let username = snapshot.val().name || 'Anonymous';
+        let email = snapshot.val().email || 'Anonymous';
+        let Intro = snapshot.val().intro || 'Anonymous';
+        let photoURL = snapshot.val().photoURL || 'Anonymous';
+        $profileName.html(username);
+        $profileEmail.html(email);
+        $profileUserIntro.html(Intro)
+        $img.attr("src", photoURL);
+        const loginName = user.displayName || user.email;
+        $signInfo.html(loginName + " is login...");
+      });
+  }
 
 });

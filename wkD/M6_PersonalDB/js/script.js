@@ -12,7 +12,7 @@ $(document).ready(function(){
 
   // Firebase database reference
   var dbChatRoom = firebase.database().ref().child('chatroom');
-  var dbUser = firebase.database().ref().child('user');
+  var dbUser = firebase.database().ref().child('users');
 
   // REGISTER DOM ELEMENTS
   const $messageField = $('#messageInput');
