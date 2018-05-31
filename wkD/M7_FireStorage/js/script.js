@@ -1,11 +1,12 @@
 $(document).ready(function(){
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyAz6tucd2PQq58-_AwNx_UjTjAlFCDnctI",
-    authDomain: "firestorage-chsyu.firebaseapp.com",
-    databaseURL: "https://firestorage-chsyu.firebaseio.com",
-    storageBucket: "firestorage-chsyu.appspot.com",
-    messagingSenderId: "284899960354"
+    apiKey: "AIzaSyBWkL1ZDkWwGW8IaEVFEhniEJFfM284wwE",
+    authDomain: "f2e2018-10e3d.firebaseapp.com",
+    databaseURL: "https://f2e2018-10e3d.firebaseio.com",
+    projectId: "f2e2018-10e3d",
+    storageBucket: "f2e2018-10e3d.appspot.com",
+    messagingSenderId: "315995849194"
    };
   firebase.initializeApp(config);
 

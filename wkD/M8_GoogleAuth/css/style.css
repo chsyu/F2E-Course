@@ -1,0 +1,10 @@
+.mdl-card {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#sign-info {
+  color: #00BCD4;
+  font-size: 120%;
+}

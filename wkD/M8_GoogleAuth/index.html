@@ -1,12 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Hello Authentication</title>
 
   <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+
+  <!--Firebase UI-->
+  <script src="https://www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.css" />
+
 
   <!-- jQuery -->
   <script src="js/jquery.js"></script>
@@ -22,6 +27,7 @@
   <!-- Custom Style -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <div class="mdl-card mdl-shadow--2dp">
     <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
@@ -44,7 +50,7 @@
       <!-- SignIn/SignUp/Logout Button -->
       <button class="mdl-button mdl-js-button mdl-button--raised" id="btnSignIn">Sign In</button>
       <button class="mdl-button mdl-js-button mdl-button--raised" id="btnSignUp">Sign Up</button>
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id ="btnSignOut">Sign Out</button>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="btnSignOut">Sign Out</button>
 
       <!-- Sign Information -->
       <div class="mdl-card__supporting-text" id="sign-info">No one login...</div>
@@ -52,4 +58,5 @@
     </div>
   </div>
 </body>
+
 </html>
