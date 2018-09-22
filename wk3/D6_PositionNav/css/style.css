@@ -1,0 +1,107 @@
+/* GLobal Style */
+html {
+	background-color: #869960;
+	box-sizing: border-box;
+}
+
+*,*:before,*:after {
+	box-sizing: inherit
+}
+
+body {
+	font-family: Tahoma, sans-serif;
+	font-size: 87%;
+}
+
+.container {
+	max-width: 940px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFF;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+/* Header Style */
+.header {
+	padding-top: 20px;
+	/* padding-bottom: 20px; */
+	color: #617140;
+}
+
+.header-title {
+	margin: 0;
+	font-weight: normal;
+	font-size: 165%;
+}
+
+.header-slogan {
+	margin: 0;
+}
+
+/* Navitation Bar Style */
+.nav {
+	margin-top: 20px;
+}
+
+.nav-list {
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-sublist {
+	position: absolute;
+	background-color: #e5e9dc;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-list-item {
+	list-style: none;
+	margin-right: 5px;
+}
+
+.nav-list-item-link {
+	display: block;
+	color: #617140;
+	text-decoration: none;
+	padding: 10px 20px;
+	border: 3px solid #e5e9dc;
+	border-bottom: none;
+}
+
+.nav-list-item-link:hover {
+	background-color: #e5e9dc;
+}
+
+
+/* Content Style */
+.content-area {
+	display: flex;
+	border-top: 3px solid #e5e9dc;
+	border-bottom: 3px solid #e5e9dc;
+}
+
+/* Main-Area Style */
+.main-area {
+	width: 66%;
+	padding-right: 40px;
+}
+
+/* SideBar Style */
+.sidebar {
+	width: 34%;
+	background-color: #e5e9dc;
+	padding: 20px 40px;
+	font-size: 85%;
+}
+
+/* Footer */
+.footer {
+	text-align: center;
+	font-size: 85%;
+	color: #999;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
