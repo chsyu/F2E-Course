@@ -1,0 +1,173 @@
+
+/*Custom font*/
+@font-face {
+	font-family: 'RaleWay';
+	src: url('fonts/raleway_thin-webfont.woff') format('woff'),
+		/* Pretty Modern Browsers */
+		url('fonts/raleway_thin-webfont.ttf') format('tff');
+	/* Safari, Android, iOS */
+}
+
+
+/* GLobal Style */
+html {
+	background-color: #869960;
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 87%;
+	font-weight: 300;
+}
+
+.container {
+	max-width: 940px;
+	margin: 0 auto;
+	background-color: #FFF;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.text-style {
+	text-indent: 1.8em;
+	line-height: 1.7;
+}
+
+/* Header Style */
+/* Header Style */
+.header {
+	padding-top: 20px;
+	color: #617140;
+	font-weight: 400;
+	background: #fff url(../images/leaf-title.jpg) right center no-repeat;
+}
+
+.header-title {
+	margin: 0;
+	font-size: 165%;
+}
+
+.header-slogan {
+	margin: 0;
+}
+
+/* Navitation Bar Style */
+.nav {
+	margin-top: 20px;
+}
+
+.nav-list {
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-sublist {
+	position: absolute;
+	background-color: #e5e9dc;
+	margin: 0;
+	padding: 0;
+	display: none;
+	z-index: 9999;
+}
+
+.nav-list-item {
+	list-style: none;
+	margin-right: 5px;
+}
+
+.nav-list-item-link {
+	display: block;
+	color: #617140;
+	text-decoration: none;
+	padding: 10px 20px;
+	border: 3px solid #e5e9dc;
+	border-bottom: none;
+}
+
+.nav-list-item-link:hover {
+	background-color: #e5e9dc;
+}
+
+.nav-list-item:hover>.nav-list-item-link {
+	background-color: #e5e9dc;
+}
+
+
+.nav-sublist .nav-list-item-link:hover {
+	background-color: #869960;
+	color: #fff;
+}
+
+
+
+.nav-list-item:hover .nav-sublist {
+	display: block;
+}
+
+
+/* Content Style */
+.content-area {
+	display: flex;
+	border-top: 3px solid #e5e9dc;
+	border-bottom: 3px solid #e5e9dc;
+}
+
+/* Main-Area Style */
+.main-area {
+	width: 66%;
+	padding-right: 40px;
+}
+
+/*Banner Style*/
+.banner {
+	position: relative;
+}
+
+.banner-image {
+	width: 100%;
+	display: block;
+}
+
+.banner-description {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: 0px;
+	line-height: 50px;
+	width: 200px;
+	margin-left: -100px;
+	margin-top: -25px;
+	text-align: center;
+	font-weight: normal;
+	font-size: 165%;
+	font-weight: 100;
+	color: #e5e9dc;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* SideBar Style */
+.sidebar {
+	width: 34%;
+	height: 100%;
+	background-color: #e5e9dc;
+	padding: 20px 40px;
+	font-size: 85%;
+}
+
+
+/* Footer */
+.footer {
+	text-align: center;
+	font-size: 85%;
+	color: #999;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
