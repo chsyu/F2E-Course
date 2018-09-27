@@ -75,7 +75,7 @@ body {
 }
 
 .nav-list-item-link:hover {
-	background-color: #e5e9dc;
+	/* background-color: #e5e9dc; */
 }
 
 .nav-list-item:hover > .nav-list-item-link {

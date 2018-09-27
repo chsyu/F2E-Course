@@ -1,4 +1,3 @@
-
 /*Custom font*/
 @font-face {
 	font-family: 'RaleWay';
@@ -82,6 +81,7 @@ body {
 }
 
 .nav__list-item {
+	background-color: #fff;
 	list-style: none;
 	margin-right: 5px;
 }
@@ -95,78 +95,98 @@ body {
 	border-bottom: none;
 }
 
-
-
-
-
-/* .nav__list-item-link:hover {
+.nav__list-item-link--submenu {
+	display: block;
 	background-color: #e5e9dc;
-} */
+	color: #617140;
+	text-decoration: none;
+	padding: 10px 20px;
+	border: 3px solid #e5e9dc;
+	border-bottom: none;
+}
 
-.nav__list-item:hover > .nav__list-item-link {
+.nav__list-item:hover>.nav__list-item-link {
 	background-color: #e5e9dc;
 }
 
+.active-hover {
+	background-color: #e5e9dc;
+}
 
-.nav__list--submenu .nav__list-item-link:hover {
+.nav__list--submenu .nav__list-item-link--submenu:hover {
 	background-color: #869960;
 	color: #fff;
 }
 
 
 
-.nav__list-item:hover .nav__list--submenu {
+/* .nav__list-item:hover .nav__list--submenu {
 	display: block;
-}
+} */
 
 
 /* Content Style */
 .content-area {
-	display: flex;
 	border-top: 3px solid #e5e9dc;
 	border-bottom: 3px solid #e5e9dc;
 }
 
-/* Main-Area Style */
 .main-area {
-	width: 66%;
-	padding-right: 40px;
+	margin-left: -30px;
 }
 
-/*Banner Style*/
-.banner {
+/* Gallery Style */
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	margin: 0;
+	margin-bottom: 30px;
+	padding: 0;
+	/* margin-left: -30px; */
+}
+
+.gallery__item {
+	margin-top: 30px;
+	padding-left: 30px;
+	width: calc(100%/3);
+}
+
+.gallery__item-link {
+	display: block;
 	position: relative;
 }
 
-.banner__image {
+.gallery__item-image {
 	width: 100%;
 	display: block;
 }
 
-.banner__description {
+.overlay {
+	display: none;
+	background: rgba(0, 0, 0, .65);
+	color: #fff;
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: 0px;
-	line-height: 50px;
-	width: 200px;
-	margin-left: -100px;
-	margin-top: -25px;
-	text-align: center;
-	font-weight: normal;
-	font-size: 165%;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	widows: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	pointer-events: none;
 	font-weight: 100;
-	color: #e5e9dc;
-	background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* SideBar Style */
-.sidebar {
-	width: 34%;
-	height: 100%;
-	background-color: #e5e9dc;
-	padding: 20px 40px;
-	font-size: 85%;
+.overlay h3 {
+	font-weight: 100;
+	margin: 0;
+	padding: 0;
+}
+
+.overlay p {
+	font-weight: 100;
+	margin: 0px;
+	padding: 0px;
 }
 
 
