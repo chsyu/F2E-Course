@@ -29,7 +29,7 @@ body {
 
 .container {
 	max-width: 940px;
-	margin: 20px auto;
+	margin: 0 auto;
 	background: url(../images/color-tile.png) left bottom repeat-x, url(../images/color-tile.png) left top repeat-x;
 	background-color: #FFF;
 	padding-top: 15px;
@@ -82,7 +82,6 @@ body {
 }
 
 .nav__list-item {
-	background-color: #fff;
 	list-style: none;
 	margin-right: 5px;
 }
@@ -96,95 +95,78 @@ body {
 	border-bottom: none;
 }
 
-.nav__list-item-link--submenu {
-	display: block;
+
+
+
+
+/* .nav__list-item-link:hover {
 	background-color: #e5e9dc;
-	color: #617140;
-	text-decoration: none;
-	padding: 10px 20px;
-	border: 3px solid #e5e9dc;
-	border-bottom: none;
-}
+} */
 
 .nav__list-item:hover > .nav__list-item-link {
 	background-color: #e5e9dc;
 }
 
-.active-hover {
-	background-color: #e5e9dc;
-}
 
-.nav__list--submenu .nav__list-item-link--submenu:hover {
+.nav__list--submenu .nav__list-item-link:hover {
 	background-color: #869960;
 	color: #fff;
 }
 
 
 
-/* .nav__list-item:hover .nav__list--submenu {
+.nav__list-item:hover .nav__list--submenu {
 	display: block;
-} */
+}
 
 
 /* Content Style */
 .content-area {
+	display: flex;
 	border-top: 3px solid #e5e9dc;
 	border-bottom: 3px solid #e5e9dc;
 }
 
-
-/* Gallery Style */
-.gallery {
-	display: flex;
-	flex-wrap: wrap;
-	list-style: none;
-	margin: 0 -15px 30px -15px;
-	/* margin-bottom: 30px; */
-	padding: 0;
-	/* margin-left: -30px; */
+/* Main-Area Style */
+.main-area {
+	width: 66%;
+	padding-right: 40px;
 }
 
-.gallery__item {
-	margin-top: 30px;
-	padding: 0 15px;
-	width: calc(100%/3);
-}
-
-.gallery__item-link {
-	display: block;
+/*Banner Style*/
+.banner {
 	position: relative;
 }
 
-.gallery__item-image {
+.banner__image {
 	width: 100%;
 	display: block;
 }
 
-.overlay {
-	display: none;
-	background: rgba(0, 0, 0, .65);
-	color: #fff;
+.banner__description {
 	position: absolute;
-	bottom: 0;
-	left: 0;
-	z-index: 100;
-	widows: 100%;
-	padding: 10px;
-	box-sizing: border-box;
-	pointer-events: none;
-	font-weight: 100;
-}
-
-.overlay h3 {
-	font-weight: 100;
-	margin: 0;
-	padding: 0;
-}
-
-.overlay p {
-	font-weight: 100;
+	top: 50%;
+	left: 50%;
 	margin: 0px;
-	padding: 0px;
+	line-height: 50px;
+	width: 200px;
+	margin-left: -100px;
+	margin-top: -25px;
+	text-align: center;
+	font-weight: normal;
+	font-size: 165%;
+	font-weight: 100;
+	color: #e5e9dc;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* SideBar Style */
+.sidebar {
+	width: 34%;
+	height: 100%;
+	background-color: #e5e9dc;
+	padding: 20px 40px;
+	font-size: 85%;
 }
 
 
