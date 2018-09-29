@@ -137,10 +137,6 @@ a {
 	position: relative;
 }
 
-.header__wrap {
-	margin: 0 -20px;
-}
-
 .header__title {
 	margin: 0;
 	font-weight: normal;
@@ -193,8 +189,6 @@ a {
 	color: #FFF;
 	background-color: #365267;
 	padding: 15px 0;
-	margin-right: 5px;
-	margin-bottom: 5px;
 	text-align: center;
 }
 
@@ -217,6 +211,12 @@ a {
 	.nav__item {
 		width: calc(100%/3);
 		margin-right: 0;
+	}
+
+	.nav__link {
+		margin-right: 5px;
+		margin-bottom: 5px;
+
 	}
 
 }
