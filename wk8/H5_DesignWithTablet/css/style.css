@@ -105,7 +105,7 @@ a {
 .container {
 	max-width: 960px;
 	margin: 0 auto;
-	padding: 0 10px;
+	padding: 0 20px;
 	overflow: hidden;
 }
 
@@ -216,12 +216,12 @@ a {
 .row {
 	display: flex;
 	flex-wrap: wrap;
-	margin: 0 -10px;
+	margin: 0 -20px;
 }
 
 .col {
 	width: 100%;
-	padding: 0 10px;
+	padding: 0 20px;
 }
 
 .col-xs-11 {width: 91.662%}

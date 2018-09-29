@@ -99,7 +99,7 @@ a {
 .container {
 	max-width: 960px;
 	margin: 0 auto;
-	padding: 0 10px;
+	padding: 0 20px;
 	overflow: hidden;
 }
 
@@ -137,6 +137,10 @@ a {
 	position: relative;
 }
 
+.header__wrap {
+	margin: 0 -20px;
+}
+
 .header__title {
 	margin: 0;
 	font-weight: normal;
@@ -145,7 +149,6 @@ a {
 
 .header__slogan {
 	font-size: 90%;
-	margin: 0;
 }
 
 /* Site Navigation */
