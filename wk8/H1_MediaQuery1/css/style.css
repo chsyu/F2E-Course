@@ -139,7 +139,7 @@ a {
 	font-size: 85%;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 768px) {
 
 	.main-area, .sidebar {
 		width: 100%;

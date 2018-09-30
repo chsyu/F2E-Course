@@ -160,7 +160,7 @@ a {
 	font-size: 85%;
 }
 
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 768px) {
 
 	.main-area {
 		width: 66%;

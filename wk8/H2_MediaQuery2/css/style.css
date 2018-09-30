@@ -107,7 +107,7 @@ a {
 	background-color: #4e5a33;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
 
 	.nav__item {
 		width: 33.332%;
@@ -163,7 +163,7 @@ a {
 	font-size: 85%;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 768px) {
 
 	.main-area, .sidebar {
 		width: 100%;
