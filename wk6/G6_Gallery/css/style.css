@@ -21,6 +21,12 @@ html {
 	box-sizing: inherit
 }
 
+a,
+img {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 87%;
@@ -132,27 +138,32 @@ body {
 	border-bottom: 3px solid #e5e9dc;
 }
 
-
-/* Gallery Style */
-.gallery {
+/* Grid */
+.row {
 	display: flex;
 	flex-wrap: wrap;
-	list-style: none;
-	margin: 0 -15px 30px -15px;
-	/* margin-bottom: 30px; */
-	padding: 0;
-	/* margin-left: -30px; */
+	margin: 0 -15px;
 }
 
-.gallery__item {
-	margin-top: 30px;
+.col {
 	padding: 0 15px;
 	width: calc(100%/3);
 }
 
+/* Gallery Style */
+.gallery {
+	list-style: none;
+	margin-bottom: 30px;
+	padding: 0;
+}
+
+.gallery__item {
+	margin-top: 30px;
+}
+
 .gallery__item-link {
-	display: block;
 	position: relative;
+	display: block;
 }
 
 .gallery__item-image {

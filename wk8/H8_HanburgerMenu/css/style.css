@@ -82,8 +82,7 @@ a {
 /* Main Column Typography */
 
 .section {
-	padding-left: 20px;
-	padding-right: 20px;
+	padding: 0;
 }
 
 
@@ -103,10 +102,24 @@ a {
 	overflow: hidden;
 }
 
+.container--fluid {
+	max-width: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+
 @media screen and (min-width: 767px) {
 
 	.show-large {
 		display: block;
+	}
+
+	.container--fluid {
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 0 20px;
 	}
 
 }
@@ -117,6 +130,10 @@ a {
 		max-width: 1000px;
 	}
 
+	.container--fluid {
+		max-width: 1000px;
+	}
+
 	body {
 		font-size: 16px;
 	}
@@ -124,10 +141,15 @@ a {
 
 @media screen and (min-width: 1280px) {
 
+
+
 	.container {
 		max-width: 1200px;
 	}
-
+	
+	.container--fluid {
+		max-width: 1200px;
+	}
 }
 
 .header {
