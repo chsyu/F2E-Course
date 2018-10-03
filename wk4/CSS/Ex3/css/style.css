@@ -16,13 +16,24 @@ img {
   box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.32);
 }
 
+.triangle {
+  position: relative;
+}
+
 .triangle:after{
   content: "";
   position: absolute;
   bottom: -10px;
-  left: 135px;
+  left: calc(50% - 10px);
   display:block;
   border-top: 10px solid lightblue;
   border-right: 10px solid transparent;
   border-left: 10px solid transparent;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  margin: 0 auto;
 }
