@@ -1,0 +1,18 @@
+.box {
+   background-color:#000;   
+   height: 300px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.box__title {
+   font-size: 4rem;
+   color: white;
+}
+
+.box__slogan {
+   font-size: 2rem;
+   color: white;
+}

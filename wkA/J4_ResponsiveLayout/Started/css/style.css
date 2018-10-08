@@ -1,0 +1,13 @@
+.divider--light,
+.divider--heavy {
+   max-width: 250px;
+   border-top: solid 5px;
+}
+
+.divider--light {
+   border-color: #fff;
+}
+
+.divider--heavy {
+   border-color: #2c3e50;
+}
