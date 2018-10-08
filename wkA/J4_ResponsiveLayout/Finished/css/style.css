@@ -1,5 +1,20 @@
 /* Global Style */
 
+/* Divider Style */
+.divider--light,
+.divider--dark {
+      width: 250px;
+      border-top: solid 5px;
+}
+
+.divider--light {
+      border-color: #fff;
+}
+
+.divider--dark {
+      border-color: #2c3e50;
+}
+
 /* Nav Style */
 .nav__bg {
    background-color: #233140;
@@ -47,9 +62,6 @@
 
 /* Avatar Style */
 .avatar {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
    color: white;
 }
 
@@ -72,20 +84,6 @@
    margin: 0;
 }
 
-/* Divider Style */
-.divider--light,
-.divider--heavy {
-   width: 250px;
-   border-top: solid 5px;
-}
-
-.divider--light {
-   border-color: #fff;
-}
-
-.divider--heavy {
-   border-color: #2c3e50;
-}
 
 /* Course Style */
 .course {
@@ -119,14 +117,8 @@
 }
 
 /* Resume Style */
-.article {
-   background-color: #00979c;
-}
-
 .resume {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+   background-color: #00979c;
    padding-top: 50px;
    padding-bottom: 50px;
    color: white;
@@ -139,25 +131,24 @@
    }
 }
 
-
 .resume__title {
    text-align: center;
 }
 
 .resume__description {
-   padding-top: 30px;
+   padding-top: 20px;
    text-align: justify;
    text-indent: 2rem;
 }
 
-.btn {
-   border: solid 2px #fff
-}
-
 .btn--lg {
+   border: solid 2px #fff;
    padding: 18px 27px;
+   font-size: 1.25em;
    line-height: 1.3333333;
    border-radius: 6px;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 .btn--lg:hover {
