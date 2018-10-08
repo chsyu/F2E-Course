@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap 101 Template</title>
+  <title>Resume Example</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
     crossorigin="anonymous">
@@ -12,27 +13,34 @@
 </head>
 
 <body>
-  <nav class="nav">
-    <div class="container">
-      <div class="row nav-style">
-        <div class="nav__brand">山‘s 網頁</div>
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a class="nav__link">關於課程</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link">關於我</a>
-          </li>
-        </div>
 
+<nav class="navbar fixed-top navbar-expand-md navbar-dark nav__bg">
+    <div class="container">
+      <a class="navbar-brand nav__brand" href="#">山‘s 網頁</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">關於課程 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">關於我</a>
+          </li>
+        </ul>
       </div>
+
     </div>
   </nav>
+
   <header class="header">
     <div class="container">
       <div class="avatar">
         <img src="images/chsyu.jpg" alt="" class="avatar__image">
-        <h1 class="avatar__title">山‘s 網頁</h1>
+        <h1 class="avatar__title">山‘<strong>s</strong> 網頁</h1>
         <hr class="divider--light">
         <p class="avatar__slogan">APP／WEB／WOT／UX</p>
       </div>
@@ -78,10 +86,10 @@
     <div class="footer-above">
       <div class="container">
         <div class="row footer-above-style">
-          <p class="footer__description">
+          <h5 class="footer__description col-lg-8">
             臺北市和平東路二段134號，國立臺北教育大學 數位科技設計學系
-          </p>
-          <ul class="footer__list">
+          </h5>
+          <ul class="footer__list col-lg-4">
             <li class="footer__item"><a href="" class="footer__link"><i class="fab fa-facebook-f"></i></a></li>
             <li class="footer__item"><a href="" class="footer__link"><i class="fab fa-google-plus-g"></i></a></li>
             <li class="footer__item"><a href="" class="footer__link"><i class="fab fa-linkedin-in"></i></a></li>
@@ -93,9 +101,9 @@
     </div>
     <div class="footer-below">
       <div class="container">
-        <p>
+        <h6>
           &copy; Copyright All rights reserved.
-        </p>
+        </h6>
       </div>
     </div>
 
