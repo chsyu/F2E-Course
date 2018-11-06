@@ -1,0 +1,33 @@
+.divider--light,
+.divider--heavy {
+   max-width: 250px;
+   border-top: solid 5px;
+}
+
+.divider--light {
+   border-color: #fff;
+}
+
+.divider--heavy {
+   border-color: #2c3e50;
+}
+
+/* Nav Style */
+.nav__bg {
+   background-color: #233140;
+}
+
+.nav__brand {
+   color: #fff;
+   font-size: 1.5em;
+   text-transform: uppercase;
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+   .nav__brand {
+      font-size: 2em;
+   }
+}
+
