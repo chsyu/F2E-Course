@@ -19,6 +19,7 @@
 /* Nav Style */
 .nav__bg {
    background-color: #233140;
+   opacity: 0.5;
 }
 
 .nav__brand {
@@ -81,10 +82,6 @@
    text-align: center;
 }
 
-.course__item {
-   margin-top: 30px;
-}
-
 .course__link {
    display: block;
 }
@@ -110,7 +107,6 @@
 }
 
 .resume__description {
-      text-align: justify;
       text-indent: 2rem;
 }
 

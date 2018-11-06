@@ -84,14 +84,7 @@
 /* Course Style */
 .course {
    background-color: #fff;
-}
-
-.course__title {
-   text-align: center;
-}
-
-.course__item {
-   margin-top: 30px;
+   font-size: 1rem;
 }
 
 .course__link {
@@ -119,7 +112,6 @@
 }
 
 .resume__description {
-   text-align: justify;
    text-indent: 2rem;
 }
 
