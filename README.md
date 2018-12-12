@@ -14,7 +14,7 @@
 - wk8:RWD設計
 - wk9:期中專題DEMO
 - wk10:BootStrap＋案例設計
-- wk11:CSS與GSAP動畫設計
+- wk11:CSS/GSAP/SVG動畫設計
 - wk12:響應式網頁設計與易用性
 - wk13:Firebase應用
 - wk14:網站 Use Case流程規劃
