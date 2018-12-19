@@ -17,12 +17,46 @@ $(document).ready(function () {
   const $btnSignOut = $('#btnSignOut');
   const $btnSubmit = $('#btnSubmit');
   const $signInfo = $('#sign-info');
+  const $file = $('#file');
   const $btnLogout = $('#btnLogout');
   const avatarImage = $('.avatar-image');
   const avatarName = $('.avatar-name');
   const avatarEmail = $('.avatar-email');
+  let photoURL;
   $signInfo.html("");
 
+
+var storageRef = firebase.storage().ref();
+
+function handleFileSelect(evt) {
+  evt.stopPropagation();
+  evt.preventDefault();
+  console.log(evt);
+  var file = evt.target.files[0];
+
+  var metadata = {
+    'contentType': file.type
+  };
+  
+  storageRef.child('images/' + file.name).put(file, metadata)
+    .then(function(snapshot) {
+      console.log('Uploaded', snapshot.totalBytes, 'bytes.');
+      return snapshot.ref.getDownloadURL(); // Will return a promise with the download link
+    })
+    .then(function(downloadURL) {
+      photoURL = downloadURL
+      console.log(`Successfully uploaded file and got download link - ${photoURL}`);
+    })
+    .catch(function(error) {
+      // Use to signal error if something goes wrong.
+      console.log(`Failed to upload file and get link - ${error}`);
+    });
+}
+
+window.onload = function () {
+  $file.change(handleFileSelect);
+  // $file.disabled = false;
+}
 
   // SignIn
   $btnSignIn.click(function (e) {
@@ -31,12 +65,12 @@ $(document).ready(function () {
     const auth = firebase.auth();
     // signIn
     auth.signInWithEmailAndPassword(email, pass)
+    .then(function (e) {
+      window.location.href = "./profile.html";
+    })    
     .catch(function (e) {
       console.log(e.message);
       $signInfo.html(e.message);
-    })
-    .then(function (e) {
-      window.location.href = "./profile.html";
     });
 
   });
@@ -49,7 +83,6 @@ $(document).ready(function () {
     // signUp
     auth.createUserWithEmailAndPassword(email, pass)
     .catch(function (e) {
-      console.log(e.message);
       $signInfo.html(e.message);
     })
     .then(function (e) {
@@ -87,12 +120,12 @@ $(document).ready(function () {
   $btnSubmit.click(function () {
     const user = firebase.auth().currentUser;
     const $userName = $('#userName').val();
-    const $photoURL = $('#photoURL').val();
+    // const $photoURL = $('#photoURL').val();
     console.log(user);
 
     user.updateProfile({
       displayName: $userName,
-      photoURL: $photoURL
+      photoURL: photoURL
     })
     .then(function () {
       console.log("Update successful.");

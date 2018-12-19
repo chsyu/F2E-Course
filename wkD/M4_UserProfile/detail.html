@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Fire Chat</title>
+  <title>Hello Authentication</title>
 
   <!-- Roboto Font -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
@@ -35,14 +35,22 @@
   <div class="container d-flex flex-column align-items-center">
     <div class="card shadow mt-5">
       <div class="card-header text-center display-4">
-        FIRE CHAT
+        Detail
       </div>
       <div class="card-body">
-        <input type="text" class="form-control-plaintext" id="nameInput" placeholder="Enter a username ...">
-        <ul id='example-messages' class="example-chat-messages"></ul>
-      </div>
-      <div class="card-footer text-muted">
-        <input type="text" class="form-control-plaintext" id="messageInput" placeholder="Type a message ...">
+        <div class="form-group row">
+          <label for="userName" class="col-sm-4 col-form-label">User Name:</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control-plaintext" id="userName" placeholder="Chi-Shan Yu">
+          </div>
+          <label for="photoURL" class="col-sm-4 col-form-label">PhotoURL:</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control-plaintext" id="photoURL" placeholder="xxx.png">
+          </div>
+        </div>
+        <div class="row mt-5 px-2">
+          <button type="button" class="btn col-sm-12 btn-info shadow" id="btnSubmit">Submit</button>
+        </div>
       </div>
     </div>
   </div>
