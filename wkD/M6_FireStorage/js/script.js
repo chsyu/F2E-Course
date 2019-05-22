@@ -19,6 +19,7 @@ $(document).ready(function () {
   const $btnSignOut = $('#btnSignOut');
   const $btnSubmit = $('#btnSubmit');
   const $signInfo = $('#sign-info');
+  const $fileName = $('.file__name');
   const $file = $('#file');
   const $btnLogout = $('#btnLogout');
   const avatarImage = $('.avatar-image');
@@ -35,7 +36,7 @@ function handleFileSelect(evt) {
   evt.preventDefault();
   console.log(evt);
   var file = evt.target.files[0];
-
+  $fileName.html(file.name);
   var metadata = {
     'contentType': file.type
   };

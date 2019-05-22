@@ -40,6 +40,11 @@
   display: none;
 }
 
+.file__name {
+  font-size: 0.7rem;
+  color: gray;
+}
+
 .file__input:hover+.file__label,
 .file__input:focus+.file__label {
   background: #34495E;
