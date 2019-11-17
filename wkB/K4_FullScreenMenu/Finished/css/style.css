@@ -34,12 +34,13 @@
    }
 }
 
-.navbar-toggler.collapsed,
-.navbar-toggler:focus {
-   outline:none;
+.navbar-toggler[type="button"] {
    border-color: #233140;
 }
 
+.navbar-toggler:focus {
+   outline:none;
+}
 
 .navbar__icon-bar {
    width: 22px;
@@ -50,34 +51,53 @@
    margin: 4px 0
 }
 
-/* if click hamburger menu */
-.navbar-toggler .navbar__icon-bar:nth-child(1) {
-   transform: rotate(45deg);
-   transform-origin: 29% 10%;
+
+@media screen and (max-width: 768px) {
+
+   /* if unclick hamburger menu */
+   .navbar-toggler[aria-expanded="false"]  
+   .navbar__icon-bar {
+      transform: rotate(0);
+   }
+
+   /* hover unclick hamburger menu */
+   .navbar-toggler[aria-expanded="false"]:hover 
+   .navbar__icon-bar:nth-child(1) {
+      transform: translateY(-0.2rem);
+   }
+
+   .navbar-toggler[aria-expanded="false"]:hover 
+   .navbar__icon-bar:nth-child(2) {
+      transform: translateY(0.15rem);
+   }
+
+   /* if click hamburger menu */
+   .navbar-toggler[aria-expanded="true"] 
+   .navbar__icon-bar:nth-child(1) {
+      transform: rotate(45deg);
+      transform-origin: 29% 10%;
+   }
+
+   .navbar-toggler[aria-expanded="true"]  
+   .navbar__icon-bar:nth-child(2) {
+      transform: rotate(-45deg);
+      transform-origin: 29% 90%;
+   }
+
+   /* full-screen menu */
+   .navbar-collapse .navbar-nav__full-screen {
+      height: 100vh;
+      margin-top: 2em;
+   }
+   
+   .nav-item__full-screen {
+      font-size: 1.5em;
+      padding: 1em 0;
+      text-align: center;
+   }
+
 }
 
-.navbar-toggler .navbar__icon-bar:nth-child(2) {
-   transform: rotate(-45deg);
-   transform-origin: 29% 90%;
-}
-
-/* if unclick hamburger menu */
-.navbar-toggler.collapsed .navbar__icon-bar:nth-child(1) {
-   transform: rotate(0);
-}
-
-.navbar-toggler.collapsed .navbar__icon-bar:nth-child(2) {
-   transform: rotate(0);
-}
-
-/* hover unclick hamburger menu */
-.navbar-toggler.collapsed:hover .navbar__icon-bar:nth-child(1) {
-   transform: translateY(-0.2rem);
-}
-
-.navbar-toggler.collapsed:hover .navbar__icon-bar:nth-child(2) {
-   transform: translateY(0.15rem);
-}
 
 /* Header Style */
 .header {

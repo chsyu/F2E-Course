@@ -1,0 +1,41 @@
+h1 {
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 3em;
+}
+
+.page1 {
+    height: 100vh;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page2 {
+    height: 100vh;
+    background-color: lightyellow;
+}
+
+.page3 {
+    height: 100vh;
+    background-color: lightgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    margin: 0;
+    padding: 0;
+    padding-top: 1em;
+    text-align: center;
+}
+
+.block {
+    margin-top: 40vh;
+    width: 300px;
+    height: 100px;
+    background-color: lightblue;
+}
+
