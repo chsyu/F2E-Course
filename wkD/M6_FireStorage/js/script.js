@@ -1,14 +1,16 @@
 $(document).ready(function () {
-  // Initialize Firebase
-  var config = {
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
     apiKey: "AIzaSyBWkL1ZDkWwGW8IaEVFEhniEJFfM284wwE",
     authDomain: "f2e2018-10e3d.firebaseapp.com",
     databaseURL: "https://f2e2018-10e3d.firebaseio.com",
     projectId: "f2e2018-10e3d",
     storageBucket: "f2e2018-10e3d.appspot.com",
-    messagingSenderId: "315995849194"
+    messagingSenderId: "315995849194",
+    appId: "1:315995849194:web:5103d9e1d0bc2da0"
   };
-  firebase.initializeApp(config);
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
   var dbRef = firebase.database().ref().child('object');
   const $email = $('#email');
   const $password = $('#password');
@@ -17,6 +19,7 @@ $(document).ready(function () {
   const $btnSignOut = $('#btnSignOut');
   const $btnSubmit = $('#btnSubmit');
   const $signInfo = $('#sign-info');
+  const $fileName = $('.file__name');
   const $file = $('#file');
   const $btnLogout = $('#btnLogout');
   const avatarImage = $('.avatar-image');
@@ -33,7 +36,7 @@ function handleFileSelect(evt) {
   evt.preventDefault();
   console.log(evt);
   var file = evt.target.files[0];
-
+  $fileName.html(file.name);
   var metadata = {
     'contentType': file.type
   };

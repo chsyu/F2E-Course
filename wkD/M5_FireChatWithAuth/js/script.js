@@ -1,14 +1,16 @@
 $(document).ready(function(){
-  // Initialize Firebase
-  var config = {
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
     apiKey: "AIzaSyBWkL1ZDkWwGW8IaEVFEhniEJFfM284wwE",
     authDomain: "f2e2018-10e3d.firebaseapp.com",
     databaseURL: "https://f2e2018-10e3d.firebaseio.com",
     projectId: "f2e2018-10e3d",
     storageBucket: "f2e2018-10e3d.appspot.com",
-    messagingSenderId: "315995849194"
+    messagingSenderId: "315995849194",
+    appId: "1:315995849194:web:5103d9e1d0bc2da0"
   };
-  firebase.initializeApp(config);
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
   var dbRef = firebase.database().ref();
   // REGISTER DOM ELEMENTS
@@ -52,7 +54,7 @@ $(document).ready(function(){
       $signInfo.html(user.email+" is login...");
       $btnSignIn.attr('disabled', 'disabled');
       $btnSignOut.removeAttr('disabled')
-
+      // console.log(user.providerData[0]);
       // Add a callback that is triggered for each chat message.
       dbRef.limitToLast(10).on('child_added', function (snapshot) {
         //GET DATA
@@ -92,7 +94,8 @@ $(document).ready(function(){
   $messageField.keypress(function (e) {
     if (e.keyCode == 13) {
       //FIELD VALUES
-      var username = $nameField.val();
+      var user = firebase.auth().currentUser;
+      username = user.providerData[0].displayName;
       var message = $messageField.val();
       console.log(username);
       console.log(message);
