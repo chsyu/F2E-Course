@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Clone Instagram</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon-120-precomposed.png">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,400,700">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.9/css/all.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <div class="nav-header">
+        <div class="nav-header__container">
+            <img src="./img/Instagram_logo.png" />
+            <a class="home-cta fab fa-instagram" href="./index.html"></a>
+            <a class="camera-cta fas fa-camera" href="./upload.html"></a>
+        </div>
+    </div>
+    <div class="instagram">
+        <h1 class="instagram-upload__title">Upload your post!</h1>
+        <div id="avatar-preview" class="avatar-preview">
+            <input class="avatar-input" type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+            <label class="avatar-label" for="imageUpload">
+                <i class="fas fa-upload avatar-label__icon"></i>
+            </label>
+        </div>
+        <div id="avatar-upload" class="avatar-upload">
+            <textarea class="caption-input" placeholder="to add comments ....."></textarea>
+            <button id="avatar-upload__btn" class="button btn-upload">upload</button>
+        </div>
+    </div>
+
+    <!-- Vendors -->
+    <script src="js/jquery.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
+
+    <!-- Customized JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

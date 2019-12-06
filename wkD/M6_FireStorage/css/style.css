@@ -1,56 +1,38 @@
-.mdl-card {
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 1.5em;
+  background: url('../img/backgroundImage.jpg') no-repeat center fixed;
+  background-size: cover;
 }
 
-#sign-info {
-  color: #00BCD4;
-  font-size: 120%;
+.card-header {
+  font-family: 'Noto Serif', serif;
+  font-size: 2.5rem;
+  position: relative;
 }
 
-.avatar-bg {
-  background-color: lightgray;
-  width: 100%;
-  padding-top: 56.25%;
+
+.form-group {
+  margin-bottom: 40px;
 }
 
-.avatar-image {
-  width: 60%;
-  margin: 0 auto;
-  margin-top: -50%;
-}
-
-.avatar-name {
-  font-size: 2rem;
-  font-weight: lighter;
-}
-
-.file__label {
-  background: #39D2B4;
-  padding: 5px 20px;
-  color: #fff;
+.upload-label {
+  font-size: 10px;
+  color: #000;
   font-weight: bold;
-  font-size: .9em;
-  transition: all .4s;
-  cursor: pointer;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
 }
 
-.file__input {
-  display: none;
+.upload-input {
+  display: block;
+  font-size: 10px;
+  margin-top: 0.5em;
 }
 
-.file__name {
-  font-size: 0.7rem;
-  color: gray;
+.upload-filename {
+  font-size: 0.8rem;
+  color: rgb(3, 123, 150)
 }
-
-.file__input:hover+.file__label,
-.file__input:focus+.file__label {
-  background: #34495E;
-  color: #39D2B4;
-}
-
-
-
-/* Useless styles, just for demo styles */

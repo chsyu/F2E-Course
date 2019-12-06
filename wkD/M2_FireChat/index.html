@@ -5,16 +5,16 @@
   <meta charset="UTF-8">
   <title>Fire Chat</title>
 
-  <!-- Roboto Font -->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap">
   <!-- Firebase App is always required and must be first -->
-  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
 
   <!-- Add additional services that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
 
   <!-- jQuery -->
   <script src="js/jquery.js"></script>
@@ -33,16 +33,14 @@
 <body>
 
   <div class="container d-flex flex-column align-items-center">
-    <div class="card shadow mt-5">
-      <div class="card-header text-center display-4">
-        FIRE CHAT
-      </div>
+    <div class="col-md-8 card shadow mt-5">
+      <div id="card-header" class="card-header text-center"></div>
       <div class="card-body">
-        <input type="text" class="form-control-plaintext" id="nameInput" placeholder="Enter a username ...">
-        <ul id='example-messages' class="example-chat-messages"></ul>
+        <input type="text" class="form-control-plaintext name-field" id="name-field" placeholder="Enter a username ...">
+        <ul id='message-list' class="message-list"></ul>
       </div>
       <div class="card-footer text-muted">
-        <input type="text" class="form-control-plaintext" id="messageInput" placeholder="Type a message ...">
+        <input type="text" class="form-control-plaintext message-field" id="message-field" placeholder="Type a message ...">
       </div>
     </div>
   </div>

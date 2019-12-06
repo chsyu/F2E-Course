@@ -1,6 +1,7 @@
 $(document).ready(function () {
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
+
+  // Initialize Firebase
+  firebase.initializeApp({
     apiKey: "AIzaSyBWkL1ZDkWwGW8IaEVFEhniEJFfM284wwE",
     authDomain: "f2e2018-10e3d.firebaseapp.com",
     databaseURL: "https://f2e2018-10e3d.firebaseio.com",
@@ -8,23 +9,30 @@ $(document).ready(function () {
     storageBucket: "f2e2018-10e3d.appspot.com",
     messagingSenderId: "315995849194",
     appId: "1:315995849194:web:5103d9e1d0bc2da0"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  var dbRef = firebase.database().ref().child('object');
+  });
+
+  // Reference chatroom document
+  let docRef = firebase.firestore()
+    .collection("chatrooms")
+    .doc("chatroom1");
+  // Reference chatroom messages
+  let messagesRef = docRef.collection("messages");
+
+  // Reference chatroom messages query
+  let queryRef = messagesRef
+    .orderBy("timeStamp", "asc");
+
+  // REGISTER DOM ELEMENTS
   const $email = $('#email');
   const $password = $('#password');
   const $btnSignIn = $('#btnSignIn');
   const $btnSignUp = $('#btnSignUp');
   const $btnSignOut = $('#btnSignOut');
-  const $btnSubmit = $('#btnSubmit');
   const $signInfo = $('#sign-info');
-  const $btnLogout = $('#btnLogout');
   const avatarImage = $('.avatar-image');
   const avatarName = $('.avatar-name');
   const avatarEmail = $('.avatar-email');
   $signInfo.html("");
-
 
   // SignIn
   $btnSignIn.click(function (e) {
@@ -33,30 +41,46 @@ $(document).ready(function () {
     const auth = firebase.auth();
     // signIn
     auth.signInWithEmailAndPassword(email, pass)
-    .catch(function (e) {
-      console.log(e.message);
-      $signInfo.html(e.message);
-    })
-    .then(function (e) {
-      window.location.href = "./profile.html";
-    });
-
+      .then(function (e) {
+        window.location.href = "./profile.html";
+      })
+      .catch(function (e) {
+        console.log(e.message);
+        $signInfo.html(e.message);
+      });
   });
 
   // SignUp
   $btnSignUp.click(function (e) {
+    console.log('sign up now ...');
     const email = $email.val();
     const pass = $password.val();
     const auth = firebase.auth();
     // signUp
     auth.createUserWithEmailAndPassword(email, pass)
-    .catch(function (e) {
-      console.log(e.message);
-      $signInfo.html(e.message);
-    })
-    .then(function (e) {
-      window.location.href = "./detail.html";
-    });
+      .then(function () {
+        const user = firebase.auth().currentUser;
+        const $userName = $('#userName').val();
+        const $photoURL = $('#photoURL').val();
+        console.log(user);
+
+        user.updateProfile({
+          displayName: $userName,
+          photoURL: $photoURL
+        })
+          .then(function () {
+            $email.val('');
+            $password.val('');
+            $('#userName').val('');
+            $('#photoURL').val('');
+            console.log("Update successful.");
+            window.location.href = "./profile.html";
+          });
+      })
+      .catch(function (e) {
+        console.log(e.message);
+        $signInfo.html(e.message);
+      });
   });
 
   // Listening Login User
@@ -79,34 +103,13 @@ $(document).ready(function () {
     }
   });
 
-  // SignOut
+
+  // Signout
   $btnSignOut.click(function () {
     firebase.auth().signOut();
+    $email.val('');
+    $password.val('');
     $signInfo.html('No one login...');
-  });
-
-  // Submit
-  $btnSubmit.click(function () {
-    const user = firebase.auth().currentUser;
-    const $userName = $('#userName').val();
-    const $photoURL = $('#photoURL').val();
-    console.log(user);
-
-    user.updateProfile({
-      displayName: $userName,
-      photoURL: $photoURL
-    })
-    .then(function () {
-      console.log("Update successful.");
-      window.location.href = "./profile.html";
-    });
-  });
-
-  //Logout
-  $btnLogout.click(function () {
-    firebase.auth().signOut();
-    console.log("Logout.");
     window.location.href = "./index.html";
   });
-
 });

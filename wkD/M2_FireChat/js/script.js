@@ -1,6 +1,7 @@
-$(document).ready(function(){
-  // Your web app's Firebase configuration
-  let firebaseConfig = {
+$(document).ready(function () {
+
+  // INITIALIZE FIREBASE
+  firebase.initializeApp({
     apiKey: "AIzaSyBWkL1ZDkWwGW8IaEVFEhniEJFfM284wwE",
     authDomain: "f2e2018-10e3d.firebaseapp.com",
     databaseURL: "https://f2e2018-10e3d.firebaseio.com",
@@ -8,42 +9,65 @@ $(document).ready(function(){
     storageBucket: "f2e2018-10e3d.appspot.com",
     messagingSenderId: "315995849194",
     appId: "1:315995849194:web:5103d9e1d0bc2da0"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  let dbRef = firebase.database().ref();
+  });
+
+  // REFERENCE CHATROOM DOCUMENT
+  let docRef = firebase.firestore()
+    .collection("chatrooms")
+    .doc("chatroom1");
+  // REFERENCE CHATROOM MESSAGES
+  let messagesRef = docRef
+    .collection("messages");
+
+  // QUERY MESSAGES BY TIMESTAMP ORDERING
+  let queryRef = messagesRef
+    .orderBy("timeStamp", "asc");
+
   // REGISTER DOM ELEMENTS
-  let $messageField = $('#messageInput');
-  let $nameField = $('#nameInput');
-  let $messageList = $('#example-messages');
+  const $cardHeader = $('#card-header');
+  const $messageField = $('#message-field');
+  const $nameField = $('#name-field');
+  const $messageList = $('#message-list');
+
+  // SET CHAT ROOM TITLE
+  docRef.get().then(function (doc) {
+    $cardHeader.html(doc.data().name);
+  });
+
   // LISTEN FOR KEYPRESS EVENT
   $messageField.keypress(function (e) {
     if (e.keyCode == 13) {
       //FIELD VALUES
-      let username = $nameField.val();
+      let senderName = $nameField.val();
       let message = $messageField.val();
-      console.log(username);
-      console.log(message);
 
-      //SAVE DATA TO FIREBASE AND EMPTY FIELD
-      dbRef.push({name:username, text:message});
+      //SAVE DATA TO FIREBASE
+      messagesRef.add({
+        "senderName": senderName, 
+        "message": message,
+        "timeStamp": Date.now()
+        });
+
+      // EMPTY INPUT FIELD
       $messageField.val('');
     }
   });
 
-  // Add a callback that is triggered for each chat message.
-  dbRef.limitToLast(10).on('child_added', function (snapshot) {
-    //GET DATA
-    let data = snapshot.val();
-    let username = data.name || "anonymous";
-    let message = data.text;
-    //CREATE ELEMENTS MESSAGE & SANITIZE TEXT
-    let $messageElement = $("<li>");
-    let $nameElement = $("<strong class='example-chat-username'></strong>");
-    $nameElement.text(username);
-    $messageElement.text(message).prepend($nameElement);
-    //ADD MESSAGE
-    $messageList.append($messageElement)
+  // A RENDER SCREEN CALLBACK THAT IS TRIGGERED FOR EACH CHAT MESSAGE
+  queryRef.onSnapshot(function (querySnapshot) {
+    $messageList.html('');
+    //MONITOR CHAT MESSAGE AND RENDER SCREEN
+    querySnapshot.forEach(function(doc) {
+      let senderName = doc.data().senderName || "anonymous";
+      let message = doc.data().message;
+      let messageItem = `
+      <li class="message-item">
+        <strong class="chat-username">${senderName}:</strong>
+        ${message}
+      </li>
+      `;
+      $messageList.append(messageItem);
+    });
 
     //SCROLL TO BOTTOM OF MESSAGE LIST
     $messageList[0].scrollTop = $messageList[0].scrollHeight;

@@ -1,6 +1,7 @@
 $(document).ready(function(){
-  // Your web app's Firebase configuration
-  let firebaseConfig = {
+
+  // Initialize Firebase
+  firebase.initializeApp({
     apiKey: "AIzaSyBWkL1ZDkWwGW8IaEVFEhniEJFfM284wwE",
     authDomain: "f2e2018-10e3d.firebaseapp.com",
     databaseURL: "https://f2e2018-10e3d.firebaseio.com",
@@ -8,10 +9,20 @@ $(document).ready(function(){
     storageBucket: "f2e2018-10e3d.appspot.com",
     messagingSenderId: "315995849194",
     appId: "1:315995849194:web:5103d9e1d0bc2da0"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  let dbRef = firebase.database().ref().child('object');
+  });
+
+  // Reference chatroom document
+  let docRef = firebase.firestore()
+    .collection("chatrooms")
+    .doc("chatroom1");
+  // Reference chatroom messages
+  let messagesRef = docRef.collection("messages");
+
+  // Reference chatroom messages query
+  let queryRef = messagesRef
+    .orderBy("timeStamp", "asc");
+
+  // REGISTER DOM ELEMENTS
   const $email = $('#email');
   const $password = $('#password');
   const $btnSignIn = $('#btnSignIn');
@@ -65,6 +76,8 @@ $(document).ready(function(){
   // Signout
   $btnSignOut.click(function(){
     firebase.auth().signOut();
+    $email.val('');
+    $password.val('');
     $signInfo.html('No one login...');
   });
 });
