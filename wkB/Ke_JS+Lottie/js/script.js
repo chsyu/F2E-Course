@@ -8,7 +8,7 @@ $(document).ready(function () {
     loop: false,
     prerender: true,
     autoplay: false,
-    // path: 'json/lottie1.json'
+    // path: 'json/download-icon.json'
     path: 'https://assets.lottiefiles.com/datafiles/jORpumH9Yn0XoXQ/data.json'
   };
   // set bodymovin
