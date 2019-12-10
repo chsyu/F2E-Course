@@ -81,7 +81,6 @@ body {
   border-top: 0px;
   border-radius: 0px;
   font-weight: bold;
-  /* outline: 0; */
   margin-bottom: 20px;
   padding-left: 0px;
 }
@@ -90,7 +89,6 @@ body {
   border-color: inherit;
   box-shadow: none;
   border-bottom: 2px solid #0DB8DE;
-  /* outline: 0; */
 }
 
 .form-control-label {
@@ -112,16 +110,21 @@ body {
   display: block;
   background-color: lightgray;
   width: 100%;
-  height: 12em;
+  height: 7em;
   /* padding-top: 10em; */
 }
 
 .avatar-image {
   display:block;
-  width: 12em;
-  height: 12em;
+  width: 7em;
+  height: 7em;
   margin: 0 auto;
-  margin-top: -10em;
+  margin-top: -5.5em;
+}
+
+.rounded-circle-border {
+  background-color: #fff;
+  border: 5px solid gray;
 }
 
 .avatar-name {

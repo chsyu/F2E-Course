@@ -13,29 +13,35 @@ $(document).ready(function () {
 
   // REFERENCE FIREBASE STORAGE
   let storageRef = firebase.storage().ref();
+
   // Declare variables
-  let uploadFile;
+  let filePath;
 
   // REGISTER JQUERY EVENTS
-  $('#upload-input').change(function () {
-    uploadFile = this.files[0];
-  });
-  $('#btnUpload').click(upload);
+  $('#input-file').change(setFilePath);
+  $('#btnUpload').click(uploadFile);
 
-  function upload() {
-    $('#btn-spinner').addClass('spinner-border spinner-border-sm');
-    storageRef
-      .child(`uploadFiles/${uploadFile.name}`)
-      .put(uploadFile)
+  function setFilePath() {
+    filePath = this.files[0];
+  }
+
+  function uploadFile() {
+    $('#btnUpload').html(`<span class = "spinner-border spinner-border-sm"></span>`);
+  
+    // REFERENCE UPLOAD FILE
+    let fileRef = storageRef.child(`uploadFiles/${filePath.name}`);
+  
+    // UPLOAD FILE TO FIRESTORAGE
+    fileRef.put(filePath)
       .then(function (snapshot) {
-        return snapshot.ref.getDownloadURL(); // Will return a promise with the download link
+        return snapshot.ref.getDownloadURL(); 
       })
       .then(function (downloadURL) {
-        console.log(`downloadURL = ${downloadURL}`);
-        $('#btn-spinner').removeClass('spinner-border spinner-border-sm');
-        $('#upload-filename').html(`${uploadFile.name} has been uploaded`)
+        $('#btnUpload').html('Upload');
+        $('#upload-filename').html(`<a href="${downloadURL}">${filePath.name}</a> has been uploaded`)
       })
       .catch(function (error) {
+        $('#btnUpload').html('Upload');
         console.log(`Failed to upload file and get link - ${error}`);
       });
   }

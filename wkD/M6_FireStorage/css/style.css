@@ -17,7 +17,7 @@ body {
   margin-bottom: 40px;
 }
 
-.upload-label {
+.input-label {
   font-size: 10px;
   color: #000;
   font-weight: bold;
@@ -26,10 +26,15 @@ body {
   padding: 0;
 }
 
-.upload-input {
+.input-file {
   display: block;
-  font-size: 10px;
   margin-top: 0.5em;
+  font-size: 0.8rem;
+  color: rgb(3, 123, 150)
+}
+
+.input-file:focus {
+  outline: none;
 }
 
 .upload-filename {

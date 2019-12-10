@@ -21,8 +21,8 @@
 
   <!-- Bootstrap CSS/JS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <script src="js/bootstrap.min.js"></script>
 
   <!-- Custom JS/CSS -->
@@ -32,15 +32,21 @@
 
 <body>
 
-  <div class="container d-flex flex-column align-items-center">
-    <div class="col-md-8 card shadow mt-5">
-      <div id="card-header" class="card-header text-center"></div>
-      <div class="card-body">
-        <input type="text" class="form-control-plaintext name-field" id="name-field" placeholder="Enter a username ...">
-        <ul id='message-list' class="message-list"></ul>
-      </div>
-      <div class="card-footer text-muted">
-        <input type="text" class="form-control-plaintext message-field" id="message-field" placeholder="Type a message ...">
+  <div class="container">
+    <div class="row">
+      <div <div class="col-sm-10 col-md-8 col-lg-6 mx-auto">
+        <div class="card shadow mt-5">
+          <div id="card-header" class="card-header text-center"></div>
+          <input type="text" class="form-control-plaintext name-field" id="name-field"
+            placeholder="Enter a username ...">
+          <div class="card-body">
+            <ul id='message-list' class="message-list"></ul>
+          </div>
+          <div class="card-footer text-muted">
+            <input type="text" class="form-control-plaintext message-field" id="message-field"
+              placeholder="Type a message ...">
+          </div>
+        </div>
       </div>
     </div>
   </div>

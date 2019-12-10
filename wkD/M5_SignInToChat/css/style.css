@@ -98,6 +98,10 @@ body {
   margin: 0;
 }
 
+.rounded-circle-border {
+  background-color: #fff;
+  border: 5px solid gray;
+}
 
 .form-group {
   margin-bottom: 40px;

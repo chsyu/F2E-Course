@@ -10,17 +10,8 @@ $(document).ready(function(){
     messagingSenderId: "315995849194",
     appId: "1:315995849194:web:5103d9e1d0bc2da0"
   });
-
-  // Reference chatroom document
-  let docRef = firebase.firestore()
-    .collection("chatrooms")
-    .doc("chatroom1");
-  // Reference chatroom messages
-  let messagesRef = docRef.collection("messages");
-
-  // Reference chatroom messages query
-  let queryRef = messagesRef
-    .orderBy("timeStamp", "asc");
+  // Reference Firebase Auth
+  const auth = firebase.auth();
 
   // REGISTER DOM ELEMENTS
   const $email = $('#email');
@@ -32,42 +23,25 @@ $(document).ready(function(){
 
   // SignIn
   $btnSignIn.click(function(e){
-    const email = $email.val();
-    const pass = $password.val();
-    const auth = firebase.auth();
-    // signIn
-    auth.signInWithEmailAndPassword(email, pass)
+    auth.signInWithEmailAndPassword($email.val(), $password.val())
     .catch(function(e){
-      console.log(e.message);
       $signInfo.html(e.message);
     });
   });
 
   // SignUp
   $btnSignUp.click(function(e){
-    const email = $email.val();
-    const pass = $password.val();
-    const auth = firebase.auth();
-    // signUp
-    auth.createUserWithEmailAndPassword(email, pass)
+    auth.createUserWithEmailAndPassword($email.val(), $password.val())
     .catch(function(e){
-      console.log(e.message);
       $signInfo.html(e.message);
     });
   });
 
   // Listening Login User
-  firebase.auth().onAuthStateChanged(function(user){
+  auth.onAuthStateChanged(function(user){
     if(user) {
+      $signInfo.html(`${user.email} is login...`);
       console.log(user);
-      $signInfo.html(user.email+" is login...");
-      user.providerData.forEach(function (profile) {
-        console.log("Sign-in provider: "+profile.providerId);
-        console.log("  Provider-specific UID: "+profile.uid);
-        console.log("  Name: "+profile.displayName);
-        console.log("  Email: "+profile.email);
-        console.log("  Photo URL: "+profile.photoURL);
-      });
     } else {
       console.log("not logged in");
     }
@@ -75,9 +49,10 @@ $(document).ready(function(){
 
   // Signout
   $btnSignOut.click(function(){
-    firebase.auth().signOut();
+    auth.signOut();
     $email.val('');
     $password.val('');
     $signInfo.html('No one login...');
   });
 });
+ß

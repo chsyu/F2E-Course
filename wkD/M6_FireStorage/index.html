@@ -33,27 +33,28 @@
 
 <body>
 
-  <div class="container d-flex flex-column align-items-center">
-    <div class="col-sm-10 col-md-8 col-lg-6 card shadow mt-5">
-      <div class="card-header text-center display-4">
-        Upload File
-      </div>
-      <div class="card-body">
-        <div class="form-group">
-          <label class="upload-label" for="fileUpload">
-            Select your file:
-          </label>
-          <input class="upload-input" type='file' id="upload-input"/>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-md-8 col-lg-6 mx-auto">
+        <div class="card shadow mt-5">
+          <div class="card-header text-center display-4">
+            Upload File
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label class="input-label" for="input-file">
+                Select your file:
+              </label>
+              <input class="input-file" type='file' id="input-file" />
+            </div>
+            <p class="upload-filename" id="upload-filename"></p>
+            <button type="button" class="btn col-sm-12 btn-info shadow" id="btnUpload">
+              Upload
+            </button>
+          </div>
         </div>
-        <p class="upload-filename" id="upload-filename"></p>
-        <button type="button" class="btn col-sm-12 btn-info shadow" id="btnUpload">
-          <span id="btn-spinner"></span>
-          Upload
-        </button>
       </div>
     </div>
-  </div>
-  </div>
   </div>
 
 </body>

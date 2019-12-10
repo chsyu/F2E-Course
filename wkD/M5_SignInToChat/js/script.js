@@ -12,18 +12,22 @@ $(document).ready(function () {
   });
 
   // Reference chatroom document
-  let docRef = firebase.firestore()
+  const docRef = firebase.firestore()
     .collection("chatrooms")
     .doc("chatroom1");
   // Reference chatroom messages
-  let messagesRef = docRef.collection("messages");
+  const messagesRef = docRef.collection("messages");
+
+  // Referenct authentifacation
+  const auth = firebase.auth();
 
   // Reference chatroom messages query
-  let queryRef = messagesRef
+  const queryRef = messagesRef
     .orderBy("timeStamp", "asc");
 
   // Store Profile Info
-  let profile_Name, profile_Url;
+  let profile_Name, 
+      profile_photoURL;
 
   // REGISTER DOM ELEMENTS
   const $email = $('#email');
@@ -41,15 +45,14 @@ $(document).ready(function () {
 
   // SignIn
   $btnSignIn.click(function (e) {
-    const email = $email.val();
-    const pass = $password.val();
-    const auth = firebase.auth();
-    // signIn
-    auth.signInWithEmailAndPassword(email, pass)
+    $btnSignIn.html(`<span class="spinner-border spinner-border-sm"></span>`);
+    auth.signInWithEmailAndPassword($email.val(), $password.val())
       .then(function (e) {
+        $btnSignIn.html(`Sign In`);
         window.location.href = "./firechat.html";
       })
       .catch(function (e) {
+        $btnSignIn.html(`Sign In`);
         console.log(e.message);
         $signInfo.html(e.message);
       });
@@ -58,22 +61,20 @@ $(document).ready(function () {
   // SignUp
   $btnSignUp.click(function (e) {
     console.log('sign up now ...');
-    const email = $email.val();
-    const pass = $password.val();
-    const auth = firebase.auth();
-    // signUp
-    auth.createUserWithEmailAndPassword(email, pass)
+    $btnSignUp.html(`<span class="spinner-border spinner-border-sm"></span>`);
+    auth.createUserWithEmailAndPassword($email.val(), $password.val())
       .then(function () {
-        user = firebase.auth().currentUser;
-        $userName = $('#userName').val();
-        const $photoURL = $('#photoURL').val();
+        const user = auth.currentUser;
+        profile_Name = $('#userName').val();
+        profile_photoURL = $('#photoURL').val();
         console.log(user);
 
         user.updateProfile({
-          displayName: $userName,
-          photoURL: $photoURL
+          displayName: profile_Name,
+          photoURL: profile_photoURL
         })
           .then(function () {
+            $btnSignUp.html(`Sign Up`);
             $email.val('');
             $password.val('');
             $('#userName').val('');
@@ -89,15 +90,14 @@ $(document).ready(function () {
   });
 
   // Listening Login User
-  firebase.auth().onAuthStateChanged(function (user) {
+  auth.onAuthStateChanged(function (user) {
     if (user) {
       console.log(user);
-      $signInfo.html(user.email + " is login...");
+      $signInfo.html(`${user.email} is login...`);
       user.providerData.forEach(function (profile) {
         profile_Name = profile.displayName;
-        profile_Url = profile.photoURL;
-        $userName.html(profile_Name);
-        $userPhoto.attr("src", profile_Url);
+        $userName.html(profile.displayName);
+        $userPhoto.attr("src", profile.photoURL);
       });
     } else {
       console.log("not logged in");
@@ -107,7 +107,7 @@ $(document).ready(function () {
 
   // Signout
   $btnSignOut.click(function () {
-    firebase.auth().signOut();
+    auth.signOut();
     $email.val('');
     $password.val('');
     $signInfo.html('No one login...');

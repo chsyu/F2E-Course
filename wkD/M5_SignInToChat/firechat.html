@@ -20,11 +20,11 @@
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap CSS/JS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <script src="js/bootstrap.min.js"></script>
-
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  
     <!-- Custom JS/CSS -->
     <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -32,22 +32,26 @@
 
 <body>
 
-    <div class="container d-flex flex-column align-items-center">
-        <div class="col-md-8 card shadow mt-5">
-            <div id="card-header" class="card-header text-center">Chat Room</div>
-            <p class="btnSignOut" id="btnSignOut">X</p>
-            <img class="user-photo rounded-circle shadow" id="user-photo" src="" alt="user-photo">
-            <p class="user-name" id="user-name"></p>
-                <div class="card-body">
-                    <ul id='message-list' class="message-list"></ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-md-8 col-lg-6 mx-auto">
+                <div class="card shadow mt-5">
+                    <div id="card-header" class="card-header text-center">Chat Room</div>
+                    <p class="btnSignOut" id="btnSignOut">X</p>
+                    <img class="user-photo rounded-circle rounded-circle-border shadow" id="user-photo" src="" alt="  ">
+                    <p class="user-name" id="user-name"></p>
+                    <div class="card-body">
+                        <ul id='message-list' class="message-list"></ul>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <input type="text" class="form-control-plaintext message-field" id="message-field"
+                            placeholder="Type a message ...">
+                    </div>
+                    <div class="row mt-2 mb-2 px-2">
+                        <!-- <button type="button" class="btn col-sm-12 btn-info" id="btnSignOut">Sign Out</button> -->
+                    </div>
                 </div>
-                <div class="card-footer text-muted">
-                    <input type="text" class="form-control-plaintext message-field" id="message-field"
-                        placeholder="Type a message ...">
-                </div>
-                <div class="row mt-2 mb-2 px-2">
-                    <!-- <button type="button" class="btn col-sm-12 btn-info" id="btnSignOut">Sign Out</button> -->
-                </div>
+            </div>
         </div>
     </div>
 
