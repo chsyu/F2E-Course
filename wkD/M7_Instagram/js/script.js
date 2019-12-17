@@ -98,10 +98,11 @@ function uploadImage() {
     });
 }
 
-function uploadupVolted (post) {
+function updatePost (post) {
   let docRef = dbRef.doc(post.dbID);
   docRef.update({
-    "upVoted": post.upVoted
+    "upVoted": post.upVoted,
+    "likes": post.likes
   }).catch(function(e) {
     console.log(e);
   });
@@ -130,7 +131,7 @@ function like(id) {
       post.upVoted ? post.likes-- : post.likes++;
       post.upVoted = !post.upVoted;
       if (post.dbID) {
-        uploadupVolted(post);
+        updatePost(post);
       }
     }
   });
