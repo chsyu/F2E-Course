@@ -5,7 +5,7 @@
 
 ## 課程進度表
 - wk1:課程簡介與起手勢
-- wk2:HTML5
+- wk2:HTML5 + CSS Box model
 - wk3:CSS3
 - wk4:CSS3+Javascript
 - wk5:版面設計與視覺設計
