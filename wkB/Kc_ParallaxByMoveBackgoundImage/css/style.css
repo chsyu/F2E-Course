@@ -1,0 +1,52 @@
+section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bg1 {
+    background-position: 50% 0px;
+    background-image: url("../images/1-500x500.jpg");
+}
+
+.bg2 {
+    background-position: 50% -250px;
+    background-image: url("../images/2-500x500.jpg");
+}
+
+.bg3 {
+    background-position: 50% -250px;
+    background-image: url("../images/3-500x500.jpg");
+}
+
+.bg4 {
+    background-position: 50% -250px;
+    background-image: url("../images/4-500x500.jpg");
+}
+
+.bg5 {
+    background-position: 50% -250px;
+    background-image: url("../images/5-500x500.jpg");
+}
+
+h1 {
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    z-index: 1;
+    font-size: 3em;
+    font-weight: 400;
+}
