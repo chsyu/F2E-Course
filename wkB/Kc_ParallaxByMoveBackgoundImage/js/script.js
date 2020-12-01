@@ -6,14 +6,15 @@ gsap.utils.toArray("section").forEach((section, i) => {
 
   // Do the parallax effect on each section
   if (i) {
-
     gsap.to(section.bg, {
       backgroundPosition: `50% 250px`,
       ease: "none",
       scrollTrigger: {
         trigger: section,
-        scrub: true
-      }
+        scrub: true,
+        // markers: true,
+        id: i,
+      },
     });
   } 
   
@@ -26,7 +27,9 @@ gsap.utils.toArray("section").forEach((section, i) => {
         trigger: section,
         start: "top top", 
         end: "bottom top",
-        scrub: true
+        scrub: true,
+        // markers: true,
+        // id: i,
       }
     });
   }

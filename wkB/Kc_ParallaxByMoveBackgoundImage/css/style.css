@@ -18,27 +18,27 @@ section {
     background-repeat: no-repeat;
 }
 
-.bg1 {
+.bg0 {
     background-position: 50% 0px;
-    background-image: url("../images/1-500x500.jpg");
+    background-image: url("../images/1-500x500.jpg")
 }
 
-.bg2 {
+.bg1 {
     background-position: 50% -250px;
     background-image: url("../images/2-500x500.jpg");
 }
 
-.bg3 {
+.bg2 {
     background-position: 50% -250px;
     background-image: url("../images/3-500x500.jpg");
 }
 
-.bg4 {
+.bg3 {
     background-position: 50% -250px;
     background-image: url("../images/4-500x500.jpg");
 }
 
-.bg5 {
+.bg4 {
     background-position: 50% -250px;
     background-image: url("../images/5-500x500.jpg");
 }
