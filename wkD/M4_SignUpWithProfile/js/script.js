@@ -2,13 +2,14 @@ $(document).ready(function () {
 
   // Initialize Firebase
   firebase.initializeApp({
-    apiKey: "AIzaSyBWkL1ZDkWwGW8IaEVFEhniEJFfM284wwE",
-    authDomain: "f2e2018-10e3d.firebaseapp.com",
-    databaseURL: "https://f2e2018-10e3d.firebaseio.com",
-    projectId: "f2e2018-10e3d",
-    storageBucket: "f2e2018-10e3d.appspot.com",
-    messagingSenderId: "315995849194",
-    appId: "1:315995849194:web:5103d9e1d0bc2da0"
+    apiKey: "AIzaSyDUH6vOCALEXSjYHgv8P9d2y3tKklE44qA",
+    authDomain: "f2e2020-bd468.firebaseapp.com",
+    databaseURL: "https://f2e2020-bd468.firebaseio.com",
+    projectId: "f2e2020-bd468",
+    storageBucket: "f2e2020-bd468.appspot.com",
+    messagingSenderId: "832044128799",
+    appId: "1:832044128799:web:5dedad46efcd2c3253932a",
+    measurementId: "G-QWW610MX3Z"
   });
   // REFERENCE TO FIREBASE AUTH
   const auth = firebase.auth();
