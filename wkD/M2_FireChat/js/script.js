@@ -15,7 +15,7 @@ $(document).ready(function () {
   // REFERENCE CHATROOM DOCUMENT
   let docRef = firebase.firestore()
     .collection("chatrooms")
-    .doc("chatroom2");
+    .doc("chatroom1");
   // REFERENCE CHATROOM MESSAGES
   let messagesRef = docRef
     .collection("messages");
