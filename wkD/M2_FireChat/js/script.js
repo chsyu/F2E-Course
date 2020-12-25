@@ -13,27 +13,20 @@ $(document).ready(function () {
   });
 
   // REFERENCE CHATROOM DOCUMENT
-  let docRef = firebase.firestore()
+  let chatroomDocRef = firebase.firestore()
     .collection("chatrooms")
-    .doc("chatroom1");
+    .doc("chatroom1");    
   // REFERENCE CHATROOM MESSAGES
-  let messagesRef = docRef
-    .collection("messages");
-
+  let messagesCollectionRef 
+    = chatroomDocRef.collection("messages");
   // QUERY MESSAGES BY TIMESTAMP ORDERING
-  let queryRef = messagesRef
-    .orderBy("timeStamp", "asc");
+  let queryMessagesCollectionRef 
+    = messagesCollectionRef.orderBy("timeStamp", "asc");
 
   // REGISTER DOM ELEMENTS
-  const $cardHeader = $('#card-header');
   const $messageField = $('#message-field');
   const $nameField = $('#name-field');
   const $messageList = $('#message-list');
-
-  // SET CHAT ROOM TITLE
-  docRef.get().then(function (doc) {
-    $cardHeader.html(doc.data().name);
-  });
 
   // LISTEN FOR KEYPRESS EVENT
   $messageField.keypress(function (e) {
@@ -43,11 +36,11 @@ $(document).ready(function () {
       let message = $messageField.val();
 
       //SAVE DATA TO FIREBASE
-      messagesRef.add({
-        "senderName": senderName, 
-        "message": message,
-        "timeStamp": Date.now()
-        });
+      messagesCollectionRef.add({
+        senderName: senderName,
+        message: message,
+        timeStamp: Date.now(),
+      });
 
       // EMPTY INPUT FIELD
       $messageField.val('');
@@ -55,11 +48,10 @@ $(document).ready(function () {
   });
 
   // A RENDER SCREEN CALLBACK THAT IS TRIGGERED FOR EACH CHAT MESSAGE
-  queryRef.onSnapshot(function (querySnapshot) {
-    console.log(querySnapshot)
-    $messageList.html('');
+  queryMessagesCollectionRef.onSnapshot(function (querySnapshot) {
+    $messageList.html("");
     //MONITOR CHAT MESSAGE AND RENDER SCREEN
-    querySnapshot.forEach(function(doc) {
+    querySnapshot.forEach(function (doc) {
       let senderName = doc.data().senderName || "anonymous";
       let message = doc.data().message;
       let messageItem = `
@@ -70,7 +62,6 @@ $(document).ready(function () {
       `;
       $messageList.append(messageItem);
     });
-
     //SCROLL TO BOTTOM OF MESSAGE LIST
     $messageList[0].scrollTop = $messageList[0].scrollHeight;
   });

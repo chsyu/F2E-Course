@@ -27,11 +27,10 @@ $(document).ready(function(){
   // });
 
   let docRef = usersRef.doc("1167");
-  docRef.get().then(function(doc){
-    $("#doc").html(`doc 1167 name = ${doc.data().name}`)
-  });
 
-
+  // docRef.get().then(function(doc){
+  //   $doc.html(`doc 1167 name = ${doc.data().name}`)
+  // });
 
   // docRef.set({
   //   "name": "Alex1",
