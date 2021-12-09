@@ -1,12 +1,11 @@
 // INITIALIZE FIREBASE
 firebase.initializeApp({
-  apiKey: "AIzaSyBWkL1ZDkWwGW8IaEVFEhniEJFfM284wwE",
-  authDomain: "f2e2018-10e3d.firebaseapp.com",
-  databaseURL: "https://f2e2018-10e3d.firebaseio.com",
-  projectId: "f2e2018-10e3d",
-  storageBucket: "f2e2018-10e3d.appspot.com",
-  messagingSenderId: "315995849194",
-  appId: "1:315995849194:web:5103d9e1d0bc2da0"
+  apiKey: "AIzaSyBBixpAodVLz3GxDGQooTYYjUUXeyu9bzA",
+  authDomain: "f2e2021-44d38.firebaseapp.com",
+  projectId: "f2e2021-44d38",
+  storageBucket: "f2e2021-44d38.appspot.com",
+  messagingSenderId: "657878254604",
+  appId: "1:657878254604:web:50f895d5225f3006c81a29",
 });
 
 // REFERENCE FIRESTORE INSTAGRAM DOCUMENT
