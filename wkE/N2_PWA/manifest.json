@@ -1,0 +1,11 @@
+{
+  "name": "Resume Web",
+  "short_name": "Resume",
+  "description": "A Resume Web to demo PWA",
+  "theme_color": "#00979c",
+  "background_color": "#00979c",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "./",
+  "start_url": "index.html"
+}
