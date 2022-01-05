@@ -32,10 +32,18 @@ workbox.precaching.precacheAndRoute([
 
 
 // runtime cache
+// cache fontawesome
+workbox.routing.registerRoute(
+  ({ url }) => url.origin === "https://use.fontawesome.com",
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: "fontawesome",
+  })
+);
+
 // cache the styles
 
 workbox.routing.registerRoute(
-  new RegExp('\.css$'),
+  new RegExp('.css$'),
   workbox.strategies.cacheFirst({
     cacheName: 'cache-Style',
     plugins: [
@@ -78,18 +86,3 @@ workbox.routing.registerRoute(
   })
 )
 
-// cache the fonts
-
-workbox.routing.registerRoute(
-  new RegExp('.(woff2|woff|ttf)$'),
-  workbox.strategies.cacheFirst({
-    cacheName: 'cache-Fonts',
-    plugins: [
-      new workbox.expiration.Plugin({
-        maxAgeSeconds: 60 * 60 * 24 * 7,
-        maxEntries: 50,
-        purgeOnQuotaError: true
-      })
-    ]
-  })
-)
