@@ -1,0 +1,22 @@
+{
+  "name": "Clone Instagram",
+  "short_name": "CIG",
+  "icons": [
+    {
+      "src": "/favicon-120-precomposed.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    }
+  ],
+  "start_url": "/cloneinstagram/index.html",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff",
+  "theme_color": "#3f51b5",
+  "description": "A clone instagram",
+  "dir": "ltr",
+  "lang": "en-US"
+}
+
+

@@ -4,6 +4,18 @@
   "description": "A Resume Web to demo PWA",
   "theme_color": "#00979c",
   "background_color": "#00979c",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo152.png",
+      "type": "image/png",
+      "sizes": "152x152"
+    }
+  ],
   "display": "standalone",
   "orientation": "portrait",
   "scope": "./",

@@ -1,0 +1,11 @@
+.chartContainer {
+   width: 100%;
+   margin: 1.5rem auto;
+}
+
+
+@media(min-width: 500px) {
+   .chartContainer {
+      width: 500px;
+   }
+}

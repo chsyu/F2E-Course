@@ -3,7 +3,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 workbox.skipWaiting()
 workbox.clientsClaim()
 
-// cache name
+// precache
 
 workbox.core.setCacheNameDetails({
   prefix: 'cache',
@@ -11,17 +11,45 @@ workbox.core.setCacheNameDetails({
   runtime: 'runtime'
 })
 
+workbox.precaching.precacheAndRoute([
+  {
+    url: "manifest.json",
+    revision: "001",
+  },
+  {
+    url: "service-worker.js",
+    revision: "001",
+  },
+  {
+    url: "favicon.ico",
+    revision: "001",
+  },
+  {
+    url: "index.html",
+    revision: "003",
+  },
+]);
+
+
 // runtime cache
+// cache fontawesome
+workbox.routing.registerRoute(
+  ({ url }) => url.origin === "https://use.fontawesome.com",
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: "fontawesome",
+  })
+);
+
 // cache the styles
 
 workbox.routing.registerRoute(
-  new RegExp('\.css$'),
+  new RegExp('.css$'),
   workbox.strategies.cacheFirst({
     cacheName: 'cache-Style',
     plugins: [
       new workbox.expiration.Plugin({
-        maxAgeSeconds: 60 * 60 * 24 * 7, // 7 days max cache time
-        maxEntries: 20, // 20 max cache request
+        maxAgeSeconds: 60 * 60 * 24 * 7,
+        maxEntries: 20,
         purgeOnQuotaError: true
       })
     ]
@@ -42,8 +70,6 @@ workbox.routing.registerRoute(
   })
 );
 
-
-
 // cache the images
 
 workbox.routing.registerRoute(
@@ -60,37 +86,3 @@ workbox.routing.registerRoute(
   })
 )
 
-// cache the fonts
-
-workbox.routing.registerRoute(
-  new RegExp('.(woff2|woff|ttf)$'),
-  workbox.strategies.cacheFirst({
-    cacheName: 'cache-Fonts',
-    plugins: [
-      new workbox.expiration.Plugin({
-        maxAgeSeconds: 60 * 60 * 24 * 7,
-        maxEntries: 50,
-        purgeOnQuotaError: true
-      })
-    ]
-  })
-)
-
-workbox.precaching.precacheAndRoute([
-  {
-    url: "manifest.json",
-    revision: "001",
-  },
-  {
-    url: "service-worker.js",
-    revision: "001",
-  },
-  {
-    url: "favicon.ico",
-    revision: "001",
-  },
-  {
-    url: "index.html",
-    revision: "003",
-  },
-]);

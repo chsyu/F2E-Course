@@ -1,0 +1,13 @@
+ body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #b55ace;
+    font-size: 5rem;
+    font-weight: 700;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    background: #1d1d1d;
+    align-items: center;
+ }
