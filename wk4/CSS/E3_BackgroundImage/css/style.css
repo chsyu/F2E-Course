@@ -28,6 +28,9 @@ body {
 }
 
 .container {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
 	max-width: 940px;
 	margin: 0 auto;
 	background: url(../images/color-tile.png) left bottom repeat-x, url(../images/color-tile.png) left top repeat-x;
@@ -118,6 +121,7 @@ body {
 /* Content Style */
 .content-area {
 	display: flex;
+	flex: 1;
 	border-top: 3px solid #e5e9dc;
 	border-bottom: 3px solid #e5e9dc;
 }

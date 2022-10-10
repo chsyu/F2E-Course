@@ -28,6 +28,9 @@ body {
 }
 
 .container {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
 	max-width: 940px;
 	margin: 0 auto;
 	background: url(../images/color-tile.png) left bottom repeat-x, url(../images/color-tile.png) left top repeat-x;
@@ -36,10 +39,6 @@ body {
 	padding-bottom: 15px;
 	padding-left: 40px;
 	padding-right: 40px;
-	background-image: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(../images/leaf.jpg);
-	background-position: left down;
-	background-repeat: no-repeat;
-	background-size: cover;
 }
 
 .text-style {
@@ -52,6 +51,7 @@ body {
 	padding-top: 20px;
 	color: #617140;
 	font-weight: 400;
+	background: #fff url(../images/leaf-title.jpg) right center no-repeat;
 }
 
 .header-title {
@@ -80,6 +80,7 @@ body {
 	margin: 0;
 	padding: 0;
 	display: none;
+	box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.32);
 	z-index: 9999;
 }
 
@@ -121,6 +122,7 @@ body {
 /* Content Style */
 .content-area {
 	display: flex;
+	flex: 1;
 	border-top: 3px solid #e5e9dc;
 	border-bottom: 3px solid #e5e9dc;
 }
