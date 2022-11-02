@@ -1,0 +1,8 @@
+.container .row {
+   margin: 0.5rem 0;
+}
+
+.container .row div {
+   background-color: #E5E2EA;
+   border: solid 1px gray;
+}

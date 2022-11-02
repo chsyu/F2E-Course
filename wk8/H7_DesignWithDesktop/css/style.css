@@ -97,24 +97,48 @@ a {
 }
 
 .container {
-	max-width: 960px;
+	width: 100%;
 	margin: 0 auto;
 	padding: 0 20px;
 	overflow: hidden;
 }
 
-@media screen and (min-width: 767px) {
+.container--fluid {
+	width: 100%;
+	padding: 0 20px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+
+@media screen and (min-width: 768px) {
+
+	.container {
+		width: 740px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
 
 	.show-large {
 		display: block;
 	}
 
+	.container--fluid {
+		width: 740px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
 }
 
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: 1024px) {
 
 	.container {
-		max-width: 1000px;
+		width: 1000px;
+	}
+
+	.container--fluid {
+		width: 1000px;
 	}
 
 	body {
@@ -123,12 +147,15 @@ a {
 }
 
 @media screen and (min-width: 1280px) {
-
 	.container {
-		max-width: 1200px;
+		width: 1200px;
 	}
 
+	.container--fluid {
+		width: 1200px;
+	}
 }
+
 .header {
 	padding-top: 20px;
 	color: #FFF;

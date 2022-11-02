@@ -77,21 +77,6 @@ a {
 	display: none;
 }
 
-@media screen and (min-width: 767px) {
-
-	.show-large {
-		display: block;
-	}
-	body {
-		font-size: 16px;
-	}
-
-	.container {
-		max-width: 1200px;
-	}
-
-}
-
 
 /* Main Column Typography */
 
@@ -103,11 +88,40 @@ a {
 
 
 .container {
-	max-width: 960px;
+	width: 100%;
 	margin: 0 auto;
 	padding: 0 20px;
 	overflow: hidden;
 }
+
+.container--fluid {
+	width: 100%;
+	padding: 0 20px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+
+@media screen and (min-width: 768px) {
+
+	.container {
+		width: 740px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.show-large {
+		display: block;
+	}
+
+	.container--fluid {
+		width: 740px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+}
+
 
 .header {
 	padding-top: 20px;
@@ -173,7 +187,7 @@ a {
 	padding-top: 20px;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
 	.content-area {
 		padding-top: 40px;
 	}
