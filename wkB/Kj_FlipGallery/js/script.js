@@ -28,7 +28,8 @@ $(document).ready(function () {
     } 
 
     const backImage = function(e) {
-        const image = document.querySelector(".header img");
+        const image = 
+            document.querySelector(".header img");
         console.log(image)
         const state = Flip.getState(image);
         lastClickImage.append(image);
@@ -38,7 +39,6 @@ $(document).ready(function () {
             ease: "sine.out",
             absolute: true
         });
-    
         lastClickedCard = null;
     }
 

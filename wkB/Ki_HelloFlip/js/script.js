@@ -19,7 +19,8 @@ $(document).ready(function() {
     click = !click;
     Flip.from(state, {
       duration: 1,
-      ease: "power1.out"
+      ease: "power1.out",
+      absolute: true
     });
   })
 })
