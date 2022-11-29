@@ -1,0 +1,120 @@
+
+/*Custom font*/
+@font-face {
+	font-family: 'RaleWay';
+	src: url('fonts/raleway_thin-webfont.woff') format('woff'),
+		/* Pretty Modern Browsers */
+		url('fonts/raleway_thin-webfont.ttf') format('tff');
+	/* Safari, Android, iOS */
+}
+
+
+/* GLobal Style */
+html {
+	background-color: #869960;
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit
+}
+
+a,
+img {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 87%;
+	font-weight: 300;
+}
+
+.container {
+	height: 100vh;
+	max-width: 940px;
+	margin: 20px auto;
+	background-color: #FFF;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 40px;
+	padding-right: 40px;
+	display: grid;
+	gap: 2rem;
+	grid-template-rows: 	auto
+	                    	1fr
+								auto;
+}
+
+.text-style {
+	text-indent: 1.8em;
+	line-height: 1.7;
+}
+
+/* Header Style */
+.header {
+	height: 300px;
+	padding-top: 20px;
+	color: #617140;
+	font-weight: 400;
+	transition: opacity 1s ease-in-out;
+}
+
+.header:hover {
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+.header img {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+	object-position: center;
+}
+
+/* Content Style */
+.content-area {
+	border-top: 3px solid #e5e9dc;
+	border-bottom: 3px solid #e5e9dc;
+}
+
+/* CSS Grid */
+.image-wrap {
+   display: grid;
+   gap: 2rem;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+
+/* Gallery Style */
+.gallery {
+	list-style: none;
+	margin-bottom: 30px;
+	padding: 0;
+}
+
+.gallery__item {
+	transition: opacity 1s ease-in-out;
+}
+
+.gallery__item:hover {
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+.gallery__item-image {
+	width: 100%;
+	display: block;
+}
+
+/* Footer */
+.footer {
+	text-align: center;
+	font-size: 85%;
+	color: #999;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
