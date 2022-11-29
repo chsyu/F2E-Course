@@ -34,23 +34,18 @@ $(document).ready(function () {
       id: "page2",
     },
   });
-  scrollAnim.addEventListener("DOMLoaded", onDOMLoaded);
 
+  scrollAnim.addEventListener("DOMLoaded", render);
+  const svg_animate = { frame: 0 };
   // // Frame-by-frame play
-  function onDOMLoaded() {
-    timeLine_page2.to(
-      {
-        frame: 0,
+  function render() {
+    timeLine_page2.to(svg_animate, {
+      frame: scrollAnim.totalFrames - 1,
+      snap: { frame: 1},
+      onUpdate: function () {
+        scrollAnim.goToAndStop(
+          Number(svg_animate.frame), true);
       },
-      3,
-      {
-        frame: scrollAnim.totalFrames - 1,
-        onUpdate: function () {
-          scrollAnim.goToAndStop(Math.round(this.targets()[0].frame), true);
-          $("#counter").html(Math.round(this.targets()[0].frame));
-        },
-        ease: Linear.easeNone,
-      }
-    );
+    });
   }
-})
+});

@@ -8,6 +8,7 @@ $(document).ready(function () {
     start: "top top",
     pin: true,
     pinSpacing: false,
+    snap: true,
   }); 
 
   // Set GSAP Timeline with Pin
@@ -21,6 +22,7 @@ $(document).ready(function () {
       scrub: true,
       markers: true,
       id: "page2",
+      snap: true,
     },
   });
   timeLine_page2

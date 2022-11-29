@@ -1,0 +1,28 @@
+.container1 {
+    border: 1px solid #000;
+    width: 200px;
+    height: 200px;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.container2 {
+    border: 1px solid #000;
+    width: 200px;
+    height: 200px;
+    margin-left: 40%;
+    margin-top: 10%;
+    transform: rotate(-30deg);
+}
+
+.box1 {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+
+.box2 {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}

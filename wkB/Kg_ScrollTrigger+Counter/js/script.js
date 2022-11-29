@@ -23,12 +23,12 @@ $(document).ready(function () {
       id: "page2",
     },
   });
-  timeLine_page2.to({ frame: 0 }, 3, {
-    frame: 1000 - 1,
-    onUpdate: function () {
-      $("#counter").html(Math.round(this.targets()[0].frame));
-    },
-    ease: Linear.easeNone,
-  });
+  const counter = document.querySelector("#counter");
 
-})
+  timeLine_page2.to(counter, {
+    innerText: 999,
+    snap: {
+      innerText: 1,
+    },
+  });
+});

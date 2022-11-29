@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    padding: 0;
+    margin: 0;
+    font-family: "Signika Negative", sans-serif, Arial;
+    font-weight: 300;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container.grid,
+.container.columns {
+    align-content: stretch;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.letter {
+    text-align: center;
+    color: black;
+    font-size: 10vmax;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 6px;
+}
+
+.container.grid .letter {
+    flex-basis: 50%;
+}
+
+.container.columns .letter {
+    flex-basis: 25%;
+}
+
+.for,
+.gsap {
+    font-size: 5vmax;
+    color: white;
+}
+
+.for {
+    padding: 2px 1.6vmax;
+    font-weight: 300;
+    display: none;
+}
+
+.gsap {
+    padding: 2px 0;
+    font-weight: 600;
+    display: none;
+}
+
+.container.final .for,
+.container.final .gsap {
+    display: block;
+}
+
+.F {
+    background: rgba(0, 188, 212, 0.7);
+}
+
+.l {
+    background: rgba(40, 150, 255, 0.7);
+}
+
+.i {
+    background: rgba(153, 80, 220, 0.7);
+}
+
+.p {
+    background: rgba(90, 108, 225, 0.7);
+}
+
+.container.plain .letter {
+    background: transparent;
+    color: white;
+    padding: 0;
+}
+
+.logo {
+    position: fixed;
+    width: 60px;
+    bottom: 20px;
+    right: 30px;
+}

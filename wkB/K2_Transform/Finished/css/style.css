@@ -16,7 +16,7 @@
 
 #square .square:hover {
   background: red;
-  transform: rotate(45deg);
+  transform: translate(1000px, 0px);
 }
 
 #rect .square:hover {
