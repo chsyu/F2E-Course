@@ -17,26 +17,27 @@ $(document).ready(function () {
   let filePath;
   
 
-  // REGISTER JQUERY EVENTS
+  // REGISTER JQUERY EVENTS
   $('#input-file').change(setFilePath);
   $('#imageUpload').change(setFilePath);
   $('#btnUpload').click(uploadFile);
-  $('.avatar-label').on('dragover', onDragOver);
-  $('.avatar-label').on('dragleave', onDragLeave);
-  $('.avatar-label').on('drop', onDrop);
+  $('#avatar-label').on('dragover', onDragOver);
+  $('#avatar-label').on('dragleave', onDragLeave);
+  $('#avatar-label').on('drop', onDrop);
 
   function onDragOver(ev) {
     ev.preventDefault();
-    $('.avatar-label').addClass("opacity06")
+    $('#avatar-label').addClass("opacity06")
   }
 
   function onDragLeave(ev) {
     ev.preventDefault();
-    $('.avatar-label').removeClass("opacity06")
+    $('#avatar-label').removeClass("opacity06")
   }
 
   function onDrop(ev) {
     ev.preventDefault();
+    $('#avatar-label').removeClass("opacity06")
     filePath = ev.originalEvent.dataTransfer.files[0];
     $('.input-label').html(`Select your file: ${filePath.name}`);
   }
