@@ -28,6 +28,7 @@ body {
 }
 
 .container {
+	position: relative;
 	max-width: 940px;
 	margin: 0 auto;
 	background: url(../images/color-tile.png) left bottom repeat-x, url(../images/color-tile.png) left top repeat-x;
@@ -176,15 +177,26 @@ body {
 }
 
 /* Modal Style */
+.cover {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	opacity: 0.5;
+	background-color: gray;
+	z-index: 9;
+}
 .modal {
 	position: absolute;
+	z-index: 99;
 	background-color: #FDF2CA;
 	padding: 0.5rem;
 	font-weight: bold;
 	width: 20rem;
 	border: solid 0.4rem #F0E2B0;
-	top: 50%;
-	left: 50%;
+	top: 20vh;
+	left: 20vw;
 }
 
 .modal-message {
