@@ -1,0 +1,28 @@
+.card {
+  width: 20rem;
+  border: solid 1px lightgray;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px;
+}
+
+.title {
+  font-size: 2em;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.more {
+  font-style: italic;
+  color: gray;
+  cursor: pointer
+}
