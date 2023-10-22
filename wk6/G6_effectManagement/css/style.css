@@ -147,9 +147,11 @@ body {
 .banner__image {
 	width: 100%;
 	display: block;
+	cursor: pointer;
 }
 
 .banner__description {
+	display: none;
 	position: absolute;
 	top: 50%;
 	left: 50%;

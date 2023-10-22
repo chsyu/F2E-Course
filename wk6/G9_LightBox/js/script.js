@@ -3,10 +3,10 @@ $(document).ready(function () {
     $(".nav__list-item").hover(function () { //When trigger is hovered...
         $(this).children(".nav__list--submenu").slideDown('fast');
     }, function () {
-        $(this).children(".nav__list--submenu").slideUp('slow');
+        $(this).children(".nav__list--submenu").slideUp('fast');
     });
 
-    $('.gallery__item-link').mouseenter(function () {
+    $('.gallery__item-link').hover(function () {
         // Get data attribute values
         var title = $(this).parent('li').data('title');
         var desc = $(this).parent('li').data('desc');
@@ -22,10 +22,7 @@ $(document).ready(function () {
 
         // Fade in overlay
         overlay.fadeIn(800);
-    });
-
-    // Mouseleave Overlay Effect
-    $('.gallery__item-link').mouseleave(function () {
+    }, function () {
         // Get the overlay div
         var overlay = $(this).children('.overlay');
 
