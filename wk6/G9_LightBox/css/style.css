@@ -1,3 +1,4 @@
+
 /*Custom font*/
 @font-face {
 	font-family: 'RaleWay';
@@ -20,6 +21,12 @@ html {
 	box-sizing: inherit
 }
 
+a,
+img {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 87%;
@@ -28,7 +35,7 @@ body {
 
 .container {
 	max-width: 940px;
-	margin: 0 auto;
+	margin: 20px auto;
 	background: url(../images/color-tile.png) left bottom repeat-x, url(../images/color-tile.png) left top repeat-x;
 	background-color: #FFF;
 	padding-top: 15px;
@@ -105,7 +112,7 @@ body {
 	border-bottom: none;
 }
 
-.nav__list-item:hover>.nav__list-item-link {
+.nav__list-item:hover > .nav__list-item-link {
 	background-color: #e5e9dc;
 }
 
@@ -131,60 +138,62 @@ body {
 	border-bottom: 3px solid #e5e9dc;
 }
 
-.main-area {
-	margin-left: -30px;
+/* Grid */
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -15px;
+}
+
+.col {
+	padding: 0 15px;
+	width: calc(100%/3);
 }
 
 /* Gallery Style */
 .gallery {
-	display: flex;
-	flex-wrap: wrap;
 	list-style: none;
-	margin: 0;
 	margin-bottom: 30px;
 	padding: 0;
-	/* margin-left: -30px; */
 }
 
 .gallery__item {
 	margin-top: 30px;
-	padding-left: 30px;
-	width: calc(100%/3);
+	cursor: pointer;
 }
 
 .gallery__item-link {
-	display: block;
 	position: relative;
+	display: block;
 }
 
 .gallery__item-image {
 	width: 100%;
 	display: block;
-	cursor: pointer;
 }
 
 .overlay {
 	display: none;
-	background: rgba(0, 0, 0, .65);
-	color: #fff;
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	z-index: 100;
-	widows: 100%;
+	z-index: 99;
+	background: rgba(0, 0, 0, .65);
+	color: #fff;
+	width: 100%;
 	padding: 10px;
 	box-sizing: border-box;
 	pointer-events: none;
 	font-weight: 100;
 }
 
-.overlay h3 {
+.overlay__title {
 	font-weight: 100;
 	margin: 0;
 	padding: 0;
 }
 
-.overlay p {
+.overlay__content {
 	font-weight: 100;
 	margin: 0px;
 	padding: 0px;

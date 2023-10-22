@@ -173,26 +173,26 @@ body {
 
 .overlay {
 	display: none;
-	background: rgba(0, 0, 0, .65);
-	color: #fff;
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	z-index: 100;
-	widows: 100%;
+	z-index: 99;
+	background: rgba(0, 0, 0, .65);
+	color: #fff;
+	width: 100%;
 	padding: 10px;
 	box-sizing: border-box;
 	pointer-events: none;
 	font-weight: 100;
 }
 
-.overlay h3 {
+.overlay__title {
 	font-weight: 100;
 	margin: 0;
 	padding: 0;
 }
 
-.overlay p {
+.overlay__content {
 	font-weight: 100;
 	margin: 0px;
 	padding: 0px;

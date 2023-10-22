@@ -1,34 +1,26 @@
 $(document).ready(function () {
+  lightbox.option({
+    'resizeDuration': 800,
+  })
 
-    $(".nav__list-item").hover(function () { //When trigger is hovered...
-        $(this).children(".nav__list--submenu").slideDown('fast');
-    }, function () {
-        $(this).children(".nav__list--submenu").slideUp('fast');
-    });
+  $(".nav__list-item").hover(
+    function () {
+      //When trigger is hovered...
+      $(this).children(".nav__list--submenu").slideDown("fast");
+    },
+    function () {
+      $(this).children(".nav__list--submenu").slideUp("fast");
+    }
+  );
 
-    $('.gallery__item-link').hover(function () {
-        // Get data attribute values
-        var title = $(this).parent('li').data('title');
-        var desc = $(this).parent('li').data('desc');
-        if (!$(this).children("div").length) {
-            $(this).append('<div class="overlay"></div>');
-        }
-
-        // Get the overlay div
-        var overlay = $(this).children('.overlay');
-
-        // Add html to overlay
-        overlay.html('<h3>' + title + '</h3><p>' + desc + '</p>');
-
-        // Fade in overlay
-        overlay.fadeIn(800);
-    }, function () {
-        // Get the overlay div
-        var overlay = $(this).children('.overlay');
-
-        // Fade out overlay
-        overlay.fadeOut(500);
-    });
-
-
+  $(".gallery__item-link").hover(
+    function () {
+      // Fade in overlay
+      $(this).children(".overlay").fadeIn(800);
+    },
+    function () {
+      // Fade out overlay
+      $(this).children(".overlay").fadeOut(500);
+    }
+  );
 });

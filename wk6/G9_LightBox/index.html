@@ -8,10 +8,10 @@
 	<link rel="stylesheet" href="css/lightbox.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:300,100,400' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/lightbox.css">
 	<script src="js/jquery.js"></script>
 	<script src="js/lightbox.min.js"></script>
 	<script src="js/script.js"></script>
+
 </head>
 
 <body>
@@ -52,40 +52,69 @@
 		</header>
 
 		<div class="content-area">
-			<div class="main-area">
-				<ul class="gallery">
-					<li class="gallery__item" data-lightbox="LEAF 1" data-title="LEAF 1" data-desc="Lorem Ipsum is simply dummy text of the printing and typesetting industry.">
-						<a href="images/fig1.jpg" data-lightbox="image-set" class="gallery__item-link">
-							<img class="gallery__item-image" src="images/fig1.jpg">
-						</a>
-					</li>
-					<li class="gallery__item" data-lightbox="LEAF 2" data-title="LEAF 2" data-desc="Lorem Ipsum is simply dummy text of the printing and typesetting industry.">
-						<a href="images/fig2.jpg" data-lightbox="image-set" class="gallery__item-link">
-							<img class="gallery__item-image" src="images/fig2.jpg">
-						</a>
-					</li>
-					<li class="gallery__item" data-lightbox="LEAF 3" data-title="LEAF 3" data-desc="Lorem Ipsum is simply dummy text of the printing and typesetting industry.">
-						<a href="images/fig3.jpg" data-lightbox="image-set" class="gallery__item-link">
-							<img class="gallery__item-image" src="images/fig3.jpg">
-						</a>
-					</li>
-					<li class="gallery__item" data-lightbox="LEAF 4" data-title="LEAF 4" data-desc="Lorem Ipsum is simply dummy text of the printing and typesetting industry.">
-						<a href="images/fig4.jpg" data-lightbox="image-set" class="gallery__item-link">
-							<img class="gallery__item-image" src="images/fig4.jpg">
-						</a>
-					</li>
-					<li class="gallery__item" data-lightbox="LEAF 5" data-title="LEAF 5" data-desc="Lorem Ipsum is simply dummy text of the printing and typesetting industry.">
-						<a href="images/fig5.jpg" data-lightbox="image-set" class="gallery__item-link">
-							<img class="gallery__item-image" src="images/fig5.jpg">
-						</a>
-					</li>
-					<li class="gallery__item" data-lightbox="LEAF 6" data-title="LEAF 6" data-desc="Lorem Ipsum is simply dummy text of the printing and typesetting industry.">
-						<a href="images/fig6.jpg" data-lightbox="image-set" class="gallery__item-link">
-							<img class="gallery__item-image" src="images/fig6.jpg">
-						</a>
-					</li>
-				</ul>
-			</div>
+			<ul class="gallery row">
+				<li class="gallery__item col">
+					<a href="images/fig1.jpg" class="gallery__item-link" data-lightbox="image-set" data-title="LEAF 1">
+						<img class="gallery__item-image" src="images/fig1.jpg">
+						<div class="overlay">
+							<h3 class="overlay__title">LEAF 1</h3>
+							<p class="overlay__content">Lorem Ipsum is simply dummy text of the printing and typesetting
+								industry
+							</p>
+						</div>
+					</a>
+				</li>
+				<li class="gallery__item col">
+					<a href="images/fig2.jpg" class="gallery__item-link"  data-lightbox="image-set" data-title="LEAF 2">
+						<img class="gallery__item-image" src="images/fig2.jpg">
+						<div class="overlay">
+							<h3 class="overlay__title">LEAF 2</h3>
+							<p class="overlay__content">Lorem Ipsum is simply dummy text of the printing and typesetting
+								industry</p>
+						</div>
+					</a>
+				</li>
+				<li class="gallery__item col">
+					<a href="images/fig3.jpg" class="gallery__item-link"  data-lightbox="image-set" data-title="LEAF 3">
+						<img class="gallery__item-image" src="images/fig3.jpg">
+						<div class="overlay">
+							<h3 class="overlay__title">LEAF 3</h3>
+							<p class="overlay__content">Lorem Ipsum is simply dummy text of the printing and typesetting
+								industry</p>
+						</div>
+					</a>
+				</li>
+				<li class="gallery__item col">
+					<a href="images/fig4.jpg#" class="gallery__item-link"  data-lightbox="image-set" data-title="LEAF 4">
+						<img class="gallery__item-image" src="images/fig4.jpg">
+						<div class="overlay">
+							<h3 class="overlay__title">LEAF 4</h3>
+							<p class="overlay__content">Lorem Ipsum is simply dummy text of the printing and typesetting
+								industry</p>
+						</div>
+					</a>
+				</li>
+				<li class="gallery__item col">
+					<a href="images/fig5.jpg" class="gallery__item-link"  data-lightbox="image-set" data-title="LEAF 5">
+						<img class="gallery__item-image" src="images/fig5.jpg">
+						<div class="overlay">
+							<h3 class="overlay__title">LEAF 5</h3>
+							<p class="overlay__content">Lorem Ipsum is simply dummy text of the printing and typesetting
+								industry</p>
+						</div>
+					</a>
+				</li>
+				<li class="gallery__item col">
+					<a href="images/fig6.jpg" class="gallery__item-link"  data-lightbox="image-set" data-title="LEAF 6">
+						<img class="gallery__item-image" src="images/fig6.jpg">
+						<div class="overlay">
+							<h3 class="overlay__title">LEAF 6</h3>
+							<p class="overlay__content">Lorem Ipsum is simply dummy text of the printing and typesetting
+								industry</p>
+						</div>
+					</a>
+				</li>
+			</ul>
 
 		</div>
 
@@ -93,6 +122,7 @@
 			<p>&copy; 2018 - This is the footer.</p>
 		</footer>
 	</div>
+
 
 </body>
 
