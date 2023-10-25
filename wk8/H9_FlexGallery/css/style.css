@@ -160,7 +160,7 @@ body {
 }
 
 .col {
-	flex: 1 1 auto;
+	flex: 1 1 18rem;
 	padding: 1rem;
 }
 
