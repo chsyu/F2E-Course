@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Responsive HTML images demo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <h1>With DPI</h1>
+  <picture>
+    <img 
+      class="img" 
+      src="imgs/img-320@1.png" 
+      srcset="imgs/img-320@1.png 1x, imgs/img-320@2.png 2x"
+      alt="a Lorem test picture">
+  </picture>
+
+  <h1>With width RWD</h1>
+  <picture>
+    <source 
+      class="img" 
+      media="(min-width: 1000px)" 
+      srcset="imgs/img-800@1.png">
+    <source 
+      class="img" 
+      media="(min-width: 700px)" 
+      srcset="imgs/img-500@1.png">
+    <img class="img" src="imgs/img-320@1.png" alt="a Lorem test picture">
+  </picture>
+
+  <h1>With DPI + width RWD</h1>
+  <picture>
+    <source 
+      class="img" 
+      media="(min-width: 1000px)" 
+      srcset="imgs/img-800@1.png 1x, imgs/img-800@2.png 2x">
+    <source 
+      class="img" 
+      media="(min-width: 700px)" 
+      srcset="imgs/img-500@1.png 1x, imgs/img-500@2.png 2x">
+    <img 
+      class="img" 
+      src="imgs/img-320@1.png" 
+      srcset="imgs/img-320@1.png 1x, imgs/img-320@2.png 2x"
+      alt="a Lorem test picture">
+  </picture>
+
+</body>
+
+</html>

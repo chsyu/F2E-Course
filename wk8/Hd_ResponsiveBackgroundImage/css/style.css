@@ -1,0 +1,23 @@
+.header {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+	background: #DDD url(../imgs/bg_400.png) center center no-repeat;
+   height: 400px;
+}
+
+@media (min-width: 740px) {
+   .header {
+      background-image: url(../imgs/bg_700.png);
+   }
+}
+
+@media (min-width: 1024px) {
+   .header {
+      background-image: url(../imgs/bg_1000.png);
+   }
+}
+
+.header__title {
+   font-size: 1.5rem;
+}
