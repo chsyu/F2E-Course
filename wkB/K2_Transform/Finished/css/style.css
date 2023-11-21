@@ -7,11 +7,9 @@
 
 /* Transition */
 .square {
-  -webkit-transition: background, width, border-radius, transform;
   transition: background, width, border-radius, transform;
-  -webkit-transition-duration: 1s;
   transition-duration: 1s;
-  -webkit-transition-timing-function: ease-in-out;  transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
 }
 
 #square .square:hover {
