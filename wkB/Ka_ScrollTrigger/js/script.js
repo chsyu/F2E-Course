@@ -1,25 +1,28 @@
 $(document).ready(function () {
 
     // Register GSAP ScrollTrigger Plugin
-    // gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
 
-    // set GSAP Timeline
-    let timeLine = new gsap.timeline({
+    // set scrollTrigger option
+    const scrollTriggerOption = {
       scrollTrigger: {
-        trigger: "#block",
-        pin: false, // pin the trigger element while active
-        start: "top center", // when the center of the trigger hits the center of the viewport
-        end: "+=200", // end after scrolling 500px beyond the start
+        trigger: "#page2",
+        pin: true, // pin the trigger element while active
+        start: "center center", // when the center of the trigger hits the center of the viewport
+        end: "+=200", // end after scrolling 200px beyond the start
         scrub: true,
         markers: true,
-        id: "block1",
+        id: "page2",
       },
-    });
+    };
+
+    // set GSAP Timeline
+    const timeLine = gsap.timeline(scrollTriggerOption);
     timeLine
       .to("#block", 2, { backgroundColor: "red" })
       .to("#block", 1, {
         x: $(window).width() - $("#block").width(),
-      }, 0)
+      }, 0) // 0 is used to let the animation start at the same time as the previous animation
       .to("#block", 1, { x: 0 })
      
 })

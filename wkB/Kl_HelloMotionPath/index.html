@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Flip</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <svg viewBox="0 0 800 500" width="70%" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+        <defs>
+            <radialGradient gradientUnits="userSpaceOnUse" cx="319.52" cy="108.7311" r="66.9971" id="gradient-0"
+                gradientTransform="matrix(1.20392513, 0.01346725, -0.00763025, 1.41760397, -226.35512331, -25.59554079)">
+                <stop offset="0" style="stop-color: rgb(126, 250, 250);"></stop>
+                <stop offset="1" style="stop-color: rgb(94, 147, 245);"></stop>
+            </radialGradient>
+            <radialGradient gradientUnits="userSpaceOnUse" cx="316.1884" cy="113.1954" r="66.9971" id="gradient-1"
+                gradientTransform="matrix(1, 0, 0, 1, 139.38154602, -20.80529404)">
+                <stop offset="0" style="stop-color: rgb(126, 250, 250);"></stop>
+                <stop offset="1" style="stop-color: rgb(94, 147, 245);"></stop>
+            </radialGradient>
+        </defs>
+        <rect width="100" height="100" style="fill: rgb(201, 244, 209);" class="box"></rect>
+        <rect width="100" height="100" style="fill: rgb(216, 216, 216);" x="100" y="300" class="box1"></rect>
+        <path style="stroke: rgb(0, 0, 0); fill: none;"
+            d="M 100.8616 300.7359 C 100.8616 300.7359 254.913 104.7034 400 300 C 545.087 495.2966 600 300 600 300"
+            class="path"></path>
+        <g class="arrow">
+            <rect width="133.4597" height="100" style="fill: rgb(218, 243, 255);" x="100" y="100"></rect>
+            <path
+                d="M 100.3758 130.1435 H 138.4572 L 138.4572 101.3782 L 232.1426 149.9198 L 138.4572 198.4613 L 138.4572 169.696 H 100.3758 V 130.1435 Z"
+                style="fill: url(#gradient-0); stroke: rgb(45, 45, 45);"
+                bx:shape="arrow 100.3758 101.3782 131.7668 97.0831 39.5525 93.6854 0 1@b38ab737"></path>
+            <path
+                d="M 100.7219 130.4526 L 138.8033 130.4526 L 138.8033 101.6873 L 232.4886 150.229 L 137.9026 150.32 L 100.7219 150.32 L 100.7219 130.4526 Z"
+                style="fill: rgb(255, 255, 255); fill-opacity: 0.38;"></path>
+            <ellipse style="fill: rgb(255, 0, 0);" cx="167.4612" cy="150.6273" rx="5.4981" ry="5.4981"></ellipse>
+        </g>
+    </svg>
+
+    <script src="js/vendor/jquery-3.4.1.min.js"></script>
+    <script src="js/vendor/gsap.min.js"></script>
+    <script src="js/vendor/MotionPathPlugin.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

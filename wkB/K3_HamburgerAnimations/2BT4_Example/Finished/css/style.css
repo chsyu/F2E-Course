@@ -84,6 +84,18 @@
       transform-origin: 29% 90%;
    }
 
+   /* full-screen menu */
+   .navbar-collapse .navbar-nav__full-screen {
+      height: 100vh;
+      margin-top: 2em;
+   }
+   
+   .nav-item__full-screen {
+      font-size: 1.5em;
+      padding: 1em 0;
+      text-align: center;
+   }
+
 }
 
 

@@ -1,3 +1,26 @@
+.page1 {
+    height: 40rem;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page2 {
+    height: 40rem;
+    background-color: lightyellow;
+    display: flex;
+    align-items: center;
+}
+
+.page3 {
+    height: 40rem;
+    background-color: lightgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .block {
     width: 300px;
     height: 100px;
@@ -7,6 +30,3 @@
     padding: 0;
 }
 
-.trigger {
-    padding: 80vh 0;
-}

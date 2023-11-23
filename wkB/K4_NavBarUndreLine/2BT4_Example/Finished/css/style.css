@@ -32,7 +32,32 @@
    .nav__brand {
       font-size: 2em;
    }
+
+   .nav-link {
+      position: relative;
+      width: auto;
+      margin-right: 1rem;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      padding-top: 1rem;
+      padding-bottom: 1rem!important;
+   }
+
+   .nav-link::before {
+      content: '';
+      position: absolute;
+      bottom: 0.3rem;
+      width: 0;
+      height: 5px;
+      background-color: #fff;
+      transition: all 0.4s ease-in-out;
+   }
+
+   .nav-link:hover::before {
+      width: 100%;
+   }
 }
+
 
 .navbar-toggler[type="button"] {
    border-color: #233140;
