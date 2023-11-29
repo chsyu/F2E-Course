@@ -64,7 +64,7 @@ body {
 	border-bottom: none;
 }
 
-.nav-list-item-link:hover {
+.nav-list-item:hover {
 	background-color: #e5e9dc;
 }
 

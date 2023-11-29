@@ -30,7 +30,7 @@ body {
 .container {
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
+	height: 100dvh;
 	max-width: 940px;
 	margin: 0 auto;
 	background: url(../images/color-tile.png) left bottom repeat-x, url(../images/color-tile.png) left top repeat-x;
@@ -72,49 +72,83 @@ body {
 	display: flex;
 	margin: 0;
 	padding: 0;
+	position: relative;
 }
 
 .nav-sublist {
 	position: absolute;
+	z-index: 999;
 	background-color: #e5e9dc;
 	margin: 0;
 	padding: 0;
+	top: 3rem;
+	left: 0;
+	right: 0;
+	width: 10rem;
 	display: none;
-	z-index: 9999;
 }
 
-.nav-list-item {
+
+.nav-item {
 	list-style: none;
+	margin-right: 5px;
+	position: relative;
+}
+
+.nav-mega {
+	list-style: none;
+}
+
+.nav-mega-wrap {
+	display: flex;
+	flex-direction: row;
+	position: absolute;
+	z-index:999;
+	top: 3rem;
+	left: 0;
+	width: 100%;
+}
+
+.nav-mega:hover .nav-mega-sublist{
+	display: block;
+}
+
+
+.nav-mega-sublist {
+	background-color: #e5e9dc;
+	margin: 0;
+	padding: 0;
+	width: 10rem;
+	display: none;
+}
+
+.nav-mega-item-header, nav-mega-item {
+	text-align: left;
+	padding: 0;
+	margin: 0;
+	padding-top: 1rem;
+	padding-left: 1rem;
+}
+
+.nav-mega-item-header::before {
+	content: "\25B6";
 	margin-right: 5px;
 }
 
-.nav-list-item-link {
+.nav-link {
 	display: block;
 	color: #617140;
 	text-decoration: none;
 	padding: 10px 20px;
 	border: 3px solid #e5e9dc;
-	background-color: #fff;
 	border-bottom: none;
 }
 
-.nav-list-item-link:hover {
+.nav-link:hover {
 	background-color: #e5e9dc;
 }
 
-.nav-list-item:hover>.nav-list-item-link {
-	background-color: #e5e9dc;
-}
-
-
-.nav-sublist .nav-list-item-link:hover {
-	background-color: #869960;
-	color: #fff;
-}
-
-
-
-.nav-list-item:hover .nav-sublist {
+.nav-item:hover .nav-sublist{
 	display: block;
 }
 

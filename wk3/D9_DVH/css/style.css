@@ -4,9 +4,7 @@ html {
 	box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
+*,*:before,*:after {
 	box-sizing: inherit
 }
 
@@ -22,6 +20,9 @@ body {
 	background-color: #FFF;
 	padding-left: 40px;
 	padding-right: 40px;
+	display: flex;
+	flex-direction: column;
+	height: 100dvh;
 }
 
 /* Header Style */
@@ -57,15 +58,20 @@ body {
 	background-color: #e5e9dc;
 	margin: 0;
 	padding: 0;
+	top: 3rem;
+	left: 0;
+	right: 0;
+	width: 10rem;
 	display: none;
 }
 
-.nav-list-item {
+.nav-item {
 	list-style: none;
 	margin-right: 5px;
+	position: relative;
 }
 
-.nav-list-item-link {
+.nav-link {
 	display: block;
 	color: #617140;
 	text-decoration: none;
@@ -74,25 +80,14 @@ body {
 	border-bottom: none;
 }
 
-.nav-list-item-link:hover {
-	/* background-color: #e5e9dc; */
-}
-
-.nav-list-item:hover > .nav-list-item-link {
+.nav-link:hover {
 	background-color: #e5e9dc;
 }
 
-
-.nav-sublist .nav-list-item-link:hover {
-	background-color: #869960;
-	color: #fff;
-}
-
-
-
-.nav-list-item:hover .nav-sublist{
+.nav-item:hover .nav-sublist{
 	display: block;
 }
+
 
 
 /* Content Style */
@@ -100,6 +95,7 @@ body {
 	display: flex;
 	border-top: 3px solid #e5e9dc;
 	border-bottom: 3px solid #e5e9dc;
+	flex: 1;
 }
 
 /* Main-Area Style */

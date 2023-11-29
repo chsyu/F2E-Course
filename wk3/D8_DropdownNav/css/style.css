@@ -4,40 +4,34 @@ html {
 	box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
+*,*:before,*:after {
 	box-sizing: inherit
 }
 
 body {
-	font-family: sans-serif;
+	font-family: Tahoma, sans-serif;
 	font-size: 87%;
-	font-weight: 300;
 }
 
 .container {
 	max-width: 940px;
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
 	background-color: #FFF;
 	padding-left: 40px;
 	padding-right: 40px;
 }
 
-.text-style {
-	text-indent: 1.8em;
-}
-
-/* Header Style */
 /* Header Style */
 .header {
 	padding-top: 20px;
+	/* padding-bottom: 20px; */
 	color: #617140;
-	font-weight: 400;
 }
 
 .header-title {
 	margin: 0;
+	font-weight: normal;
 	font-size: 165%;
 }
 
@@ -45,7 +39,6 @@ body {
 	margin: 0;
 }
 
-/* Navitation Bar Style */
 /* Navitation Bar Style */
 .nav {
 	margin-top: 20px;
@@ -55,12 +48,10 @@ body {
 	display: flex;
 	margin: 0;
 	padding: 0;
-	position: relative;
 }
 
 .nav-sublist {
 	position: absolute;
-	z-index: 999;
 	background-color: #e5e9dc;
 	margin: 0;
 	padding: 0;
@@ -71,51 +62,10 @@ body {
 	display: none;
 }
 
-
 .nav-item {
 	list-style: none;
 	margin-right: 5px;
 	position: relative;
-}
-
-.nav-mega {
-	list-style: none;
-}
-
-.nav-mega-wrap {
-	display: flex;
-	flex-direction: row;
-	position: absolute;
-	z-index: 999;
-	top: 3rem;
-	left: 0;
-	width: 100%;
-}
-
-.nav-mega:hover .nav-mega-sublist{
-	display: block;
-}
-
-
-.nav-mega-sublist {
-	background-color: #e5e9dc;
-	margin: 0;
-	padding: 0;
-	width: 10rem;
-	display: none;
-}
-
-.nav-mega-item-header, nav-mega-item {
-	text-align: left;
-	padding: 0;
-	margin: 0;
-	padding-top: 1rem;
-	padding-left: 1rem;
-}
-
-.nav-mega-item-header::before {
-	content: "\25B6";
-	margin-right: 5px;
 }
 
 .nav-link {
@@ -137,8 +87,6 @@ body {
 
 
 
-
-
 /* Content Style */
 .content-area {
 	display: flex;
@@ -152,41 +100,13 @@ body {
 	padding-right: 40px;
 }
 
-/*Banner Style*/
-.banner {
-	position: relative;
-}
-
-.banner-image {
-	width: 100%;
-	display: block;
-}
-
-.banner-description {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: 0px;
-	line-height: 50px;
-	width: 200px;
-	margin-left: -100px;
-	margin-top: -25px;
-	text-align: center;
-	font-size: 165%;
-	font-weight: 100;
-	color: #e5e9dc;	
-	background-color: rgba(0, 0, 0, 0.5);
-}
-
 /* SideBar Style */
 .sidebar {
 	width: 34%;
-	height: 100%;
 	background-color: #e5e9dc;
 	padding: 20px 40px;
 	font-size: 85%;
 }
-
 
 /* Footer */
 .footer {
