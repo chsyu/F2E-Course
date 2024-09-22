@@ -138,35 +138,21 @@ body {
 	border-bottom: 3px solid #e5e9dc;
 }
 
-/* Grid */
-.row {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0 -15px;
-}
-
-.col {
-	padding: 0 15px;
-	width: calc(100%/3);
-}
-
 /* Gallery Style */
 .gallery {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	gap: 20px;
 	list-style: none;
 	margin-bottom: 30px;
 	padding: 0;
 }
 
-.gallery__item {
-	margin-top: 30px;
+.gallery__link {
+	position: relative;		
 }
 
-.gallery__item-link {
-	position: relative;
-	display: block;
-}
-
-.gallery__item-image {
+.gallery__image {
 	width: 100%;
 	display: block;
 }

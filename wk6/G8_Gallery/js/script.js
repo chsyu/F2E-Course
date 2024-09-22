@@ -9,7 +9,7 @@ $(document).ready(function () {
     }
   );
 
-  $(".gallery__item-link").hover(
+  $(".gallery__link").hover(
     function () {
       // Fade in overlay
       $(this).children(".overlay").fadeIn(800);
