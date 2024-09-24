@@ -50,12 +50,12 @@ body {
 	padding: 0;
 }
 
-.nav-list-item {
+.nav-item {
 	list-style: none;
 	margin-right: 5px;
 }
 
-.nav-list-item-link {
+.nav-link {
 	display: block;
 	color: #617140;
 	text-decoration: none;
@@ -64,10 +64,16 @@ body {
 	border-bottom: none;
 }
 
-.nav-list-item:hover {
+.nav-link:hover {
 	background-color: #e5e9dc;
 }
 
+/* Content Style */
+.content-area {
+	display: flex;
+	border-top: 3px solid #e5e9dc;
+	border-bottom: 3px solid #e5e9dc;
+}
 
 /* Gallery Style */
 .gallery {
@@ -75,6 +81,8 @@ body {
 	grid-template-columns: 1fr 1fr 1fr;
 	gap: 20px;
 	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .gallery-img {

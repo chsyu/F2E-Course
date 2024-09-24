@@ -50,12 +50,12 @@ body {
 	padding: 0;
 }
 
-.nav-list-item {
+.nav-item {
 	list-style: none;
 	margin-right: 5px;
 }
 
-.nav-list-item-link {
+.nav-link {
 	display: block;
 	color: #617140;
 	text-decoration: none;
@@ -64,7 +64,7 @@ body {
 	border-bottom: none;
 }
 
-.nav-list-item-link:hover {
+.nav-link:hover {
 	background-color: #e5e9dc;
 }
 

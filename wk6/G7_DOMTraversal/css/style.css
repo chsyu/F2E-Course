@@ -82,13 +82,13 @@ body {
 	z-index: 9999;
 }
 
-.nav__list-item {
+.nav__item {
 	background-color: #fff;
 	list-style: none;
 	margin-right: 5px;
 }
 
-.nav__list-item-link {
+.nav__link {
 	display: block;
 	color: #617140;
 	text-decoration: none;
@@ -97,7 +97,7 @@ body {
 	border-bottom: none;
 }
 
-.nav__list-item-link--submenu {
+.nav__link--submenu {
 	display: block;
 	background-color: #e5e9dc;
 	color: #617140;
@@ -107,7 +107,7 @@ body {
 	border-bottom: none;
 }
 
-.nav__list-item:hover > .nav__list-item-link {
+.nav__item:hover > .nav__link {
 	background-color: #e5e9dc;
 }
 
@@ -115,7 +115,7 @@ body {
 	background-color: #e5e9dc;
 }
 
-.nav__list--submenu .nav__list-item-link--submenu:hover {
+.nav__list--submenu .nav__link--submenu:hover {
 	background-color: #869960;
 	color: #fff;
 }
