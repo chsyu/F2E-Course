@@ -1,7 +1,9 @@
 $(document).ready(function () {
   lightbox.option({
-    'resizeDuration': 800,
-  })
+    'resizeDuration': 200,
+    fitImagesInViewport	: true,
+    'wrapAround': true
+  });
 
   $(".nav__list-item").hover(
     function () {
