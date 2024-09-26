@@ -20,9 +20,12 @@ body {
 	background-color: #FFF;
 	padding-left: 40px;
 	padding-right: 40px;
-	display: flex;
-	flex-direction: column;
-	height: 100dvh;
+}
+
+.vh100 {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100vh;
 }
 
 /* Header Style */
@@ -95,7 +98,6 @@ body {
 	display: flex;
 	border-top: 3px solid #e5e9dc;
 	border-bottom: 3px solid #e5e9dc;
-	flex: 1;
 }
 
 /* Main-Area Style */
@@ -107,6 +109,9 @@ body {
 /* SideBar Style */
 .sidebar {
 	width: 34%;
+}
+
+.sidebar-content {
 	background-color: #e5e9dc;
 	padding: 20px 40px;
 	font-size: 85%;
