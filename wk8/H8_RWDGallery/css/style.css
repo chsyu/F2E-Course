@@ -36,9 +36,9 @@ body {
 .container {
 	display: grid;
 	grid-template-rows: auto 1fr auto;
-	height: 100vh;
+	min-height: 100vh;
 	width: 100%;
-	margin: 20px auto;
+	margin: 0px auto;
 	background: url(../images/color-tile.png) left bottom repeat-x, url(../images/color-tile.png) left top repeat-x;
 	background-color: #FFF;
 	padding-top: 15px;
@@ -52,7 +52,8 @@ body {
 	.container {
 		width: 740px;
 		margin: 0 auto;
-		padding: 0 20px;
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 
 }
@@ -83,6 +84,7 @@ body {
 	color: #617140;
 	font-weight: 400;
 	background: #fff url(../images/leaf-title.jpg) right center no-repeat;
+	background-size: 100%;
 }
 
 .header__title {
