@@ -1,0 +1,8 @@
+.container {
+   background-color: #eee;
+   padding: 0;
+}
+
+.box {
+   border: solid 1px gray;
+}

@@ -1,8 +1,8 @@
-.container .row {
+.container .grid{
    margin: 0.5rem 0;
 }
 
-.container .row div {
+.container .grid div {
    background-color: #E5E2EA;
    border: solid 1px gray;
 }
