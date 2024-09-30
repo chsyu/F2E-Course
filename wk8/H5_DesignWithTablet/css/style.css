@@ -47,6 +47,7 @@ html {
 	background-color: #608699;
 	line-height: 1.7;
 	box-sizing: border-box;
+	font-size: 15px;
 }
 
 *, *:before, *:after {
@@ -55,7 +56,6 @@ html {
 
 body {
 	font-family: 'PTSans', Arial, sans-serif;
-	font-size: 15px;
 	margin: 0;
 	padding: 0;
 }

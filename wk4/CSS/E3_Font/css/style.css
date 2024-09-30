@@ -13,6 +13,7 @@
 html {
 	background-color: #869960;
 	box-sizing: border-box;
+	font-size: 87%;
 }
 
 *,
@@ -23,7 +24,6 @@ html {
 
 body {
 	font-family: 'Roboto', sans-serif;
-	font-size: 87%;
 	font-weight: 300;
 }
 
