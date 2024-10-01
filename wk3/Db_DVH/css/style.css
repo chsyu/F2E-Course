@@ -20,9 +20,7 @@ body {
 	background-color: #FFF;
 	padding-left: 40px;
 	padding-right: 40px;
-}
 
-.vh100 {
 	display: grid;
 	grid-template-rows: auto 1fr auto;
 	min-height: 100vh;
