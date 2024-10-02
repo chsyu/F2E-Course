@@ -36,7 +36,7 @@
   </nav>
 
   <header class="header">
-    <div class="container mx-auto flex flex-col justify-center items-center">
+    <div class="container mx-auto grid grid-cols-1 place-items-center">
       <img src="images/chsyu.jpg" alt="" class="header__image">
       <h1 class="header__title">
         山‘<strong>s</strong> 網頁</h1>
@@ -46,9 +46,9 @@
   </header>
 
   <article class="course py-10 py-sm-8">
-    <div class="container mx-auto">
-      <h1 class="text-[2.375rem] text-center">課程</h1>
-      <hr class="w-[250px] border-t-4 border-gray-400 border-solid mx-auto my-3">
+    <div class="container mx-auto grid grid-cols-1 place-items-center">
+      <h1 class="text-[2.375rem]">課程</h1>
+      <hr class="w-[250px] border-t-4 border-gray-400 border-solid my-3">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-7">
         <a href="" class="course__link">
           <img src="images/f2e.jpg" alt="" class="course__image">
@@ -67,9 +67,9 @@
   </article>
 
   <article class="resume py-10 py-sm-5">
-    <div class="container d-flex flex-column mx-auto">
-      <h1 class="text-[2.375rem] text-center">我</h1>
-      <hr class="w-[250px] border-t-4 border-gray-300 border-solid my-3 mx-auto">
+    <div class="container mx-auto grid grid-cols-1 place-items-center">
+      <h1 class="text-[2.375rem]">我</h1>
+      <hr class="w-[250px] border-t-4 border-gray-300 border-solid my-3">
       <p class="text-justify resume__description py-5 px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Accusantium laborum
         corrupti ut iure aliquam. Quod, perferendis. Libero tempore iste, animi sint numquam illum quasi laboriosam
@@ -89,11 +89,11 @@
   <footer class="footer">
     <div class="footer__above py-5">
       <div class="container mx-auto">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-          <h5 class="footer__description">
+        <div class="grid grid-cols-1 md:grid-cols-12">
+          <h5 class="footer__description md:col-span-9">
             臺北市和平東路二段134號，國立臺北教育大學 數位科技設計學系
           </h5>
-          <ul class="footer__list">
+          <ul class="footer__list md:col-span-3">
             <li class="footer__item"><a href="" class="footer__link"><i class="bi bi-facebook"></i></i></a></li>
             <li class="footer__item"><a href="" class="footer__link"><i class="bi bi-google"></i></a></li>
             <li class="footer__item"><a href="" class="footer__link"><i class="bi bi-linkedin"></i></a></li>
