@@ -9,14 +9,13 @@ $(document).ready(function () {
     }
   );
 
-  $(".gallery__link").hover(
-    function () {
+  $(".gallery__item")
+    .on("mouseenter", function () {
       // Fade in overlay
       $(this).children(".overlay").fadeIn(800);
-    },
-    function () {
+    })
+    .on("mouseleave", function () {
       // Fade out overlay
       $(this).children(".overlay").fadeOut(500);
-    }
-  );
+    });
 });
