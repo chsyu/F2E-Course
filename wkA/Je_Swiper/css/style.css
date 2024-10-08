@@ -102,24 +102,7 @@
 .swiper-button-next,
 .swiper-button-prev {
    color: white;
-   z-index: 9999;
-   position:absolute;
-   top: 50%;
 }
-
-@media screen and (min-width: 1200px) {
-   .swiper-container {
-      width: 1140px;
-      margin: 0 auto;
-   }   
-}
-
-@media screen and (min-width: 1400px) {
-   .swiper-container {
-      width: 1320px;
-   }   
-}
-
 
 /* Course Style */
 .course {
