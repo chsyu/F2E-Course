@@ -1,0 +1,60 @@
+
+@font-face {
+    font-family: 'Segoe UI Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe UI Regular'), url('font/Segoe UI.woff') format('woff');
+    }  
+@font-face {
+font-family: 'Segoe UI Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Segoe UI Italic'), url('font/Segoe UI Italic.woff') format('woff');
+}   
+@font-face {
+font-family: 'Segoe UI Bold';
+font-style: normal;
+font-weight: normal;
+src: local('Segoe UI Bold'), url('font/Segoe UI Bold.woff') format('woff');
+}
+@font-face {
+font-family: 'Segoe UI Bold Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Segoe UI Bold Italic'), url('font/Segoe\ UI\ Bold\ Italic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Trajan Pro Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Trajan Pro Regular'), url('font/TrajanPro-Regular.ttf') format('woff');
+    } 
+@font-face {
+font-family: 'Trajan Pro Bold';
+font-style: normal;
+font-weight: normal;
+src: local('Trajan Pro Bold'), url('font/TrajanPro-Bold.otf') format('woff');
+}
+@font-face {
+    font-family: 'Gill Sans MT';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Gill Sans MT'), url('font/Gill_Sans_MT.TTF') format('woff');
+}
+@font-face {
+    font-family: 'Gill Sans MT Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Gill Sans MT Bold'), url('font/GIL_Sans_MT_Bold.TTF') format('woff');
+}
+* {
+    margin: 0 auto;
+
+}
+html {
+    
+    width: 1920px; 
+    height: 1080px; 
+
+}
+

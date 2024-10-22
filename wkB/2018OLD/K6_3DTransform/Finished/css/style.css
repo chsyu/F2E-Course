@@ -1,0 +1,43 @@
+h1 {
+  text-align: center;
+}
+.container {
+  width: 200px;
+  height: 260px;
+  margin: 0 auto 40px;
+  border: 3px solid lightgray;
+  perspective: 800px;
+}
+
+#card {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  position: relative;
+  cursor:pointer;
+}
+
+#card div {
+  width: 100%;
+  line-height: 260px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 140px;
+  backface-visibility: hidden;
+  position: absolute;
+}
+
+#card .front {
+  background: red;
+}
+
+#card .back {
+  background: blue;
+  transform: rotateY( 180deg );
+}
+
+.container:hover #card{
+  transform: rotateY( 180deg );
+}

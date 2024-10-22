@@ -1,0 +1,493 @@
+
+* { color:#fff; text-decoration: none;}
+
+html {
+    width: 100%;
+    height:100%;
+}
+
+
+body{
+    width:100%;
+    height:100%;
+    
+    background-color: #434343;
+}
+
+
+
+.top{
+    position: absolute;
+    top:0px;
+    left:0px;
+    
+    
+    
+    width:100%;
+    height:132px;
+}
+
+
+.top_pattern {
+    opacity: 0.66;
+    background-color: rgb(175, 65, 73);
+    position: absolute;
+    width:100%;
+    height:99px;
+}
+
+.top_text {
+    font-family: 'Trajan Pro Regular';
+    color:white;
+    opacity:1;
+    text-align: center;
+    font-size: 37px;
+    letter-spacing: 2px;
+    position: relative;
+    top:23%;
+}
+
+
+.left_pattern1 {
+    position: absolute;
+    top:78%;
+    left:0%;
+    
+
+    background-color:rgb(175, 65, 73);
+    width:30%;
+    height:15%;
+    text-align: center;
+}
+
+.left_pattern2 {
+    position: absolute;
+    top:78%;
+    left:0%;
+    
+
+    background-color:rgb(175, 65, 73);
+    width:30%;
+    height:15%;
+    text-align: center;
+}
+
+.left_pattern3 {
+    position: absolute;
+    top:78%;
+    left:0%;
+    
+
+    background-color:rgb(175, 65, 73);
+    width:30%;
+    height:15%;
+    text-align: center;
+}
+
+.left_pattern4 {
+    position: absolute;
+    top:78%;
+    left:0%;
+    
+
+    background-color:rgb(175, 65, 73);
+    width:30%;
+    height:15%;
+    text-align: left;
+    
+    padding-left:3%;
+}
+
+.left_pattern5 {
+    position: absolute;
+    top:78%;
+    left:0%;
+    
+
+    background-color:rgb(175, 65, 73);
+    width:30%;
+    height:15%;
+    text-align: center;
+}
+
+.left_pattern_m{
+    position: absolute;
+    top:0%;
+    left:102%;
+
+    background-color:rgb(175, 65, 73);
+    width:3.75%;
+    height:100%;
+}
+
+.left_pattern_s{
+    position: absolute;
+    top:0%;
+    left:107.75%;
+
+    background-color:rgb(175, 65, 73);
+    width:2%;
+    height:100%;
+}
+
+.left_text {
+    position: relative;
+    top:40%;
+    right:0%;
+    z-index: 2;
+    
+    
+    font-size: 3vh;
+    
+    font-family:"Trajan Pro Regular";
+    color: white;
+    
+    padding:0px;
+    letter-spacing: 2px;
+}
+
+.left_text4 {
+    position: relative;
+    top:20%;
+    right:0%;
+    z-index: 2;
+    line-height: 5vh;
+    
+    font-size: 3vh;
+    
+    font-family:"Trajan Pro Regular";
+    color: white;
+    
+    padding:0px;
+    letter-spacing: 2px;
+}
+
+
+
+.right_pattern{
+    position: absolute;
+    top:0px;
+    right:0;
+    
+
+    background-color: #BDBDBD;
+    opacity: 0.59;
+
+    width:99px;
+    height:825px;
+    
+    
+}
+.right_text {
+    position:absolute;
+    top:0;
+    right:0;
+    
+    padding:0px;
+    height:˙715px;
+    padding-top:21%;
+    
+}
+
+
+.right_textli {
+    list-style-type: none;
+    font-size:15px;
+    width:44px;
+    font-family:"Segoe UI Bold";
+    color: white;
+    position:relative;
+    margin: 37px 23px 37px 0px; 
+    cursor: pointer; 
+    
+}
+
+.right_textli_line {
+    display:none;
+    border-bottom: 0.15em solid white;
+    content: "";
+    left: 0;
+    margin-top: calc(0.125em / 2 * -1);
+    position: absolute;
+    right: 25%;
+    top: 50%;
+}
+
+.right_textli_lines {
+    display:none;
+    border-bottom: 0.15em solid white;
+    content: "";
+    left: 0;
+    margin-top: calc(0.125em / 2 * -1);
+    position: absolute;
+    right: 25%;
+    top: 50%;
+}
+
+
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 3s;
+}
+
+.fade2 {
+    -webkit-animation-name: fade2;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade2;
+    animation-duration: 3s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
+
+  @-webkit-keyframes fade2 {
+    from {
+        
+        opacity: 0} 
+    to {
+        opacity: 0.66}
+  }
+  
+  @keyframes fade2 {
+    from {
+        opacity: 0} 
+    to {
+        opacity: 0.66}
+  }
+
+
+
+
+
+
+
+
+
+
+/* Rotate first bar */
+.change .line1 {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  /* Fade out the second bar */
+  .change .line2 {
+    opacity: 0;
+  }
+  .change .menu_text {
+    opacity: 0;
+  }
+  
+  /* Rotate last bar */
+  .change .line3 {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+.left_patternn{
+    display:none;
+}
+
+.home_li {
+    display:none;
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:825px;
+    z-index:-1;
+    object-fit:cover;
+}
+
+.home_li::after{
+    content:"";
+    color:white;
+}
+
+.home_li_0 {
+    
+    position: absolute;
+    top:0px;
+    left:0px;
+    z-index:-2;
+    object-fit:cover;
+}
+
+
+
+
+
+
+
+.footer_top{
+    position: absolute;
+    top:825px;
+    left:0px;
+    width:100%;
+    height:157.5px;
+
+    background-color:#434343;
+}
+.footer_bottom{
+    position: absolute;
+    top:982.5px;
+    left:0px;
+    width:100%;
+    height:60.75px;
+
+    background-color:#151515;
+    text-align: center;
+    color: white;
+    font-size:15px;
+    padding-top: 27px;
+    font-family:"Gill Sans MT";
+    letter-spacing: 2px;
+}
+.footer_ul {
+    position:absolute;
+    top:900px;
+    left:0px;
+    width:50%;
+    width:50%;
+    
+    padding:0px;
+    
+    text-align: center;
+}
+.footer_ul li{
+    margin-left:3%;
+    margin-right:3%;
+}
+
+.footer_li1{
+    list-style-type: none;
+    font-size:2.3vh;
+    display: inline-block;
+    font-family:"Gill Sans MT Bold";
+    
+    letter-spacing:2px;
+
+    color: white;
+    
+    cursor: pointer;  
+}
+.footer_li2{
+    list-style-type: none;
+    font-size:2.3vh;
+    display: inline-block;
+    font-family:"Gill Sans MT Bold";
+    
+    letter-spacing:2px;
+
+    color: white;
+    
+    cursor: pointer;  
+}
+.footer_li3{
+    list-style-type: none;
+    font-size:2.3vh;
+    display: inline-block;
+    font-family:"Gill Sans MT Bold";
+    
+    letter-spacing:2px;
+
+    color: white;
+    
+    cursor: pointer;   
+}
+.footer_li4{
+    list-style-type: none;
+    font-size:2.3vh;
+    display: inline-block;
+    font-family:"Gill Sans MT Bold";
+    
+    letter-spacing:2px;
+
+    color: white;
+    
+    cursor: pointer;  
+}
+
+.footer_text {
+    position:absolute;
+    list-style-type: none;
+    display:flex;
+    padding:0;
+    top:825px;
+    right:0;
+    width:50%;
+    height:157.5px;
+    font-size: 1.5vh;
+    
+}
+
+.footer_text li{
+    width:100%;
+    display:flex;
+    
+    justify-content: left;
+    text-align: center;
+    align-items: center;
+    
+}
+
+
+.open_ul{
+    position: relative;;
+    
+   
+    color: white;
+    font-family:"Gill Sans MT Bold";
+    letter-spacing:2px;
+    list-style-type: none;
+    text-align: left;
+    padding:0px;
+    
+    
+}
+
+.reser_ul {
+    position:relative;
+    
+   
+    color: white;
+    font-family:"Gill Sans MT Bold";
+    letter-spacing:2px;
+    list-style-type: none;
+    text-align: left;
+    padding:0px;
+    
+}
+
+.open_li {
+    margin:0;
+    padding-top:5%;
+    width:100%;
+}
+
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+    .footer_li1 { font-size:2.3vh; }
+    .footer_li2 { font-size:2.3vh; }
+    .footer_li3 { font-size:2.3vh; }
+    .footer_li4 { font-size:2.3vh; }
+    .footer_text { font-size:1.5vh;}
+    .left_text {font-size: 3vh;}
+    .left_text4 {font-size: 3vh;}
+    .left_text {font-size: 3vh;}
+}
+
+
+
+
+
+

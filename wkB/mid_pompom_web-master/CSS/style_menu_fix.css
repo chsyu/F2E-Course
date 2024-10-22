@@ -1,0 +1,204 @@
+.menu {
+    position: absolute;
+    right:0;
+    width:99px;
+    height:99px;
+    cursor: pointer;
+    z-index:10;
+}
+
+.line1{
+    position: absolute;
+    top:37.5px;
+    right:27px;
+
+    width:45px;
+    height:3px;
+   
+    background-color: #FFFFFF;
+    transition: 0.4s;
+}
+.line2{
+    position: absolute;
+    top:47.5px;
+    right:27px;
+
+    width:45px;
+    height:3px;
+
+    background-color: #FFFFFF;
+    transition: 0.4s;
+}
+
+.line3{
+    position: absolute;
+    top:37.5px;
+    right:27px;
+    
+
+    width:45px;
+    height:3px;
+   
+    background-color: #FFFFFF;
+    transition: 0.4s;
+}
+
+.menu_text{
+    font-family: 'Segoe UI Bold Italic';
+    font-size:15px;
+
+    position: absolute;
+    top:50px;
+    padding: 0 36px 0 36px;
+    width:36px;
+    right:0px;
+    color: #FFFFFF;
+    line-height:35px;
+    text-align: center;
+    transition: 0.4s;
+
+}
+
+.page_menu {
+    display:none;
+    
+    
+}
+
+.page_menu.open {
+   display:block;
+}
+
+
+
+nav {
+    background:rgb(175, 65, 73);
+    height:100%;
+    width:17.2%;
+    position: absolute;
+    top:0%;
+    right:0%;
+    z-index:6;
+    
+    
+}
+
+.nav-links {
+    
+    width:70%;
+    height:100%;
+    
+    margin:0;
+    padding:0;
+    list-style:none;
+    position: absolute;
+    top:15%;
+    left:11%;
+    z-index:4;
+    
+}
+
+.nav_pat {
+    width:100%;
+    height:20%;
+    background-color: white;
+    opacity: 0.2;
+}
+
+.nav-links2 {
+    
+    width:70%;
+    height:100%;
+    padding:0;
+    margin:0;
+
+    list-style:none;
+    position: absolute;
+    top:15%;
+    left:11%;
+    z-index:3;
+    
+    
+    
+}
+
+.nav-links2 li{
+    margin:0;
+    margin-right:21px;
+    margin-left:21px;
+    
+
+}
+
+.nav-links li{
+    margin:0;
+    margin-right:21px;
+    margin-left:21px;
+    cursor: pointer;
+}
+
+
+
+.nav_pic1 {
+    background-image: url(../IMG/home_origin.png);
+    width:100%;
+    height:20%;
+    background-size: cover;
+
+    
+}
+
+.nav_pic2 {
+    background-image: url(../IMG/about_origin.png);
+    width:100%;
+    height:20%;
+    background-size: cover;
+}
+
+.nav_pic3 {
+    background-image: url(../IMG/drinks_origin.png);
+    width:100%;
+    height:20%;
+    background-size: cover;
+}
+
+.nav_pic4 {
+    background-image: url(../IMG/contact_origin.png);
+    width:100%;
+    height:20%;
+    background-size: cover;
+}
+
+.nav-links2 li a{
+    position: relative;
+    top:85%;
+    left:5%;
+    z-index:5;
+
+    font-size:2vh;
+    font-family:"Gill Sans MT Bold";
+    text-shadow: black 0.1em 0.1em 0.1em;
+    letter-spacing: 2px;
+    color: white;
+}
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+    .nav-links2 li a { font-size:2vh; } 
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 2s;
+}
+
+
+@-webkit-keyframes fade {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }

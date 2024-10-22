@@ -1,0 +1,277 @@
+html {
+    width: 100%;
+    height:100%;
+   
+}
+body{
+    width:100%;
+    height:100%;
+    
+    background-color: #434343;
+    position: absolute;
+}
+
+.top{
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:99px;
+}
+
+
+.top_pattern {
+    background-color: #566990;
+    position: absolute;
+    width:100%;
+    height:99px;
+}
+
+.top_text {
+    font-family: 'Trajan Pro Regular';
+    color:white;
+    opacity:1;
+    text-align: center;
+    font-size: 37px;
+    letter-spacing: 2px;
+    position: relative;
+    top:30%;
+}
+
+.contact_left {
+    width:40%;
+    height:726px;
+    position: absolute;
+    top:171.6px;
+    right:5%;
+    
+    padding:0;
+    margin-top:3%;
+    display: block;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.body_text_ul{
+    width:100%;
+    padding:0;
+    list-style: none;
+    font-family: "Segoe UI Regular";
+    color:white;
+    letter-spacing: 0.2vh;
+    font-size: 4vh;
+    line-height: 8vh;
+}
+.icon_ul{
+    width:100%;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    margin-top:10%;
+}
+.icon_ul li img{
+    width:40%;
+}
+.contact_right {
+    width:50%;
+    height:726px;
+    position: absolute;
+    top:99px;
+    
+}
+#map {
+    width:80%;
+    height:80%;
+    position: absolute;
+    top:10%;
+    left:10%;
+    
+}
+
+
+
+/* Rotate first bar */
+.change .line1 {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  /* Fade out the second bar */
+  .change .line2 {
+    opacity: 0;
+  }
+  .change .menu_text {
+    opacity: 0;
+  }
+  
+  /* Rotate last bar */
+  .change .line3 {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+.footer_top{
+    position: absolute;
+    top:825px;
+    left:0px;
+    width:100%;
+    height:157.5px;
+
+    background-color:#566990;
+}
+.footer_bottom{
+    position: absolute;
+    top:982.5px;
+    left:0px;
+    width:100%;
+    height:60.75px;
+
+    background-color:#151515;
+    text-align: center;
+    color: white;
+    font-size:15px;
+    padding-top: 27px;
+    font-family:"Gill Sans MT";
+    letter-spacing: 2px;
+}
+.footer_ul {
+    position:absolute;
+    top:895.5px;
+    left:0px;
+    width:50%;
+    width:50%;
+    
+   
+    
+    text-align: center;
+}
+
+.footer_ul li{
+    margin-left:3%;
+    margin-right:3%;
+}
+
+.footer_li1{
+    list-style-type: none;
+    font-size:2.8vh;
+    display: inline-block;
+    font-family:"Gill Sans MT Bold";
+    
+    letter-spacing:2px;
+
+    color: white;
+    
+    cursor: pointer;  
+}
+.footer_li2{
+    list-style-type: none;
+    font-size:2.8vh;
+    display: inline-block;
+    font-family:"Gill Sans MT Bold";
+    
+    letter-spacing:2px;
+
+    color: white;
+    
+    cursor: pointer;  
+}
+.footer_li3{
+    list-style-type: none;
+    font-size:2.8vh;
+    display: inline-block;
+    font-family:"Gill Sans MT Bold";
+    
+    letter-spacing:2px;
+
+    color: white;
+    
+    cursor: pointer;   
+}
+.footer_li4{
+    list-style-type: none;
+    font-size:2.8vh;
+    display: inline-block;
+    font-family:"Gill Sans MT Bold";
+    
+    letter-spacing:2px;
+
+    color: white;
+    
+    cursor: pointer;  
+}
+
+.footer_text {
+    position:absolute;
+    list-style-type: none;
+    display:flex;
+    padding:0;
+    top:825px;
+    right:0;
+    width:50%;
+    height:157.5px;
+    font-size: 2vh;
+    
+}
+
+.footer_text li{
+    width:100%;
+    display:flex;
+    
+    justify-content: left;
+    text-align: center;
+    align-items: center;
+    
+}
+
+
+.open_ul{
+    position: relative;;
+    
+   
+    color: white;
+    font-family:"Gill Sans MT Bold";
+    letter-spacing:2px;
+    list-style-type: none;
+    text-align: left;
+    padding:0px;
+    
+    
+}
+
+.reser_ul {
+    position:relative;
+    
+   
+    color: white;
+    font-family:"Gill Sans MT Bold";
+    letter-spacing:2px;
+    list-style-type: none;
+    text-align: left;
+    padding:0px;
+    
+}
+
+.open_li {
+    margin:0;
+    padding-top:5%;
+    width:100%;
+}
+
+
+    .footer_li1 { font-size:2.3vh; }
+    .footer_li2 { font-size:2.3vh; }
+    .footer_li3 { font-size:2.3vh; }
+    .footer_li4 { font-size:2.3vh; }
+    .footer_text { font-size:1.5vh;} 
+    .body_text_ul{font-size: 3vh;}
+
+
+.page_menu {
+    display:block;
+    
+    
+}
+
+.page_menu.open {
+   display:none;
+}

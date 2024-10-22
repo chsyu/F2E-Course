@@ -1,0 +1,686 @@
+html {
+    margin:0;
+    width:100%;
+}
+
+body {
+    width:100%;
+    height:5100px;
+    background-color: #434343;
+    
+    
+}
+.top{
+    position: absolute;
+    top:0px;
+    left:0px;
+    
+    
+    
+    width:100%;
+    height:99px;
+}
+
+.top_pattern {
+    opacity:0.66;
+    background-color: #aebfc2;
+    position: absolute;
+    top:0;
+    width:100%;
+    height:99px;
+}
+
+.top_text {
+    font-family: 'Trajan Pro Regular';
+    color:white;
+    opacity:1;
+    text-align: center;
+    font-size: 37px;
+    letter-spacing: 2px;
+    position: relative;
+    top:23%;
+}
+
+.arrow{
+    height:8%;
+    position: absolute;
+    top:30%;
+    left:47.5%;
+}
+
+.scroll_text{
+    font-size: 20px;
+    font-weight: normal;
+    color: #7f8c8d;
+    color: #ffffff;
+    font-family: "Gill Sans MT";
+    letter-spacing: 2px;
+    position: absolute;
+    top:40%;
+    left:46.8%;
+}
+
+
+
+
+/* Rotate first bar */
+.change .line1 {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  /* Fade out the second bar */
+  .change .line2 {
+    opacity: 0;
+  }
+  .change .menu_text {
+    opacity: 0;
+  }
+  
+  /* Rotate last bar */
+  .change .line3 {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+
+
+  @-webkit-keyframes ani-mouse {
+    0% {
+    opacity: 1;
+    top: 29%;
+    }
+    15% {
+    opacity: 1;
+    top: 50%;
+    }
+    50% {
+    opacity: 0;
+    top: 50%;
+    }
+    100% {
+    opacity: 0;
+    top: 29%;
+    }
+}
+@-moz-keyframes ani-mouse {
+    0% {
+    opacity: 1;
+    top: 29%;
+    }
+    15% {
+    opacity: 1;
+    top: 50%;
+    }
+    50% {
+    opacity: 0;
+    top: 50%;
+    }
+    100% {
+    opacity: 0;
+    top: 29%;
+    }
+}
+@keyframes ani-mouse {
+    0% {
+    opacity: 1;
+    top: 29%;
+    }
+    15% {
+    opacity: 1;
+    top: 50%;
+    }
+    50% {
+    opacity: 0;
+    top: 50%;
+    }
+    100% {
+    opacity: 0;
+    top: 29%;
+    }
+}
+
+
+
+
+
+.orange {
+    width:100%;
+    height:750px;
+    position: absolute;
+    top:99px;
+}
+.orange_text {
+    position: absolute;
+    left:0;
+    top:135.75px;
+    height:43%;
+    width:40%;
+    background-color: rgb(235, 184, 127);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.all_ul {
+    list-style: none;
+    margin:0%;
+    padding:0;
+    width:100%;
+    height:80%;
+
+    display: block;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    
+}
+
+.all_li_1{
+    font-family:"Gill Sans MT Bold";
+    font-style: bold;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color:white;
+    text-shadow: black -0.2em 0em 0em;
+    letter-spacing: 0.2vh;
+    font-size:4vh;
+    margin-top:0%;
+    margin-bottom:3.5%;
+}
+
+.all_li_2{
+    font-family:"Gill Sans MT";
+    text-align: left;
+    color:black;
+    letter-spacing: 0.2vh;
+    font-size:3vh;
+    margin-top:3.5%;
+    margin-bottom:3.5%;
+
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+}
+
+.all_li_3 {
+    width:90%;
+    height:1.5px;
+    background-color: black;
+    margin-top:1%;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+}
+
+.all_li_4 {
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.all_li_5 {
+    width:90%;
+    height:1.5px;
+    background-color: black;
+    margin-bottom:1%;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+}
+
+.all_li_ul{
+    list-style: none;
+    display:flex;
+    justify-content: center;
+    width:100%;
+    padding:0;
+    margin:0;
+}
+
+.all_li_ul li{
+    margin:2%;
+    font-family:"Gill Sans MT Bold";
+    width:19%;
+    margin:0;
+    margin-top:3%;
+    margin-bottom:3%;
+    font-style: italic;
+}
+
+.all_li_ul li p{
+    margin:2%;
+    font-family:"Gill Sans MT";
+}
+
+
+    .all_li_1 { font-size:3vh; } 
+    .all_li_2 { font-size:2.3vh; letter-spacing: 0.2vh;} 
+
+
+.orange_pic {
+    position: absolute;
+    left:35%;
+    top:96px;
+    z-index: -1;
+
+    height:53%;
+    width:40%;
+    border-style:solid;
+    border-width:0.7vh;
+    border-color: rgb(235, 184, 127);
+
+    background-image: url("../IMG/drinks/drinks_orange_back.png");
+    background-size:cover;
+}
+
+.orange_wine {
+    position: relative;
+    left:53%;
+    top:30%;
+    height:50%;
+}
+.top_left {
+    position: absolute;
+    left:0%;
+    width:50%;
+    height:750px;
+    top:750px;
+}
+
+.top_left_pic {
+    position: absolute;
+    left:0%;
+    top:15%;
+    z-index: -4;
+    height:120%;
+}
+
+.top_right {
+    position: absolute;
+    right:0%;
+    top:750px;
+    width:50%;
+    height:750px;
+}
+.top_right_pic{
+    position: absolute;
+    right:0%;
+    top:100%;
+    z-index: -1;
+    height:30%;
+    
+}
+
+.blue{
+    width:100%;
+    height:750px;
+    position: absolute;
+    top:1299px;
+    left:0%;
+}
+
+.blue_text {
+    background-color: #B5C3CE;
+    width:48%;
+    height:43%;
+    position: absolute;
+    top:40%;
+    left:45%;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.blue_ul {
+    list-style: none;
+    margin:0%;
+    padding:0;
+    width:100%;
+    height:90%;
+
+    display: block;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    
+}
+
+.blue_pic {
+    position: absolute;
+    left:8%;
+    top:96px;
+    z-index: -1;
+
+    height:53%;
+    width:45%;
+    border-style:solid;
+    border-width:0.7vh;
+    border-color: #B5C3CE;
+
+    background-image: url("../IMG/drinks/drinks_blue_back.png");
+    background-size:cover;
+}
+
+.blue_wine {
+    position: relative;
+    left:20%;
+    top:35%;
+    height:50%;
+    
+}
+.middle_left {
+    width:50%;
+    height:750px;
+    position: absolute;
+    top:2799px;
+}
+.middle_left_pic {
+    position: relative;
+    top:-10%;
+}
+.middle_right{
+    width:50%;
+    height:750px;
+    position: absolute;
+    top:2799px;
+    right:0;
+}
+
+.middle_right_pic_1 {
+    position: absolute;
+    right:0;
+    top:10%;
+}
+.middle_right_pic_2 {
+    position: absolute;
+    right:10%;
+    top:-5%;
+}
+.red{
+    width:100%;
+    height:750px;
+    position: absolute;
+    top:2499px;
+    left:0%;
+}
+
+.red_text {
+    background-color: #E9B0A6;
+    width:40%;
+    height:62.8%;
+    position: absolute;
+    top:27%;
+    left:10%;
+    z-index: -1;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.red_pic {
+    position: absolute;
+    left:50%;
+    top:27%;
+    z-index: -1;
+
+    height:61.5%;
+    width:40%;
+    border-style:solid;
+    border-width:0.7vh;
+    border-color: #E9B0A6;
+
+    background-image: url("../IMG/drinks/drinks_red_back.png");
+    background-size:cover;
+}
+
+.red_wine{
+    position: relative;
+    left:38%;
+    top:31%;
+    height:60%;
+}
+
+.red_li_2{
+    padding-right:10%;
+}
+
+.bottom_left {
+    width:50%;
+    height:1500px;
+    position: absolute;
+    top:3999px;
+}
+
+.bottom_left_pic {
+    height:20%;
+    position: relative;
+    top:7%;
+}
+
+.bottom_right {
+    width:50%;
+    height:1500px;
+    position: absolute;
+    top:3999px;
+    right:0;
+}
+
+.bottom_right_pic {
+    height:50%;
+    position: absolute;
+    top:0%;
+    right:0;
+    z-index: -2;
+}
+.green{
+    width:100%;
+    height:750px;
+    position: absolute;
+    top:3849px;
+    left:0%;
+}
+.green_text {
+    background-color: #C2CD92;
+    width:45%;
+    height:50%;
+    position: absolute;
+    top:30%;
+    left:43%;
+    z-index: -1;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.green_pic {
+    position: absolute;
+    left:10%;
+    top:23%;
+    z-index: -2;
+
+    height:45%;
+    width:50%;
+    border-style:solid;
+    border-width:0.7vh;
+    border-color: #C2CD92;
+
+    background-image: url("../IMG/drinks/drinks_green_back.png");
+    background-size:cover;
+}
+.green_wine{
+    position: absolute;
+    left:18%;
+    top:35%;
+    z-index: 0;
+    height:50%;
+}
+
+
+
+.footer_top{
+    position: absolute;
+    top:5349px;
+    left:0px;
+    width:100%;
+    height:157.5px;
+
+    background-color:#568890;
+}
+.footer_bottom{
+    position: absolute;
+    top:5506.5px;
+    left:0px;
+    width:100%;
+    height:60.75px;
+
+    background-color:#151515;
+    text-align: center;
+    color: white;
+    font-size:15px;
+    padding-top: 27px;
+    font-family:"Gill Sans MT";
+    letter-spacing: 2px;
+}
+.footer_ul {
+    position:absolute;
+    top:5419.5px;
+    left:0px;
+    width:50%;
+    width:50%;
+    
+    padding:0px;
+    
+    text-align: center;
+}
+
+.footer_ul li{
+    margin-left:3%;
+    margin-right:3%;
+}
+
+.footer_li1{
+    list-style-type: none;
+    font-size:2.8vh;
+    display: inline-block;
+    font-family:"Gill Sans MT Bold";
+    
+    letter-spacing:2px;
+
+    color: white;
+    
+    cursor: pointer;  
+}
+.footer_li2{
+    list-style-type: none;
+    font-size:2.8vh;
+    display: inline-block;
+    font-family:"Gill Sans MT Bold";
+    
+    letter-spacing:2px;
+
+    color: white;
+    
+    cursor: pointer;  
+}
+.footer_li3{
+    list-style-type: none;
+    font-size:2.8vh;
+    display: inline-block;
+    font-family:"Gill Sans MT Bold";
+    
+    letter-spacing:2px;
+
+    color: white;
+    
+    cursor: pointer;   
+}
+.footer_li4{
+    list-style-type: none;
+    font-size:2.8vh;
+    display: inline-block;
+    font-family:"Gill Sans MT Bold";
+    
+    letter-spacing:2px;
+
+    color: white;
+    
+    cursor: pointer;  
+}
+
+.footer_text {
+    position:absolute;
+    list-style-type: none;
+    display:flex;
+    padding:0;
+    top:5319px;
+    right:0;
+    width:50%;
+    height:210px;
+    font-size: 2vh;
+    
+}
+
+.footer_text li{
+    width:100%;
+    display:flex;
+    
+    justify-content: left;
+    text-align: center;
+    align-items: center;
+    
+}
+
+
+.open_ul{
+    position: relative;;
+    
+   
+    color: white;
+    font-family:"Gill Sans MT Bold";
+    letter-spacing:2px;
+    list-style-type: none;
+    text-align: left;
+    padding:0px;
+    
+    
+}
+
+.reser_ul {
+    position:relative;
+    
+   
+    color: white;
+    font-family:"Gill Sans MT Bold";
+    letter-spacing:2px;
+    list-style-type: none;
+    text-align: left;
+    padding:0px;
+    
+}
+
+.open_li {
+    margin:0;
+    padding-top:5%;
+    width:100%;
+}
+
+
+    .footer_li1 { font-size:2.3vh; }
+    .footer_li2 { font-size:2.3vh; }
+    .footer_li3 { font-size:2.3vh; }
+    .footer_li4 { font-size:2.3vh; }
+    .footer_text { font-size:1.5vh;} 
