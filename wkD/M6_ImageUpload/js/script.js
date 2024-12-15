@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   // Initialize Firebase
   firebase.initializeApp({
     apiKey: "AIzaSyAQKwxMuQhIurwq1M9hNElD3-k_wr2mSQk",
@@ -16,36 +15,13 @@ $(document).ready(function () {
 
   // Declare variables
   let filePath;
-  
 
   // REGISTER JQUERY EVENTS
-  $('#input-file').change(setFilePath);
-  $('#imageUpload').change(setFilePath);
-  $('#btnUpload').click(uploadImage);
-  $('#avatar-label').on('dragover', onDragOver);
-  $('#avatar-label').on('dragleave', onDragLeave);
-  $('#avatar-label').on('drop', onDrop);
-
-  function onDragOver(ev) {
-    ev.preventDefault();
-    $('#avatar-label').addClass("opacity06")
-  }
-
-  function onDragLeave(ev) {
-    ev.preventDefault();
-    $('#avatar-label').removeClass("opacity06")
-  }
-
-  function onDrop(ev) {
-    ev.preventDefault();
-    $('#avatar-label').removeClass("opacity06")
-    filePath = ev.originalEvent.dataTransfer.files[0];
-    $('.input-label').html(`Select your file: ${filePath.name}`);
-  }
+  $("#input-file").change(setFilePath);
+  $("#btnUpload").click(uploadImage);
 
   function setFilePath() {
     filePath = this.files[0];
-    $('.input-label').html(`Select your file: ${filePath.name}`);
   }
 
   function uploadImage() {
@@ -65,6 +41,8 @@ $(document).ready(function () {
         .then((docRef) => {
           $("#btnUpload").html("Upload");
           console.log(`Image uploaded successfully! Document ID: ${docRef.id}`);
+          // Set image preview with Base64 string
+          $("#img-preview").attr("src", `data:image/png;base64,${base64String}`);
 
         })
         .catch((error) => {
@@ -76,5 +54,4 @@ $(document).ready(function () {
     // Read file as Data URL
     reader.readAsDataURL(filePath);
   }
-
 });

@@ -2,50 +2,58 @@ $(document).ready(function () {
 
   // Initialize Firebase
   firebase.initializeApp({
-    apiKey: "AIzaSyBBixpAodVLz3GxDGQooTYYjUUXeyu9bzA",
-    authDomain: "f2e2021-44d38.firebaseapp.com",
-    projectId: "f2e2021-44d38",
-    storageBucket: "f2e2021-44d38.appspot.com",
-    messagingSenderId: "657878254604",
-    appId: "1:657878254604:web:50f895d5225f3006c81a29",
+    apiKey: "AIzaSyAQKwxMuQhIurwq1M9hNElD3-k_wr2mSQk",
+    authDomain: "f2e2024.firebaseapp.com",
+    projectId: "f2e2024",
+    storageBucket: "f2e2024.firebasestorage.app",
+    messagingSenderId: "285513778962",
+    appId: "1:285513778962:web:8713c63655e4d9414c55cb",
   });
 
-  // REFERENCE FIREBASE STORAGE
-  let storageRef = firebase.storage().ref();
+  // REFERENCE FIREBASE DATABASE
+  const db = firebase.firestore();
+  const imageCollectionRef = db.collection("images");
 
   // Declare variables
   let filePath;
 
-  // REGISTER JQUERY EVENTS
+  // REGISTER JQUERY EVENTS
   $('#input-file').change(setFilePath);
   $('#imageUpload').change(setFilePath);
-  $('#btnUpload').click(uploadFile);
+  $('#btnUpload').click(uploadImage);
 
   function setFilePath() {
     filePath = this.files[0];
     $('.input-label').append(filePath.name);
   }
 
-  function uploadFile() {
-    $('#btnUpload').html(`<span class = "spinner-border spinner-border-sm"></span>`);
-  
-    // REFERENCE UPLOAD FILE
-    let fileRef = storageRef.child(`uploadFiles/${filePath.name}`);
-  
-    // UPLOAD FILE TO FIRESTORAGE
-    fileRef.put(filePath)
-      .then(function (snapshot) {
-        return snapshot.ref.getDownloadURL(); 
-      })
-      .then(function (downloadURL) {
-        $('#btnUpload').html('Upload');
-        $('#upload-filename').html(`<a href="${downloadURL}">${filePath.name}</a> has been uploaded`)
-        $('.input-label').html('Select your file:')
-      })
-      .catch(function (error) {
-        $('#btnUpload').html('Upload');
-        console.log(`Failed to upload file and get link - ${error}`);
-      });
+  function uploadImage() {
+    $("#btnUpload").html(
+      `<span class = "spinner-border spinner-border-sm"></span>`
+    );
+    // Convert File to Base64
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const base64String = event.target.result.split(",")[1];
+      imageCollectionRef
+        .add({
+          name: filePath.name,
+          base64: base64String,
+          uploadedAt: Date.now(),
+        })
+        .then((docRef) => {
+          $("#btnUpload").html("Upload");
+          console.log(`Image uploaded successfully! Document ID: ${docRef.id}`);
+
+        })
+        .catch((error) => {
+          $("#btnUpload").html("Upload");
+          console.log(`Failed to upload file - ${error}`);
+        });
+    };
+
+    // Read file as Data URL
+    reader.readAsDataURL(filePath);
   }
 
 });
