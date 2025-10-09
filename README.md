@@ -1,5 +1,5 @@
 # 前端工程課程資料 [投影片下載](https://drive.google.com/drive/folders/1iEO3tf80wj9RVmXT_xp6PEhKc488y74N?usp=sharing)
-## [上課影片](https://bigdata.nccu.edu.tw/t/topic/714)
+## [上課影片](https://www.openedu.tw/course?id=837)
 
 ## [學生作品](https://ntue-arduino-lab.github.io/f2e-student-works/?fbclid=IwAR0neaWZBCRY-y6iIDqmWZjrTNNv0jTEkWb3L5ydtCQxdpJHuZ35-ZzPhY4)
 ----
