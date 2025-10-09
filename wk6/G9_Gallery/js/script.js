@@ -12,10 +12,10 @@ $(document).ready(function () {
   $(".gallery__item")
     .on("mouseenter", function () {
       // Fade in overlay
-      $(this).children(".overlay").fadeIn(800);
+      $(this).children(".overlay").slideDown(800);
     })
     .on("mouseleave", function () {
       // Fade out overlay
-      $(this).children(".overlay").fadeOut(500);
+      $(this).children(".overlay").slideUp(500);
     });
 });
