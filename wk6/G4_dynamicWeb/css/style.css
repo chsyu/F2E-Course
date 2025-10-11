@@ -21,8 +21,29 @@
   text-transform: uppercase;
 }
 
+.content {
+  position: relative;
+}
+
 .more {
   font-style: italic;
   color: gray;
   cursor: pointer
+}
+
+.collapse {
+  position: absolute;
+  right: 0;
+  bottom: -1rem;
+  color: rgb(188, 186, 186);
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 100%;
+}
+
+.collapse:hover {
+  background-color: #f0f0f0;
+  color: #535252;
 }
