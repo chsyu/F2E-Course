@@ -1,46 +1,42 @@
 /* Custom Fonts */
 @font-face {
 	font-family: 'PTSans';
-	src: 	url('fonts/PT-Sans.eot');
-   src: 	url('fonts/PT-Sans.eot?#iefix') format('embedded-opentype'),
-      	url('fonts/PT-Sans.woff') format('woff'),
-         url('fonts/PT-Sans.ttf') format('truetype'),
-         url('fonts/PT-Sans.svg#pt_sansregular') format('svg');
+	src: url('fonts/PT-Sans.woff2') format('woff2'),
+			url('fonts/PT-Sans.woff') format('woff'),
+			url('fonts/PT-Sans.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
 	font-family: 'PTSans';
-	src: 	url('fonts/PT-Sans-Bold.eot');
-   src: 	url('fonts/PPT-Sans-Bold.eot?#iefix') format('embedded-opentype'),
-         url('fonts/PT-Sans-Bold.woff') format('woff'),
-         url('fonts/PT-Sans-Bold.ttf') format('truetype'),
-         url('fonts/PT-Sans-Bold.svg#pt_sansbold') format('svg');
+	src: url('fonts/PT-Sans-Bold.woff2') format('woff2'),
+			url('fonts/PT-Sans-Bold.woff') format('woff'),
+			url('fonts/PT-Sans-Bold.ttf') format('truetype');
 	font-weight: bold;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
 	font-family: 'PTSans';
-	src: 	url('fonts/PT-Sans-Italic.eot');
-   src: 	url('fonts/PPT-Sans-Italic.eot?#iefix') format('embedded-opentype'),
-         url('fonts/PT-Sans-Italic.woff') format('woff'),
-         url('fonts/PT-Sans-Italic.ttf') format('truetype'),
-         url('fonts/PT-Sans-Italic.svg#pt_sansitalic') format('svg');
+	src: url('fonts/PT-Sans-Italic.woff2') format('woff2'),
+			url('fonts/PT-Sans-Italic.woff') format('woff'),
+			url('fonts/PT-Sans-Italic.ttf') format('truetype');
 	font-weight: normal;
 	font-style: italic;
+	font-display: swap;
 }
 
 @font-face {
 	font-family: 'PTSans';
-	src: 	url('fonts/PT-Sans-BoldItalic.eot');
-   src: 	url('fonts/PPT-Sans-BoldItalic.eot?#iefix') format('embedded-opentype'),
-         url('fonts/PT-Sans-BoldItalic.woff') format('woff'),
-         url('fonts/PT-Sans-BoldItalic.ttf') format('truetype'),
-         url('fonts/PT-Sans-BoldItalic.svg#pt_sansbold_italic') format('svg');
+	src: url('fonts/PT-Sans-BoldItalic.woff2') format('woff2'),
+			url('fonts/PT-Sans-BoldItalic.woff') format('woff'),
+			url('fonts/PT-Sans-BoldItalic.ttf') format('truetype');
 	font-weight: bold;
 	font-style: italic;
+	font-display: swap;
 }
 
 html {
@@ -77,13 +73,12 @@ a {
 	display: none;
 }
 
-/* PAGE WRAPPER */
-
-.page-wrapper {
-	height: 100dvh;
-	display: flex;
-	flex-direction: column;
+.vh100 {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100vh;
 }
+
 
 /* Main Column Typography */
 
@@ -275,7 +270,6 @@ a {
 	background-color: #FFF;
 	padding-bottom: 40px;
 	padding-top: 20px;
-	flex: 1;
 }
 
 @media screen and (min-width: 767px) {
@@ -326,81 +320,68 @@ a {
 	text-align: center;
 	font-size: 85%;
 	color: #FFF;
-	background-color: #608699;
 	padding-bottom: 20px;
 	padding-top: 20px;
 }
 
-/* Grid Style */
-.row {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0 -20px;
+/* Layout with Grid Areas */
+
+.layout__main { grid-area: main; }
+.layout__img-1 { grid-area: img1; }
+.layout__img-2 { grid-area: img2; }
+.layout__feat-1 { grid-area: feat1; }
+.layout__feat-2 { grid-area: feat2; }
+.layout__feat-3 { grid-area: feat3; }
+.layout__feat-4 { grid-area: feat4; }
+.layout__sidebar { grid-area: sidebar;}
+
+
+.layout {
+	display: grid;
+	grid-gap: 20px;
+	margin-bottom: 20px;
+	grid-template-areas:
+		"main"
+		"sidebar";
+	grid-template-columns: 1fr;
 }
 
-.col {
-	width: 100%;
-	padding: 0 20px;
+.layout__content {
+	display: grid;
+	grid-gap: 20px;
+	margin-bottom: 20px;
+	grid-template-areas:
+		"feat1 feat1"
+		"feat2 feat2"
+		"feat3 feat3"
+		"feat4 feat4"
+		"img1 img2";
+	grid-template-columns: 1fr 1fr;
 }
-
-.col-xs-11 {width: 91.662%}
-.col-xs-10 {width: 83.332%;}
-.col-xs-9 {width: 75%;}
-.col-xs-8 {width: 66.662%;}
-.col-xs-7 {width: 58.331%}
-.col-xs-6 {width: 50%;}
-.col-xs-5 {width: 41.662%}
-.col-xs-4 {width: 33.332%;}
-.col-xs-3 {width: 25%;}
-.col-xs-2 {width: 16.662%;}
-.col-xs-1 {width: 8.332%;}
 
 @media screen and (min-width: 768px) {
-
-	.col-sm-11 {width: 91.662%}
-	.col-sm-10 {width: 83.332%;}
-	.col-sm-9 {width: 75%;}
-	.col-sm-8 {width: 66.662%;}
-	.col-sm-7 {width: 58.331%}
-	.col-sm-6 {width: 50%;}
-	.col-sm-5 {width: 41.662%}
-	.col-sm-4 {width: 33.332%;}
-	.col-sm-3 {width: 25%;}
-	.col-sm-2 {width: 16.662%;}
-	.col-sm-1 {width: 8.332%;}
-
+	.layout__content {
+		grid-template-areas:
+			"feat1 feat2"
+			"feat3 feat4"
+			"img1  img2";
+		grid-template-columns: 1fr 1fr;
+	}
 }
 
-
 @media screen and (min-width: 1024px) {
-
-	.col-md-11 {width: 91.662%}
-	.col-md-10 {width: 83.332%;}
-	.col-md-9 {width: 75%;}
-	.col-md-8 {width: 66.662%;}
-	.col-md-7 {width: 58.331%}
-	.col-md-6 {width: 50%;}
-	.col-md-5 {width: 41.662%}
-	.col-md-4 {width: 33.332%;}
-	.col-md-3 {width: 25%;}
-	.col-md-2 {width: 16.662%;}
-	.col-md-1 {width: 8.332%;}
-
+	.layout {
+		grid-template-areas: "main sidebar";
+		grid-template-columns: 2fr 1fr;
+	}
 }
 
 @media screen and (min-width: 1280px) {
-
-	.col-lg-11 {width: 91.662%}
-	.col-lg-10 {width: 83.332%;}
-	.col-lg-9 {width: 75%;}
-	.col-lg-8 {width: 66.662%;}
-	.col-lg-7 {width: 58.331%}
-	.col-lg-6 {width: 50%;}
-	.col-lg-5 {width: 41.662%}
-	.col-lg-4 {width: 33.332%;}
-	.col-lg-3 {width: 25%;}
-	.col-lg-2 {width: 16.662%;}
-	.col-lg-1 {width: 8.332%;}
-
+	.layout__content {
+		grid-template-areas:
+			"feat1 feat2 feat3 feat4"
+			"img1  img1  img2  img2";
+		grid-template-columns: repeat(4, 1fr);
+	}
 }
 

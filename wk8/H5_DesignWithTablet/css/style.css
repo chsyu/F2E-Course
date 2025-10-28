@@ -1,46 +1,42 @@
 /* Custom Fonts */
 @font-face {
 	font-family: 'PTSans';
-	src: 	url('fonts/PT-Sans.eot');
-   src: 	url('fonts/PT-Sans.eot?#iefix') format('embedded-opentype'),
-      	url('fonts/PT-Sans.woff') format('woff'),
-         url('fonts/PT-Sans.ttf') format('truetype'),
-         url('fonts/PT-Sans.svg#pt_sansregular') format('svg');
+	src: url('fonts/PT-Sans.woff2') format('woff2'),
+			url('fonts/PT-Sans.woff') format('woff'),
+			url('fonts/PT-Sans.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
 	font-family: 'PTSans';
-	src: 	url('fonts/PT-Sans-Bold.eot');
-   src: 	url('fonts/PPT-Sans-Bold.eot?#iefix') format('embedded-opentype'),
-         url('fonts/PT-Sans-Bold.woff') format('woff'),
-         url('fonts/PT-Sans-Bold.ttf') format('truetype'),
-         url('fonts/PT-Sans-Bold.svg#pt_sansbold') format('svg');
+	src: url('fonts/PT-Sans-Bold.woff2') format('woff2'),
+			url('fonts/PT-Sans-Bold.woff') format('woff'),
+			url('fonts/PT-Sans-Bold.ttf') format('truetype');
 	font-weight: bold;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
 	font-family: 'PTSans';
-	src: 	url('fonts/PT-Sans-Italic.eot');
-   src: 	url('fonts/PPT-Sans-Italic.eot?#iefix') format('embedded-opentype'),
-         url('fonts/PT-Sans-Italic.woff') format('woff'),
-         url('fonts/PT-Sans-Italic.ttf') format('truetype'),
-         url('fonts/PT-Sans-Italic.svg#pt_sansitalic') format('svg');
+	src: url('fonts/PT-Sans-Italic.woff2') format('woff2'),
+			url('fonts/PT-Sans-Italic.woff') format('woff'),
+			url('fonts/PT-Sans-Italic.ttf') format('truetype');
 	font-weight: normal;
 	font-style: italic;
+	font-display: swap;
 }
 
 @font-face {
 	font-family: 'PTSans';
-	src: 	url('fonts/PT-Sans-BoldItalic.eot');
-   src: 	url('fonts/PPT-Sans-BoldItalic.eot?#iefix') format('embedded-opentype'),
-         url('fonts/PT-Sans-BoldItalic.woff') format('woff'),
-         url('fonts/PT-Sans-BoldItalic.ttf') format('truetype'),
-         url('fonts/PT-Sans-BoldItalic.svg#pt_sansbold_italic') format('svg');
+	src: url('fonts/PT-Sans-BoldItalic.woff2') format('woff2'),
+			url('fonts/PT-Sans-BoldItalic.woff') format('woff'),
+			url('fonts/PT-Sans-BoldItalic.ttf') format('truetype');
 	font-weight: bold;
 	font-style: italic;
+	font-display: swap;
 }
 
 html {
