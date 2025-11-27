@@ -1,49 +1,54 @@
-$(document).ready(function () {
-  // Register GSAP ScrollTrigger Plugin
+$(function () {
   gsap.registerPlugin(ScrollTrigger);
+  const $pinnedContainer = $(".pinned-slides-container");
+  const $slide1 = $(".slide-1");
+  const $slide2 = $(".slide-2");
 
-  // Set Pin Page
-  ScrollTrigger.create({
-    trigger: "#page1",
-    start: "top top",
-    pin: true,
-    pinSpacing: false,
-    snap: true,
-  }); 
-
-  // Set GSAP Timeline with Pin
-  let timeLine_page2 = new gsap.timeline({
+  const pinnedTimeline = gsap.timeline({
     scrollTrigger: {
-      trigger: "#page2",
-      yoyo: true,
-      pin: true, // pin the trigger element while active
-      start: "bottom bottom", // when the top of the trigger hits the top of the viewport
-      end: "100%", // end after scrolling 500px beyond the start
-      scrub: true,
-      markers: true,
-      id: "page2",
-      snap: true,
+      trigger: $pinnedContainer,
+      start: "top top",
+      end: "+=200%",
+      scrub: 1,
+      pin: true,
+      anticipatePin: 1,
     },
   });
-  timeLine_page2
-    .to("#block", 2, { backgroundColor: "red" })
-    .to("#block", 1, { x: $(window).width() - $("#block").width() }, 0)
-    .to("#block", 1, { x: 0 });
 
-  let timeLine_page3 = new gsap.timeline({
-    scrollTrigger: {
-      trigger: "#page3",
-      yoyo: true,
-      pin: true, // pin the trigger element while active
-      start: "bottom bottom", // when the top of the trigger hits the top of the viewport
-      end: "100%", // end after scrolling 500px beyond the start
-      scrub: true,
-      markers: true,
-      id: "page3",
-    },
-  });
-  timeLine_page3
-    .to("#page3-title", 2, { color: "red", fontSize: 100 })
+  pinnedTimeline
+    // A: slide1 文字淡入
+    .from(
+      $slide1.find(".parallax-content"),
+      {
+        opacity: 0,
+        y: 30,
+        duration: 0.2,
+        ease: "power2.out",
+      },
+      0
+    )
 
+    // B: slide2 整張從下方滑入
+    .from(
+      $slide2,
+      {
+        y: "100%",
+        duration: 0.2,
+        ease: "none",
+      },
+      0.45
+    )
 
-});
+    // C: slide2 文字淡入
+    .from(
+      $slide2.find(".parallax-content"),
+      {
+        opacity: 0,
+        y: 30,
+        duration: 0.3,
+        ease: "power2.out",
+      },
+      0.7
+    );
+
+})

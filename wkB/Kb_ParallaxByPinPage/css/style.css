@@ -1,49 +1,65 @@
-h1 {
-    font-family: sans-serif;
-    font-weight: 100;
-    font-size: 3em;
-}
-
-.page1 {
+.pinned-slides-container {
+    position: relative;
+    width: 100%;
     height: 100vh;
-    background-color: lightgray;
+    overflow: hidden;
+  }
+  
+  .pinned-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
-    justify-content: center;
     align-items: center;
-}
-
-.page2 {
-    height: 100vh;
-    background-color: lightyellow;
-}
-
-.page3 {
-    height: 100vh;
-    background-color: lightgreen;
-    display: flex;
     justify-content: center;
-    align-items: center;
-}
-
-.page4 {
-    height: 100vh;
-    background-color: lightblue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.title {
-    margin: 0;
-    padding: 0;
-    padding-top: 1em;
+    transform-origin: center center;
+  }
+  
+  .slide-1 {
+    z-index: 1;
+  }
+  
+  .slide-2 {
+    z-index: 2;
+  }
+  
+  
+  .parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    will-change: transform;
+  }
+  
+  .parallax-content {
+    position: relative;
+    z-index: 2;
     text-align: center;
-}
-
-.block {
-    margin-top: 40vh;
-    width: 300px;
-    height: 100px;
-    background-color: lightblue;
-}
-
+    color: white;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .pinned-slide .parallax-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.02em;
+  }
+  
+  .parallax-slogan {
+    font-size: 1rem;
+    opacity: 0.95;
+    line-height: 1.6;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  }

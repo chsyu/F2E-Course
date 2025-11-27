@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ScrollTrigger</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <script src="js/vendor/jquery-3.4.1.min.js"></script>
     <script src="js/vendor/gsap.min.js"></script>
     <script src="js/vendor/ScrollTrigger.min.js"></script>
     <script src="js/script.js"></script>
-
-</head>
-<body>
-    <div id="page1" class="panel page1">
-        <h1>Page 1</h1>
+  </head>
+  <body>
+    <div class="pinned-slides-container">
+      <div class="pinned-slide slide-1">
+        <div
+          class="parallax-bg"
+          style="
+            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80');
+          "
+        ></div>
+        <div class="parallax-content">
+          <h3 class="parallax-title">First Slide - Pinned</h3>
+          <p class="parallax-slogan">
+            This slide is pinned while text fades in. Scroll to see the next
+            slide slide up.
+          </p>
+        </div>
+      </div>
+      <div class="pinned-slide slide-2">
+        <div
+          class="parallax-bg"
+          style="
+            background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80');
+          "
+        ></div>
+        <div class="parallax-content">
+          <h3 class="parallax-title">Second Slide - Sliding Up</h3>
+          <p class="parallax-slogan">
+            This slide slides up from below while the first slide is pinned.
+            Then it gets pinned too.
+          </p>
+        </div>
+      </div>
     </div>
-    <div id="page2" class="panel page2">
-        <h1 class="title">This is a ScrollMagic Test Page</h1>
-        <div id="block" class="block">0</div>
-    </div>
-    <div id="page3" class="panel page3">
-        <h1 id="page3-title">Page 3</h1>
-    </div>
-    <div id="page4" class="panel page4">
-        <h1>Page 4</h1>
-    </div>
-</body>
-
+  </body>
 </html>

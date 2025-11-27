@@ -1,0 +1,48 @@
+body {
+    font-family: "Outfit", system-ui, sans-serif;
+    background-color: #020617;
+    color: var(--fg);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  .empty {
+    height: 40rem;
+  }
+  
+  .parallax-stage {
+    position: relative;
+    margin-top: 2rem;
+    height: 400px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: transparent;
+  }
+  
+  .parallax-layer {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+  }
+  
+  .parallax-layer.layer-back {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='800' height='600' fill='%23031223'/%3E%3Ccircle cx='180' cy='260' r='160' fill='%230ea5e9' opacity='0.35'/%3E%3Ccircle cx='620' cy='180' r='140' fill='%2338bdf8' opacity='0.25'/%3E%3Cpath d='M0 360 C180 280 620 420 800 340 L800 600 H0 Z' fill='%23015574' opacity='0.45'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .parallax-layer.layer-mid {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='800' height='600' fill='transparent'/%3E%3Cpath d='M-40 420 C160 300 360 520 580 420 C720 360 860 460 840 580 L-40 600 Z' fill='%23f472b6' opacity='0.38'/%3E%3Ccircle cx='240' cy='210' r='90' fill='%23fb7185' opacity='0.55'/%3E%3Ccircle cx='540' cy='280' r='120' fill='%2338bdf8' opacity='0.35'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: screen;
+  }
+  
+  .parallax-layer.layer-front {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='800' height='600' fill='transparent'/%3E%3Ccircle cx='180' cy='230' r='70' fill='%23f8fafc' opacity='0.9'/%3E%3Ccircle cx='520' cy='160' r='55' fill='%23bae6fd' opacity='0.95'/%3E%3Cpath d='M-60 480 C140 430 240 520 420 470 C640 406 760 520 860 470 L860 600 -60 600 Z' fill='%23e2e8f0' opacity='0.85'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: lighten;
+  }
