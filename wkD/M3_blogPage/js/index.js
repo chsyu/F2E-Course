@@ -1,22 +1,27 @@
 $(document).ready(function () {
   // 註冊 DOM 元素
   const $blogCardsContainer = $('#blogCardsContainer');
-  const $emptyState = $('#emptyState');
+
+  // 顯示空狀態
+  function showEmptyState() {
+    const emptyStateHtml = `
+      <div class="col-span-full text-center my-12">
+        <i class="fas fa-inbox text-6xl text-gray-400 mb-4"></i>
+        <h3 class="text-gray-600 text-xl mb-2">尚無文章</h3>
+        <p class="text-gray-500">目前沒有任何文章</p>
+      </div>
+    `;
+    $blogCardsContainer.html(emptyStateHtml);
+  }
 
   // 載入並顯示部落格
   function loadBlogs() {
-    // 檢查 blogsData 是否存在
-    if (typeof blogsData === 'undefined' || !Array.isArray(blogsData)) {
-      $emptyState.removeClass('hidden');
+    // 檢查 blogsData 是否存在、是否為陣列、或陣列是否為空
+    if (typeof blogsData === 'undefined' || !Array.isArray(blogsData) || blogsData.length === 0) {
+      showEmptyState();
       return;
     }
 
-    if (blogsData.length === 0) {
-      $emptyState.removeClass('hidden');
-      return;
-    }
-
-    $emptyState.addClass('hidden');
     $blogCardsContainer.html('');
 
     // 遍歷 blogsData 陣列，使用索引作為 ID
@@ -43,13 +48,7 @@ $(document).ready(function () {
     const cardHtml = `
       <div class="mb-6">
         <div class="group transition-all duration-300 cursor-pointer bg-white rounded-lg shadow-md overflow-hidden h-full flex flex-col">
-          ${blog.image ? `
-            <img src="${blog.image}" class="transition-transform duration-300  w-full h-48 object-cover" alt="${blog.title || ''}">
-          ` : `
-            <div class="w-full h-48 bg-gray-300 flex items-center justify-center">
-              <i class="fas fa-image text-5xl text-gray-400"></i>
-            </div>
-          `}
+          <img src="${blog.image}" class="transition-transform duration-300  w-full h-48 object-cover" alt="${blog.title || ''}">
           <div class="p-6 flex flex-col flex-grow">
             <div class="mb-3">
               <span class="inline-block bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">${blog.category || '未分類'}</span>

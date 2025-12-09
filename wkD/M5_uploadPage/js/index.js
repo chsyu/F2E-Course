@@ -6,7 +6,21 @@ $(document).ready(function () {
   // 註冊 DOM 元素
   const $blogCardsContainer = $('#blogCardsContainer');
   const $loadingIndicator = $('#loadingIndicator');
-  const $emptyState = $('#emptyState');
+
+  // 顯示空狀態
+  function showEmptyState() {
+    const emptyStateHtml = `
+      <div class="col-span-full text-center my-12">
+        <i class="fas fa-inbox text-6xl text-gray-400 mb-4"></i>
+        <h3 class="text-gray-600 text-xl mb-2">尚無文章</h3>
+        <p class="text-gray-500 mb-4">請先上傳blog資料</p>
+        <a href="upload.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg transition duration-300 transform hover:-translate-y-1 shadow-md">
+          <i class="fas fa-upload"></i> 前往上傳頁面
+        </a>
+      </div>
+    `;
+    $blogCardsContainer.html(emptyStateHtml);
+  }
 
   // 載入並顯示部落格
   function loadBlogs() {
@@ -18,11 +32,10 @@ $(document).ready(function () {
           $loadingIndicator.addClass('hidden');
 
           if (querySnapshot.empty) {
-            $emptyState.removeClass('hidden');
+            showEmptyState();
             return;
           }
 
-          $emptyState.addClass('hidden');
           $blogCardsContainer.html('');
 
           querySnapshot.forEach((doc) => {
@@ -67,13 +80,7 @@ $(document).ready(function () {
     const cardHtml = `
       <div class="mb-6">
         <div class="group transition-all duration-300 cursor-pointer bg-white rounded-lg shadow-md overflow-hidden h-full flex flex-col">
-          ${blog.image ? `
-            <img src="${blog.image}" class="transition-transform duration-300  w-full h-48 object-cover" alt="${blog.title || ''}">
-          ` : `
-            <div class="w-full h-48 bg-gray-300 flex items-center justify-center">
-              <i class="fas fa-image text-5xl text-gray-400"></i>
-            </div>
-          `}
+          <img src="${blog.image}" class="transition-transform duration-300  w-full h-48 object-cover" alt="${blog.title || ''}">
           <div class="p-6 flex flex-col flex-grow">
             <div class="mb-3">
               <span class="inline-block bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">${blog.category || '未分類'}</span>
