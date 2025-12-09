@@ -43,24 +43,22 @@
   <!-- Navigation -->
   <nav class="bg-gray-800 text-white shadow-lg">
     <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between h-16">
-        <a href="index.html" class="font-serif font-bold text-xl">
-          <i class="fas fa-fire"></i> FireBlog
-        </a>
-        <button id="mobileMenuBtn" class="md:hidden text-white focus:outline-none">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div id="navbarNav" class="hidden md:flex md:items-center md:space-x-4">
-          <a href="upload.html" class="transition-colors duration-300 hover:text-yellow-400 px-3 py-2 rounded-md text-sm font-medium bg-gray-700">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+        <!-- 第一行：Logo 和漢堡選單按鈕 -->
+        <div class="flex items-center justify-between h-16 md:h-auto">
+          <a href="index.html" class="font-serif font-bold text-xl">
+            <i class="fas fa-fire"></i> FireBlog
+          </a>
+          <button id="mobileMenuBtn" class="md:hidden text-white focus:outline-none">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <!-- 共用導覽列：桌機版水平排列在第一行，手機版垂直排列在下方 -->
+        <div id="navbarNav" class="hidden md:flex md:items-center md:space-x-4 md:py-4 pb-4 flex-col md:flex-row">
+          <a href="upload.html" class="transition-colors duration-300 hover:text-yellow-400 px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">
             <i class="fas fa-upload"></i> 上傳
           </a>
         </div>
-      </div>
-      <!-- Mobile menu -->
-      <div id="mobileMenu" class="hidden md:hidden pb-4">
-        <a href="upload.html" class="block transition-colors duration-300 hover:text-yellow-400 px-3 py-2 rounded-md text-base font-medium bg-gray-700">
-          <i class="fas fa-upload"></i> 上傳
-        </a>
       </div>
     </div>
   </nav>

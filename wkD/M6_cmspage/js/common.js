@@ -4,9 +4,9 @@
  */
 
 $(document).ready(function () {
-  // Mobile menu toggle
+  // Mobile menu toggle - 切換導覽列的顯示/隱藏
   $('#mobileMenuBtn').on('click', function () {
-    $('#mobileMenu').toggleClass('hidden');
+    $('#navbarNav').toggleClass('hidden');
   });
 });
 
