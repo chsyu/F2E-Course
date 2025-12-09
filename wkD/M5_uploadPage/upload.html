@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>上傳 Blog - FireBlog</title>
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Firebase App is always required and must be first -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+  <!-- Add additional services that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js"></script>
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+
+  <!-- Firebase 設定檔（必須在其他使用 Firebase 的腳本之前載入） -->
+  <script src="js/firebaseConfig.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+  <!-- 部落格資料 -->
+  <script src="js/blogs.js"></script>
+  <!-- Common JS (共用互動功能) -->
+  <script src="js/common.js"></script>
+  <!-- Custom JS/CSS -->
+  <script src="js/upload.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="min-h-screen flex flex-col">
+  <!-- Navigation -->
+  <nav class="bg-gray-800 text-white shadow-lg">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="font-serif font-bold text-xl">
+          <i class="fas fa-fire"></i> FireBlog
+        </a>
+        <button id="mobileMenuBtn" class="md:hidden text-white focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div id="navbarNav" class="hidden md:flex md:items-center md:space-x-4">
+          <a href="upload.html" class="transition-colors duration-300 hover:text-yellow-400 px-3 py-2 rounded-md text-sm font-medium bg-gray-700">
+            <i class="fas fa-upload"></i> 上傳
+          </a>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden md:hidden pb-4">
+        <a href="upload.html" class="block transition-colors duration-300 hover:text-yellow-400 px-3 py-2 rounded-md text-base font-medium bg-gray-700">
+          <i class="fas fa-upload"></i> 上傳
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow">
+    <div class="container mx-auto px-4 mt-8 mb-8">
+      <div class="max-w-2xl mx-auto">
+        <!-- 標題 -->
+        <div class="mb-8 text-center">
+          <h1 class="text-3xl md:text-4xl font-bold mb-2">
+            <i class="fas fa-upload"></i> 上傳 Blog 資料
+          </h1>
+          <p class="text-gray-600">上傳部落格文章到 Firestore 資料庫</p>
+        </div>
+
+        <!-- 上傳區域 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div class="p-6">
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+              <i class="fas fa-info-circle text-blue-500"></i>
+              <span class="ml-2 text-blue-700 text-sm">點擊下方按鈕即可上傳blogs.js內的部落格文章到 Firestore 資料庫</span>
+            </div>
+
+            <!-- Loading spinner -->
+            <div id="loadingIndicator" class="text-center my-6 hidden">
+              <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+              <p class="mt-4 text-gray-600">上傳中...</p>
+            </div>
+
+            <div id="uploadStatus" class="mb-6"></div>
+
+            <button type="button" 
+                    id="uploadBtn" 
+                    class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:-translate-y-1 shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+              <i class="fas fa-cloud-upload-alt"></i> 上傳到 Firestore
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white">
+    <div class="container mx-auto px-4 py-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+        <!-- 左側：品牌和文字（手機版置中，桌機版靠左） -->
+        <div class="text-center md:text-left mb-6 md:mb-0">
+          <div class="mb-2">
+            <a href="index.html" class="font-serif font-bold text-xl inline-block">
+              <i class="fas fa-fire"></i> FireBlog
+            </a>
+          </div>
+          <p class="text-gray-400 text-sm mb-2">分享知識，傳遞價值</p>
+          <p class="text-gray-500 text-xs">© 2024 FireBlog. All rights reserved.</p>
+        </div>
+        
+        <!-- 右側：社群媒體圖示（手機版置中，桌機版靠右） -->
+        <div class="flex justify-center md:justify-end space-x-6">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors text-2xl" title="Facebook">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-300 transition-colors text-2xl" title="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-pink-400 transition-colors text-2xl" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.github.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-200 transition-colors text-2xl" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-500 transition-colors text-2xl" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog 文章 - FireBlog</title>
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Firebase App is always required and must be first -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+  <!-- Add additional services that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js"></script>
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+
+  <!-- Firebase 設定檔（必須在其他使用 Firebase 的腳本之前載入） -->
+  <script src="js/firebaseConfig.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+  <!-- Common JS (共用互動功能) -->
+  <script src="js/common.js"></script>
+  <!-- Custom JS/CSS -->
+  <script src="js/blog.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="min-h-screen flex flex-col">
+  <!-- Navigation -->
+  <nav class="bg-gray-800 text-white shadow-lg">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="font-serif font-bold text-xl">
+          <i class="fas fa-fire"></i> FireBlog
+        </a>
+        <button id="mobileMenuBtn" class="md:hidden text-white focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div id="navbarNav" class="hidden md:flex md:items-center md:space-x-4">
+          <a href="upload.html" class="transition-colors duration-300 hover:text-yellow-400 px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">
+            <i class="fas fa-upload"></i> 上傳
+          </a>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden md:hidden pb-4">
+        <a href="upload.html" class="block transition-colors duration-300 hover:text-yellow-400 px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700">
+          <i class="fas fa-upload"></i> 上傳
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow">
+    <div class="container mx-auto px-4 mt-8 mb-8">
+      <!-- Loading indicator -->
+      <div id="loadingIndicator" class="text-center my-12">
+        <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <p class="mt-4 text-gray-600">載入文章中...</p>
+      </div>
+
+      <!-- Error message -->
+      <div id="errorMessage" class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg hidden">
+        <i class="fas fa-exclamation-circle"></i> <span id="errorText"></span>
+      </div>
+
+      <!-- Blog content -->
+      <div id="blogContent" class="hidden">
+        <div class="max-w-4xl mx-auto">
+
+          <!-- Blog article -->
+          <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Blog image -->
+            <div id="blogImageContainer"></div>
+
+            <div class="p-8 md:p-12">
+              <!-- Category badge -->
+              <div class="mb-4">
+                <span id="blogCategory" class="inline-block bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium"></span>
+              </div>
+
+              <!-- Title -->
+              <h1 id="blogTitle" class="text-3xl md:text-4xl font-bold mb-6 text-gray-800"></h1>
+
+              <!-- Meta information -->
+              <div class="flex flex-wrap items-center gap-4 mb-6 text-gray-600">
+                <div class="flex items-center">
+                  <i class="fas fa-user mr-2"></i>
+                  <span id="blogAuthor"></span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-calendar mr-2"></i>
+                  <span id="blogDate"></span>
+                </div>
+              </div>
+
+              <hr class="my-6 border-gray-300">
+
+              <!-- Content -->
+              <div id="blogContentText"></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white">
+    <div class="container mx-auto px-4 py-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+        <!-- 左側：品牌和文字（手機版置中，桌機版靠左） -->
+        <div class="text-center md:text-left mb-6 md:mb-0">
+          <div class="mb-2">
+            <a href="index.html" class="font-serif font-bold text-xl inline-block">
+              <i class="fas fa-fire"></i> FireBlog
+            </a>
+          </div>
+          <p class="text-gray-400 text-sm mb-2">分享知識，傳遞價值</p>
+          <p class="text-gray-500 text-xs">© 2024 FireBlog. All rights reserved.</p>
+        </div>
+        
+        <!-- 右側：社群媒體圖示（手機版置中，桌機版靠右） -->
+        <div class="flex justify-center md:justify-end space-x-6">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors text-2xl" title="Facebook">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-300 transition-colors text-2xl" title="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-pink-400 transition-colors text-2xl" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.github.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-200 transition-colors text-2xl" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-500 transition-colors text-2xl" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
