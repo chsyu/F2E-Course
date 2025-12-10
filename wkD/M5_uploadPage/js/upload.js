@@ -10,13 +10,23 @@ $(document).ready(function () {
 
   // 處理上傳按鈕點擊
   $uploadBtn.on('click', function () {
-    // 顯示 spinner
-    $loadingIndicator.removeClass('hidden');
-    $uploadBtn.prop('disabled', true);
-    $uploadStatus.html('');
+    try {
+      // 顯示 spinner
+      $loadingIndicator.removeClass('hidden');
+      $uploadBtn.prop('disabled', true);
+      $uploadStatus.html('');
 
-    // 上傳部落格到 Firestore
-    uploadBlogs(blogsData);
+      // 上傳部落格到 Firestore
+      uploadBlogs(blogsData);
+    } catch (error) {
+      $loadingIndicator.addClass('hidden');
+      $uploadBtn.prop('disabled', false);
+      $uploadStatus.html(`
+        <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+          <i class="fas fa-times-circle"></i> 上傳時發生錯誤：${error.message}
+        </div>
+      `);
+    }
   });
 
   // 上傳部落格到 Firestore

@@ -24,35 +24,42 @@ $(document).ready(function () {
 
   // 載入並顯示部落格
   function loadBlogs() {
-    $loadingIndicator.removeClass('hidden'); // 開始載入時顯示 spinner
-    
-    blogsRef
-      .orderBy('createdAt', 'desc')
-      .get()
-      .then((querySnapshot) => {
-        $loadingIndicator.addClass('hidden'); // 載入完成後隱藏 spinner
+    try {
+      blogsRef
+        .orderBy('createdAt', 'desc')
+        .get()
+        .then((querySnapshot) => {
+          $loadingIndicator.addClass('hidden');
 
-        if (querySnapshot.empty) {
-          showEmptyState();
-          return;
-        }
+          if (querySnapshot.empty) {
+            showEmptyState();
+            return;
+          }
 
-        $blogCardsContainer.html('');
+          $blogCardsContainer.html('');
 
-        querySnapshot.forEach((doc) => {
-          const blog = doc.data();
-          const blogId = doc.id;
-          createBlogCard(blog, blogId);
+          querySnapshot.forEach((doc) => {
+            const blog = doc.data();
+            const blogId = doc.id;
+            createBlogCard(blog, blogId);
+          });
+        })
+        .catch((error) => {
+          $loadingIndicator.addClass('hidden');
+          $blogCardsContainer.html(`
+            <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+              <i class="fas fa-exclamation-circle"></i> 載入文章時發生錯誤：${error.message}
+            </div>
+          `);
         });
-      })
-      .catch((error) => {
-        $loadingIndicator.addClass('hidden');
-        $blogCardsContainer.html(`
-          <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-            <i class="fas fa-exclamation-circle"></i> 載入文章時發生錯誤：${error.message}
-          </div>
-        `);
-      });
+    } catch (error) {
+      $loadingIndicator.addClass('hidden');
+      $blogCardsContainer.html(`
+        <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+          <i class="fas fa-exclamation-circle"></i> 載入文章時發生錯誤：${error.message}
+        </div>
+      `);
+    }
   }
 
   // 建立部落格卡片
