@@ -29,30 +29,27 @@ $(document).ready(function () {
       showError('缺少文章ID參數');
       return;
     }
+    
+    $loadingIndicator.removeClass('hidden'); // 開始載入時顯示 spinner
 
-    try {
-      blogsRef
-        .doc(blogId)
-        .get()
-        .then((doc) => {
-          $loadingIndicator.addClass('hidden');
+    blogsRef
+      .doc(blogId)
+      .get()
+      .then((doc) => {
+        $loadingIndicator.addClass('hidden'); // 載入完成後隱藏 spinner
 
-          if (!doc.exists) {
-            showError('找不到指定的文章');
-            return;
-          }
+        if (!doc.exists) {
+          showError('找不到指定的文章');
+          return;
+        }
 
-          const blog = doc.data();
-          displayBlog(blog);
-        })
-        .catch((error) => {
-          $loadingIndicator.addClass('hidden');
-          showError('載入文章時發生錯誤：' + error.message);
-        });
-    } catch (error) {
-      $loadingIndicator.addClass('hidden');
-      showError('載入文章時發生錯誤：' + error.message);
-    }
+        const blog = doc.data();
+        displayBlog(blog);
+      })
+      .catch((error) => {
+        $loadingIndicator.addClass('hidden');
+        showError('載入文章時發生錯誤：' + error.message);
+      });
   }
 
   // 格式化內容，加入適當的段落換行
