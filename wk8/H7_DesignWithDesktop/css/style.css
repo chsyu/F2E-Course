@@ -179,29 +179,19 @@ a {
 /* Site Navigation */
 .nav {
 	margin-top: 20px;
-}
-
-
-.nav__list {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 5px;
-	margin: 0;
-	padding: 0;
-}
-
-.nav__item {
-	list-style: none;
 }
 
 .nav__link {
-	display: block;
+	display: inline-block;
+	width: 100%;
 	color: #FFF;
 	background-color: #365267;
 	padding: 15px 0;
-	margin-right: 5px;
-	margin-bottom: 5px;
 	text-align: center;
+	box-sizing: border-box;
 }
 
 .nav__link:hover {
@@ -210,31 +200,22 @@ a {
 
 @media screen and (min-width: 768px) {
 
-	.nav__list {
+	.nav {
 		grid-template-columns: repeat(3, 1fr);
-	}
-
-	.nav__item {
-		margin-right: 0;
 	}
 
 }
 
 @media screen and (min-width: 1023px) {
 
-	.nav__list {
+	.nav {
 		display: flex;
-		grid-template-columns: none;	
-	}
-
-	.nav__item {
-		width: auto;
-		margin-right: 5px;
+		flex-wrap: wrap;
 	}
 
 	.nav__link {
+		width: auto;
 		padding: 10px 20px;
-		margin: 0px;
 		text-align: center;
 	}
 

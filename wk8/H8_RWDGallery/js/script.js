@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(".nav__list-item").hover(
+  $(".nav__item").hover(
     function () {
       //When trigger is hovered...
       $(this).children(".nav__list--submenu").slideDown("fast");

@@ -82,25 +82,17 @@ a {
 /* Navigation Style */
 .nav {
 	margin-top: 20px;
-}
-
-.nav__list {
 	display: flex;
 	flex-wrap: wrap;
-	margin: 0;
-	padding: 0;
-}
-
-.nav__item {
-	list-style: none;
-	margin-right: 5px;
+	gap: 5px;
 }
 
 .nav__link {
-	display: block;
+	display: inline-block;
 	color: #FFF;
 	padding: 10px 20px;
 	background-color: #536036;
+	box-sizing: border-box;
 }
 
 .nav__link:hover {
@@ -109,15 +101,9 @@ a {
 
 @media screen and (max-width: 768px) {
 
-	.nav__item {
-		width: 33.332%;
-		margin-right: 0;
-	}
-
 	.nav__link {
+		width: calc((100% - 10px) / 3);
 		padding: 15px 0;
-		margin-right: 5px;
-		margin-bottom: 5px;
 		text-align: center;
 	}
 
@@ -125,8 +111,8 @@ a {
 
 @media screen and (max-width: 480px) {
 
-	.nav__item {
-		width: 50%;
+	.nav__link {
+		width: calc((100% - 5px) / 2);
 	}
 
 }

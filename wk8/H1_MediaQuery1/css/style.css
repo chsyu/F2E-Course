@@ -82,22 +82,13 @@ a {
 /* Navigation Style */
 .nav {
 	margin-top: 20px;
-}
-
-.nav__list {
 	display: flex;
 	flex-wrap: wrap;
-	margin: 0;
-	padding: 0;
-}
-
-.nav__item {
-	list-style: none;
-	margin-right: 5px;
+	gap: 5px;
 }
 
 .nav__link {
-	display: block;
+	display: inline-block;
 	color: #FFF;
 	padding: 10px 20px;
 	background-color: #536036;

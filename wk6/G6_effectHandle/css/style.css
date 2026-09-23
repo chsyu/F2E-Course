@@ -67,8 +67,7 @@ body {
 
 .nav__list {
 	display: flex;
-	margin: 0;
-	padding: 0;
+	gap: 5px;
 }
 
 .nav__list--submenu {
@@ -83,12 +82,10 @@ body {
 
 .nav__list-item {
 	background-color: #fff;
-	list-style: none;
-	margin-right: 5px;
 }
 
 .nav__list-item-link {
-	display: block;
+	display: inline-block;
 	color: #617140;
 	text-decoration: none;
 	padding: 10px 20px;

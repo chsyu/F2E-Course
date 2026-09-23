@@ -42,15 +42,15 @@ body {
 	display: flex;
 	border-top: 3px solid #e5e9dc;
 	border-bottom: 3px solid #e5e9dc;
+	gap: 40px;
 }
 
 .main-area {
-	width: 66%;
-	padding-right: 40px;
+	flex: 2;
 }
 
 .sidebar {
-	width: 34%;
+	flex: 1;
 	background-color: #e5e9dc;
 	padding: 20px 40px;
 	font-size: 85%;

@@ -205,24 +205,22 @@ a {
 .nav__list {
 	display: none;
 	flex-wrap: wrap;
+	gap: 5px;
 	margin: 0;
 	padding: 0;
 }
 
 .menu-click {
-	display: block;
-}
-
-.nav__item {
-	list-style: none;
+	display: flex;
 }
 
 .nav__link {
-	display: block;
+	display: inline-block;
 	color: #FFF;
 	background-color: #365267;
 	padding: 15px 0;
 	text-align: center;
+	box-sizing: border-box;
 }
 
 .nav__link:hover {
@@ -236,34 +234,21 @@ a {
 	}
 
 	.nav__list {
-		display: block;
 		display: flex;
 		flex-wrap: wrap;
 	}
 
-	.nav__item {
-		width: calc(100%/3);
-		margin-right: 0;
-	}
-
 	.nav__link {
-		margin-right: 5px;
-		margin-bottom: 5px;
-
+		width: calc((100% - 10px) / 3);
 	}
 
 }
 
 @media screen and (min-width: 1023px) {
 
-	.nav__item {
-		width: auto;
-		margin-right: 5px;
-	}
-
 	.nav__link {
+		width: auto;
 		padding: 10px 20px;
-		margin: 0px;
 		text-align: center;
 	}
 

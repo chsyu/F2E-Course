@@ -45,12 +45,8 @@ body {
 /* Navitation Bar Style */
 .nav {
 	margin-top: 20px;
-}
-
-.nav-list {
 	display: flex;
-	margin: 0;
-	padding: 0;
+	gap: 5px;
 	position: relative;
 }
 
@@ -70,13 +66,7 @@ body {
 
 
 .nav-item {
-	list-style: none;
-	margin-right: 5px;
 	position: relative;
-}
-
-.nav-mega {
-	list-style: none;
 }
 
 .nav-mega-wrap {
@@ -111,7 +101,15 @@ body {
 	margin-right: 5px;
 }
 
-.nav-link,
+.nav-link {
+	display: inline-block;
+	color: #617140;
+	text-decoration: none;
+	padding: 10px 20px;
+	border: 3px solid #e5e9dc;
+	border-bottom: none;
+}
+
 .nav-sublink {
 	display: block;
 	color: #617140;
@@ -146,17 +144,17 @@ body {
 	border-top: 3px solid #e5e9dc;
 	border-bottom: 3px solid #e5e9dc;
 	flex: 1;
+	gap: 40px;
 }
 
 /* Main-Area Style */
 .main-area {
-	width: 66%;
-	padding-right: 40px;
+	flex: 2;
 }
 
 /* SideBar Style */
 .sidebar {
-	width: 34%;
+	flex: 1;
 	background-color: #e5e9dc;
 	padding: 20px 40px;
 	font-size: 85%;

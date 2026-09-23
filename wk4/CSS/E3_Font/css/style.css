@@ -61,12 +61,8 @@ body {
 /* Navitation Bar Style */
 .nav {
 	margin-top: 20px;
-}
-
-.nav-list {
 	display: flex;
-	margin: 0;
-	padding: 0;
+	gap: 5px;
 	position: relative;
 }
 
@@ -85,13 +81,7 @@ body {
 
 
 .nav-item {
-	list-style: none;
-	margin-right: 5px;
 	position: relative;
-}
-
-.nav-mega {
-	list-style: none;
 }
 
 .nav-mega-wrap {
@@ -131,7 +121,7 @@ body {
 }
 
 .nav-link {
-	display: block;
+	display: inline-block;
 	color: #617140;
 	text-decoration: none;
 	padding: 10px 20px;

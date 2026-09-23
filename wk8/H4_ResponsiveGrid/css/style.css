@@ -121,29 +121,19 @@ a {
 /* Site Navigation */
 .nav {
 	margin-top: 20px;
-}
-
-.nav__list {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 5px;
-	margin: 0;
-	padding: 0;
-}
-
-.nav__item {
-	list-style: none;
-	width: 100%;
 }
 
 .nav__link {
-	display: block;
+	display: inline-block;
+	width: 100%;
 	color: #FFF;
 	background-color: #365267;
 	padding: 15px 0;
-	margin-right: 5px;
-	margin-bottom: 5px;
 	text-align: center;
+	box-sizing: border-box;
 }
 
 .nav__link:hover {

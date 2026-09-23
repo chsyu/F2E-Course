@@ -209,6 +209,7 @@ a {
 .nav__list {
 	display: none;
 	flex-wrap: wrap;
+	gap: 5px;
 	margin: 0;
 	padding: 0;
 	background-color: rgba(54, 82, 103, 0.95);
@@ -219,22 +220,18 @@ a {
 }
 
 .menu-click {
-	display: block;
-}
-
-.nav__item {
-	list-style: none;
-	position: relative;
+	display: flex;
 }
 
 .nav__link {
-	display: block;
+	display: inline-block;
 	color: #FFF;
 	padding: 16px 20px;
 	text-align: center;
 	position: relative;
 	font-weight: 500;
 	letter-spacing: 0.5px;
+	box-sizing: border-box;
 }
 
 .nav__link::before {
@@ -265,6 +262,7 @@ a {
 
 	.nav__list {
 		display: flex;
+		flex-wrap: wrap;
 		background-color: transparent;
 		backdrop-filter: none;
 		border-radius: 0;
@@ -272,14 +270,8 @@ a {
 		animation: none;
 	}
 
-	.nav__item {
-		width: calc(100%/3);
-		margin-right: 0;
-	}
-
 	.nav__link {
-		margin-right: 8px;
-		margin-bottom: 8px;
+		width: calc((100% - 10px) / 3);
 		border-radius: 8px;
 		background-color: rgba(54, 82, 103, 0.8);
 		backdrop-filter: blur(10px);
@@ -295,14 +287,9 @@ a {
 
 @media screen and (min-width: 1023px) {
 
-	.nav__item {
-		width: auto;
-		margin-right: 8px;
-	}
-
 	.nav__link {
+		width: auto;
 		padding: 12px 24px;
-		margin: 0;
 		text-align: center;
 		border-radius: 25px;
 		background-color: rgba(54, 82, 103, 0.6);

@@ -101,12 +101,13 @@ body {
 /* Navitation Bar Style */
 .nav {
 	margin-top: 20px;
+	display: flex;
+	gap: 5px;
 }
 
-.nav__list {
-	display: flex;
-	margin: 0;
-	padding: 0;
+.nav__item {
+	position: relative;
+	background-color: #fff;
 }
 
 .nav__list--submenu {
@@ -119,14 +120,8 @@ body {
 	z-index: 9999;
 }
 
-.nav__item {
-	background-color: #fff;
-	list-style: none;
-	margin-right: 5px;
-}
-
 .nav__link {
-	display: block;
+	display: inline-block;
 	color: #617140;
 	text-decoration: none;
 	padding: 10px 20px;
@@ -144,7 +139,7 @@ body {
 	border-bottom: none;
 }
 
-.nav__item:hover > .nav__llink {
+.nav__item:hover > .nav__link {
 	background-color: #e5e9dc;
 }
 

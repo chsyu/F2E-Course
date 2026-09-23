@@ -46,12 +46,8 @@ body {
 /* Navitation Bar Style */
 .nav {
 	margin-top: 20px;
-}
-
-.nav-list {
 	display: flex;
-	margin: 0;
-	padding: 0;
+	gap: 5px;
 }
 
 .nav-sublist {
@@ -67,13 +63,11 @@ body {
 }
 
 .nav-item {
-	list-style: none;
-	margin-right: 5px;
 	position: relative;
 }
 
 .nav-link {
-	display: block;
+	display: inline-block;
 	color: #617140;
 	text-decoration: none;
 	padding: 10px 20px;
@@ -96,17 +90,17 @@ body {
 	display: flex;
 	border-top: 3px solid #e5e9dc;
 	border-bottom: 3px solid #e5e9dc;
+	gap: 40px;
 }
 
 /* Main-Area Style */
 .main-area {
-	width: 66%;
-	padding-right: 40px;
+	flex: 2;
 }
 
 /* SideBar Style */
 .sidebar {
-	width: 34%;
+	flex: 1;
 }
 
 .sidebar-content {

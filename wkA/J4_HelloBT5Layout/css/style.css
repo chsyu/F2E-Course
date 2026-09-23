@@ -1,3 +1,13 @@
+.nav {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.nav__link {
+  display: inline-block;
+}
+
 .divider--light,
 .divider--heavy {
    max-width: 250px;

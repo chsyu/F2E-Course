@@ -17,11 +17,11 @@ html {
 }
 
 .main-area {
-	width: 66%;
+	flex: 2;
 }
 
 .sidebar {
-	width: 34%;
+	flex: 1;
 }
 
 .footer {

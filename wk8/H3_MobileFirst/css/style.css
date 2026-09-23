@@ -91,28 +91,19 @@ a {
 /* Navigation Style */
 .nav {
 	margin-top: 20px;
-}
-
-.nav__list {
 	display: flex;
 	flex-wrap: wrap;
-	margin: 0;
-	padding: 0;
-}
-
-.nav__item {
-	width: 50%;
-	list-style: none;
+	gap: 5px;
 }
 
 .nav__link {
-	display: block;
+	display: inline-block;
+	width: calc((100% - 5px) / 2);
 	color: #FFF;
 	padding: 15px 0;
-	margin-right: 5px;
-	margin-bottom: 5px;
 	text-align: center;
 	background-color: #536036;
+	box-sizing: border-box;
 }
 
 .nav__link:hover {
@@ -120,18 +111,14 @@ a {
 }
 
 @media screen and (min-width: 480px) {
-	.nav__item {
-		width: 33.332%;
+	.nav__link {
+		width: calc((100% - 10px) / 3);
 	}
 }
 
 @media screen and (min-width: 768px) {
-	.nav__item {
-		width: auto;
-		margin-right: 5px;
-	}
-
 	.nav__link {
+		width: auto;
 		padding: 10px 20px;
 	}
 }
