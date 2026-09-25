@@ -1,3 +1,13 @@
+/* Reset */
+body,
+h1,
+h2,
+p,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
 /* Custom Fonts */
 @font-face {
 	font-family: 'PTSans';
@@ -175,6 +185,7 @@ a {
 
 .header__slogan {
 	font-size: 90%;
+	padding-bottom: 14px;
 }
 
 /* Site Navigation - Modern Design */
@@ -310,6 +321,10 @@ a {
 	padding-top: 20px;
 }
 
+.content-area h2 {
+	padding-bottom: 20px;
+}
+
 @media screen and (min-width: 767px) {
 	.content-area {
 		padding-top: 40px;
@@ -328,6 +343,10 @@ a {
 	font-size: 85%;
 }
 
+.sidebar p {
+	padding-bottom: 14px;
+}
+
 .sidebar h3 {
 	font-size: 138.5%;
 	margin-bottom: 7px;
@@ -342,7 +361,7 @@ a {
 
 .box-a {
 	background-color: #e7eff5;
-	padding: 20px 20px 0 20px;
+	padding: 20px 20px 16px 20px;
 	border: 2px solid #d3dee7;
 	margin-bottom: 15px;
 }

@@ -1,3 +1,13 @@
+/* Reset */
+body,
+h1,
+h2,
+p,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
 /* General Style */
 html {
 	background-color: #fff;
@@ -46,6 +56,11 @@ a {
 .main-area__title {
 	font-size: 165%;
 	font-weight: normal;
+	padding-bottom: 21px;
+}
+
+.main-area__content {
+	padding-bottom: 15px;
 }
 
 .container {
@@ -163,7 +178,7 @@ a {
 .info-box {
 	background-color: #efeedb;
 	border: 5px solid #e6e5c2;
-	padding: 20px 40px 7px 40px;
+	padding: 20px 40px 22px 40px;
 	margin-bottom: 1em;
 }
 
@@ -174,7 +189,7 @@ a {
 	text-align: center;
 	font-size: 85%;
 	color: #FFF;
-	padding-bottom: 20px;
+	padding-bottom: 33px;
 	padding-top: 20px;
 }
 

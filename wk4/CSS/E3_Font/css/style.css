@@ -1,3 +1,13 @@
+/* Reset */
+body,
+h1,
+h2,
+p,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
 
 /*Custom font*/
 @font-face {
@@ -102,7 +112,7 @@ body {
 .nav-mega-sublist {
 	background-color: #e5e9dc;
 	margin: 0;
-	padding: 0;
+	padding: 0 0 14px;
 	width: 10rem;
 	display: none;
 }
@@ -113,6 +123,10 @@ body {
 	margin: 0;
 	padding-top: 1rem;
 	padding-left: 1rem;
+}
+
+.nav-mega-item {
+	padding-top: 14px;
 }
 
 .nav-mega-item-header::before {
@@ -149,11 +163,15 @@ body {
 .main-area {
 	width: 66%;
 	padding-right: 40px;
+	padding-top: 14px;
+	padding-bottom: 14px;
 }
 
 /*Banner Style*/
 .banner {
 	position: relative;
+	margin-top: 14px;
+	margin-bottom: 14px;
 }
 
 .banner-image {
@@ -193,6 +211,6 @@ body {
 	text-align: center;
 	font-size: 85%;
 	color: #999;
-	padding-bottom: 20px;
-	padding-top: 20px;
+	padding-bottom: 32px;
+	padding-top: 32px;
 }

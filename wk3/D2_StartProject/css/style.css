@@ -1,3 +1,13 @@
+/* Reset */
+body,
+h1,
+h2,
+p,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
 html {
 	box-sizing: border-box;
 }
@@ -10,13 +20,22 @@ body {
 }
 
 .header {
+	padding-top: 21px;
+	padding-bottom: 16px;
+}
+
+.header h1 {
+	padding-bottom: 21px;
 }
 
 .main-area {
+	padding-bottom: 16px;
 }
 
 .sidebar {
+	padding-bottom: 16px;
 }
 
 .footer {
+	padding-bottom: 16px;
 }

@@ -1,3 +1,13 @@
+/* Reset */
+body,
+h1,
+h2,
+p,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
 
 /*Custom font*/
 @font-face {
@@ -46,7 +56,7 @@ body {
 
 /* Header Style */
 .header {
-	padding-top: 20px;
+	padding-top: 39px;
 	color: #617140;
 	font-weight: 400;
 	background: #fff url(../images/leaf-title.jpg) right center no-repeat;
@@ -59,6 +69,7 @@ body {
 
 .header__slogan {
 	margin: 0;
+	padding-top: 19px;
 }
 
 /* Navitation Bar Style */
@@ -135,11 +146,15 @@ body {
 .main-area {
 	width: 66%;
 	padding-right: 40px;
+	padding-top: 14px;
+	padding-bottom: 14px;
 }
 
 /*Banner Style*/
 .banner {
 	position: relative;
+	margin-top: 14px;
+	margin-bottom: 14px;
 }
 
 .banner__image {
@@ -188,7 +203,7 @@ body {
 	position: absolute;
 	z-index: 99;
 	background-color: #FDF2CA;
-	padding: 0.5rem;
+	padding: 21px 0.5rem;
 	font-weight: bold;
 	width: 20rem;
 	border: solid 0.4rem #F0E2B0;
@@ -217,6 +232,6 @@ body {
 	text-align: center;
 	font-size: 85%;
 	color: #999;
-	padding-bottom: 20px;
-	padding-top: 20px;
+	padding-bottom: 32px;
+	padding-top: 32px;
 }

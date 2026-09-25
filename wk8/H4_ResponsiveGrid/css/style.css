@@ -1,3 +1,13 @@
+/* Reset */
+body,
+h1,
+h2,
+p,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
 /* Custom Fonts */
 @font-face {
 	font-family: 'PTSans';
@@ -147,6 +157,10 @@ a {
 	padding-top: 20px;
 }
 
+.content-area h2 {
+	padding-bottom: 19px;
+}
+
 .main-area {
 	width: 66%;
 	padding-right: 40px;
@@ -156,6 +170,10 @@ a {
 .sidebar {
 	color: #999;
 	font-size: 85%;
+}
+
+.sidebar-content {
+	padding-bottom: 13px;
 }
 
 .sidebar-header {
@@ -172,7 +190,7 @@ a {
 
 .box-a {
 	background-color: #e7eff5;
-	padding: 20px 20px 0 20px;
+	padding: 20px 20px 15px 20px;
 	border: 2px solid #d3dee7;
 }
 
@@ -181,7 +199,7 @@ a {
 	text-align: center;
 	font-size: 85%;
 	color: #FFF;
-	padding-bottom: 20px;
+	padding-bottom: 33px;
 	padding-top: 20px;
 }
 

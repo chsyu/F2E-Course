@@ -1,3 +1,13 @@
+/* Reset */
+body,
+h1,
+h2,
+p,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
 /* GLobal Style */
 html {
 	background-color: #869960;
@@ -71,6 +81,8 @@ body {
 .main-area {
 	width: 66%;
 	padding-right: 40px;
+	padding-top: 14px;
+	padding-bottom: 14px;
 }
 
 /* SideBar Style */
@@ -86,6 +98,6 @@ body {
 	text-align: center;
 	font-size: 85%;
 	color: #999;
-	padding-bottom: 20px;
-	padding-top: 20px;
+	padding-bottom: 32px;
+	padding-top: 32px;
 }

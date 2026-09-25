@@ -1,3 +1,13 @@
+/* Reset */
+body,
+h1,
+h2,
+p,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
 
 /*Custom font*/
 @font-face {
@@ -51,7 +61,7 @@ body {
 
 /* Header Style */
 .header {
-	padding-top: 20px;
+	padding-top: 39px;
 	color: #617140;
 	font-weight: 400;
 	background: #fff url(../images/leaf-title.jpg) right center no-repeat;
@@ -64,6 +74,7 @@ body {
 
 .header__slogan {
 	margin: 0;
+	padding-top: 19px;
 }
 
 /* Navitation Bar Style */
@@ -194,13 +205,13 @@ body {
 	font-weight: 100;
 	margin: 0px;
 	padding: 0px;
-}}
+}
 
 /* Footer */
 .footer {
 	text-align: center;
 	font-size: 85%;
 	color: #999;
-	padding-bottom: 20px;
-	padding-top: 20px;
+	padding-bottom: 32px;
+	padding-top: 32px;
 }
