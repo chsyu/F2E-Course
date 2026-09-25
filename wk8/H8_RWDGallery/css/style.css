@@ -34,13 +34,6 @@ img {
 /* GLobal Style */
 html {
 	background-color: #869960;
-	box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-	box-sizing: inherit
 }
 
 a,

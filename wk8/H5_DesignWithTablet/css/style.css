@@ -64,12 +64,7 @@ img {
 html {
 	background-color: #608699;
 	line-height: 1.7;
-	box-sizing: border-box;
 	font-size: 15px;
-}
-
-*, *:before, *:after {
-	box-sizing: inherit;
 }
 
 body {

@@ -24,12 +24,7 @@ img {
 html {
 	background-color: #fff;
 	line-height: 1.7;
-	box-sizing: border-box;
 	font-size: 15px;
-}
-
-*, *:after, *:before {
-	box-sizing: inherit;
 }
 
 body {

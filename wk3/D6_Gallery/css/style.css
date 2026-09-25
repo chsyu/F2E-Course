@@ -23,12 +23,7 @@ img {
 /* GLobal Style */
 html {
 	background-color: #869960;
-	box-sizing: border-box;
 	font-size: 87%;
-}
-
-*,*:before,*:after {
-	box-sizing: inherit
 }
 
 body {

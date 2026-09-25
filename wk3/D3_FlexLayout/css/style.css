@@ -20,14 +20,6 @@ img {
   max-width: 100%;
 }
 
-html {
-	box-sizing: border-box;
-}
-
-*,*:before,*:after {
-	box-sizing: inherit
-}
-
 .container {
 	max-width: 940px;
 	margin-left: auto;
