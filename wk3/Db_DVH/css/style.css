@@ -1,11 +1,23 @@
 /* Reset */
-body,
-h1,
-h2,
-p,
-ul {
-	margin: 0;
-	padding: 0;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 /* GLobal Style */
