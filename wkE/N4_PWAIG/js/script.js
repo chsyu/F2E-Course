@@ -14,14 +14,9 @@ if ("serviceWorker" in navigator) {
 }
 
 // INITIALIZE FIREBASE
-firebase.initializeApp({
-  apiKey: "AIzaSyBBixpAodVLz3GxDGQooTYYjUUXeyu9bzA",
-  authDomain: "f2e2021-44d38.firebaseapp.com",
-  projectId: "f2e2021-44d38",
-  storageBucket: "f2e2021-44d38.appspot.com",
-  messagingSenderId: "657878254604",
-  appId: "1:657878254604:web:50f895d5225f3006c81a29",
-});
+// Config is provided by js/firebase-config.js (untracked, see .gitignore)
+// so credentials are never committed to source control.
+firebase.initializeApp(window.FIREBASE_CONFIG);
 
 
 // ENABLE DATA PERSISTANCE
