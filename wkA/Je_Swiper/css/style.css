@@ -135,6 +135,7 @@
 }
 
 .resume__description {
+   text-align: justify;
    text-indent: 2rem;
 }
 

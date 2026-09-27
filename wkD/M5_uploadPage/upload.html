@@ -11,31 +11,28 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap">
   
   <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   
   <!-- Firebase App is always required and must be first -->
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js" defer></script>
   <!-- Add additional services that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js"></script>
-
-  <!-- jQuery -->
-  <script src="js/jquery.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js" defer></script>
 
   <!-- Firebase 設定檔（必須在其他使用 Firebase 的腳本之前載入） -->
-  <script src="js/firebaseConfig.js"></script>
+  <script src="js/firebaseConfig.js" defer></script>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
     integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
   <!-- 部落格資料 -->
-  <script src="js/blogs.js"></script>
+  <script src="js/blogs.js" defer></script>
   <!-- Common JS (共用互動功能) -->
-  <script src="js/common.js"></script>
+  <script src="js/common.js" defer></script>
   <!-- Custom JS/CSS -->
-  <script src="js/upload.js"></script>
+  <script src="js/upload.js" defer></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -49,7 +46,7 @@
           <a href="index.html" class="font-serif font-bold text-xl">
             <i class="fas fa-fire"></i> FireBlog
           </a>
-          <button id="mobileMenuBtn" class="md:hidden text-white focus:outline-none">
+          <button id="mobileMenuBtn" class="md:hidden text-white cursor-pointer focus:outline-hidden">
             <i class="fas fa-bars"></i>
           </button>
         </div>
@@ -63,7 +60,7 @@
     </div>
   </nav>
 
-  <main class="flex-grow">
+  <main class="grow">
     <div class="container mx-auto px-4 mt-8 mb-8">
       <div class="max-w-2xl mx-auto">
         <!-- 標題 -->
@@ -92,7 +89,7 @@
 
             <button type="button" 
                     id="uploadBtn" 
-                    class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:-translate-y-1 shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                    class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg cursor-pointer transition duration-300 hover:-translate-y-1 shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-none">
               <i class="fas fa-cloud-upload-alt"></i> 上傳到 Firestore
             </button>
           </div>

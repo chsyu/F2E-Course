@@ -3,10 +3,7 @@
  * 處理所有頁面共用的 JavaScript 互動邏輯
  */
 
-$(document).ready(function () {
-  // Mobile menu toggle - 切換導覽列的顯示/隱藏
-  $('#mobileMenuBtn').on('click', function () {
-    $('#navbarNav').toggleClass('hidden');
-  });
+// Mobile menu toggle - 切換導覽列的顯示/隱藏
+document.querySelector('#mobileMenuBtn').addEventListener('click', function () {
+  document.querySelector('#navbarNav').classList.toggle('hidden');
 });
-

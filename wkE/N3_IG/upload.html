@@ -12,7 +12,16 @@
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.9/css/all.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="css/style.css">
-
+    <!-- Vendors -->
+    <script src="js/jquery.js" defer></script>
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js" defer></script>
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js" defer></script>
+    <!-- Customized JS -->
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
@@ -36,19 +45,6 @@
             <button id="avatar-upload__btn" class="button btn-upload">upload</button>
         </div>
     </div>
-
-    <!-- Vendors -->
-    <script src="js/jquery.js"></script>
-    <!-- Firebase App is always required and must be first -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-
-    <!-- Add additional services that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js"></script>
-
-    <!-- Customized JS -->
-    <script src="js/script.js"></script>
 </body>
 
 </html>

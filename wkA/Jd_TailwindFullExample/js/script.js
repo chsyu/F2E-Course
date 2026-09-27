@@ -1,10 +1,8 @@
-$(document).ready(function () {
-	// when a hanburger menu is clicked
-	let $list = $("#nav__list"),
-		 $menu = $("#menu_btn");
+// when a hanburger menu is clicked
+const list = document.querySelector("#nav__list");
+const menu = document.querySelector("#menu_btn");
 
-	$($menu).click(function () {
-		// toggle menu-click Class
-		$list.toggleClass("hidden");
-	}); // end click event handler
-});
+menu.addEventListener("click", function () {
+	// toggle hidden Class
+	list.classList.toggle("hidden");
+}); // end click event handler

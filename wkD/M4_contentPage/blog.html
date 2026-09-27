@@ -11,22 +11,19 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap">
   
   <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- jQuery -->
-  <script src="js/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <!-- 部落格資料 -->
-  <script src="js/blogs.js"></script>
+  <script src="js/blogs.js" defer></script>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
     integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
   <!-- Common JS (共用互動功能) -->
-  <script src="js/common.js"></script>
+  <script src="js/common.js" defer></script>
   <!-- Custom JS/CSS -->
-  <script src="js/blog.js"></script>
+  <script src="js/blog.js" defer></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -42,7 +39,7 @@
     </div>
   </nav>
 
-  <main class="flex-grow">
+  <main class="grow">
     <div class="container mx-auto px-4 mt-8 mb-8">
       <!-- Error message -->
       <div id="errorMessage" class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg hidden">
