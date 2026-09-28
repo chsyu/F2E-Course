@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lazy Loading Images Demo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="hero">
+    <img
+      class="hero__img"
+      src="https://picsum.photos/id/1018/1600/900"
+      width="1600"
+      height="900"
+      fetchpriority="high"
+      alt="山景主視覺">
+    <div class="hero__text">
+      <h1>Lazy Loading Images</h1>
+      <p>主視覺圖立即載入，內容圖捲動到附近才載入</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 內容圖 (Content Images)：位於首屏以下，全部設定 loading="lazy" -->
+    <section class="gallery">
+      <article class="card">
+        <img src="https://picsum.photos/id/1015/600/400" width="600" height="400" loading="lazy" alt="河谷">
+        <h3>01 河谷</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1016/600/400" width="600" height="400" loading="lazy" alt="峽谷">
+        <h3>02 峽谷</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1019/600/400" width="600" height="400" loading="lazy" alt="海岸">
+        <h3>03 海岸</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1020/600/400" width="600" height="400" loading="lazy" alt="棕熊">
+        <h3>04 棕熊</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1024/600/400" width="600" height="400" loading="lazy" alt="禿鷹">
+        <h3>05 禿鷹</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1025/600/400" width="600" height="400" loading="lazy" alt="小狗">
+        <h3>06 小狗</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1035/600/400" width="600" height="400" loading="lazy" alt="瀑布">
+        <h3>07 瀑布</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1036/600/400" width="600" height="400" loading="lazy" alt="雪地">
+        <h3>08 雪地</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1039/600/400" width="600" height="400" loading="lazy" alt="溪流">
+        <h3>09 溪流</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1043/600/400" width="600" height="400" loading="lazy" alt="森林">
+        <h3>10 森林</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1044/600/400" width="600" height="400" loading="lazy" alt="岩岸">
+        <h3>11 岩岸</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1047/600/400" width="600" height="400" loading="lazy" alt="城市">
+        <h3>12 城市</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1050/600/400" width="600" height="400" loading="lazy" alt="海浪">
+        <h3>13 海浪</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1053/600/400" width="600" height="400" loading="lazy" alt="沙漠">
+        <h3>14 沙漠</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1057/600/400" width="600" height="400" loading="lazy" alt="湖泊">
+        <h3>15 湖泊</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1067/600/400" width="600" height="400" loading="lazy" alt="街景">
+        <h3>16 街景</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1069/600/400" width="600" height="400" loading="lazy" alt="水母">
+        <h3>17 水母</h3>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/id/1074/600/400" width="600" height="400" loading="lazy" alt="獅子">
+        <h3>18 獅子</h3>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>F2E Course - Lazy Loading Images</p>
+  </footer>
+</body>
+
+</html>
