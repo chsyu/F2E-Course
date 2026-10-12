@@ -218,18 +218,17 @@ a {
 
 .nav__list {
 	display: none;
-	flex-wrap: wrap;
 	gap: 5px;
 	margin: 0;
 	padding: 0;
 }
 
 .menu-click {
-	display: flex;
+	display: block;
 }
 
 .nav__link {
-	display: inline-block;
+	display: block;
 	color: #FFF;
 	background-color: #365267;
 	padding: 15px 0;

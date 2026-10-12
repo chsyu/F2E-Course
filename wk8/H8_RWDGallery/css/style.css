@@ -131,6 +131,7 @@ body {
 	background-color: #e5e9dc;
 	margin: 0;
 	padding: 0;
+	width: 120%;
 	display: none;
 	box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.32);
 	z-index: 9999;
@@ -138,6 +139,7 @@ body {
 
 .nav__link {
 	display: inline-block;
+	background-color: #fff;
 	color: #617140;
 	text-decoration: none;
 	padding: 10px 20px;

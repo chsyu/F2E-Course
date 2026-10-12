@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>Lottie Web Component 範例</title>
+  
+  <!-- 載入官方標準 Lottie Player Web Component -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+      background-color: #f8fafc;
+    }
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      text-align: center;
+      width: 300px;
+    }
+    button {
+      margin: 0.5rem 0.2rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 範例 1：自動循環播放（齒輪/加載器） -->
+  <div class="card">
+    <h3>範例 1：自動播放</h3>
+    <lottie-player
+      src="https://assets10.lottiefiles.com/packages/lf20_m6cu9zqm.json"
+      background="transparent"
+      speed="1"
+      style="width: 100%; height: 180px;"
+      loop
+      autoplay>
+    </lottie-player>
+  </div>
+
+  <!-- 範例 2：JS 互動控制（打勾成功動畫） -->
+  <div class="card">
+    <h3>範例 2：互動控制</h3>
+    <lottie-player
+      id="successAnim"
+      src="https://assets9.lottiefiles.com/packages/lf20_jbrw3hcz.json"
+      background="transparent"
+      speed="1"
+      style="width: 100%; height: 180px;">
+    </lottie-player>
+
+    <div>
+      <button onclick="playCheck()">播放打勾</button>
+      <button onclick="stopCheck()">停止重置</button>
+    </div>
+  </div>
+
+  <script>
+    const anim = document.querySelector('#successAnim');
+
+    function playCheck() {
+      anim.play();
+    }
+
+    function stopCheck() {
+      anim.stop();
+    }
+  </script>
+</body>
+</html>

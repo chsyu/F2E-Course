@@ -238,11 +238,11 @@ a {
 }
 
 .menu-click {
-	display: flex;
+	display: block;
 }
 
 .nav__link {
-	display: inline-block;
+	display: block;
 	color: #FFF;
 	padding: 16px 20px;
 	text-align: center;
