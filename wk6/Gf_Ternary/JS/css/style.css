@@ -1,0 +1,43 @@
+body {
+	font-family: "Helvetica Neue", Arial, sans-serif;
+	margin: 0;
+	padding: 2rem;
+	background: #f7f7f7;
+	color: #222;
+}
+
+.wrap {
+	max-width: 36rem;
+	margin: 0 auto;
+}
+
+.title {
+	font-size: 1.75rem;
+	margin: 0 0 0.35rem;
+	text-align: center;
+}
+
+.hint {
+	text-align: center;
+	color: #666;
+	margin: 0 0 1.5rem;
+	font-size: 0.95rem;
+}
+
+.block {
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 0.5rem;
+	padding: 1rem 1.25rem;
+	margin-bottom: 1rem;
+}
+
+.block__title {
+	font-size: 1.1rem;
+	margin: 0 0 0.75rem;
+	color: #444;
+}
+
+.block p {
+	margin: 0.4rem 0;
+}

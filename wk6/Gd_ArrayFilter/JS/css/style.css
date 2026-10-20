@@ -1,0 +1,80 @@
+body {
+	font-family: "Helvetica Neue", Arial, sans-serif;
+	margin: 0;
+	padding: 2rem;
+	background: #f7f7f7;
+	color: #222;
+}
+
+.wrap {
+	max-width: 36rem;
+	margin: 0 auto;
+}
+
+.title {
+	font-size: 1.75rem;
+	margin: 0 0 0.35rem;
+	text-align: center;
+}
+
+.hint {
+	text-align: center;
+	color: #666;
+	margin: 0 0 1.25rem;
+	font-size: 0.95rem;
+}
+
+.filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	justify-content: center;
+	margin-bottom: 1rem;
+}
+
+.btn {
+	border: 1px solid #000;
+	border-radius: 0.2rem;
+	padding: 0.5rem 0.75rem;
+	background: #fff;
+	cursor: pointer;
+	font-size: 0.95rem;
+}
+
+.btn:hover {
+	background-color: #ccc;
+}
+
+.list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 0.5rem;
+	box-shadow: rgba(0, 0, 0, 0.06) 0 1px 4px;
+	overflow: hidden;
+}
+
+.list__item {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 1rem;
+	padding: 0.75rem 1rem;
+	border-bottom: 1px solid #eee;
+}
+
+.list__item:last-child {
+	border-bottom: none;
+}
+
+.list__name {
+	font-weight: 600;
+}
+
+.list__meta {
+	font-size: 0.85rem;
+	color: #777;
+	white-space: nowrap;
+}

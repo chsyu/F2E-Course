@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Learning JS - Array Filter</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/script.js" defer></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<h1 class="title">Array filter</h1>
+		<p class="hint">依條件篩選課程，再用 map 渲染列表</p>
+
+		<div class="filters">
+			<button type="button" class="btn" data-filter="all">全部</button>
+			<button type="button" class="btn" data-filter="long">時數 ≥ 10</button>
+			<button type="button" class="btn" data-filter="beginner">初階</button>
+		</div>
+
+		<ul id="course-list" class="list"></ul>
+	</div>
+</body>
+</html>
