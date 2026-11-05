@@ -64,7 +64,7 @@ a {
 	padding-right: 40px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width <= 768px) {
 
 	.container {
 		padding-left: 30px;
@@ -73,7 +73,7 @@ a {
 
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
 
 	.container {
 		padding-left: 20px;
@@ -121,7 +121,7 @@ a {
 	background-color: #4e5a33;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width <= 768px) {
 
 	.nav__link {
 		width: calc((100% - 10px) / 3);
@@ -131,7 +131,7 @@ a {
 
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
 
 	.nav__link {
 		width: calc((100% - 5px) / 2);
@@ -150,7 +150,7 @@ a {
 	padding-top: 40px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
 	.content-area {
 		padding-top: 20px;
 	}
@@ -171,7 +171,7 @@ a {
 	font-size: 85%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width <= 768px) {
 
 	.main-area, .sidebar {
 		width: 100%;
@@ -190,7 +190,7 @@ a {
 	margin-bottom: 1em;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
 
 	.hide-small {
 		display: none;

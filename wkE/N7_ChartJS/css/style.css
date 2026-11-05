@@ -4,7 +4,7 @@
 }
 
 
-@media(min-width: 500px) {
+@media(width >= 500px) {
    .chartContainer {
       width: 500px;
    }

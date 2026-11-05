@@ -105,7 +105,7 @@ a {
 }
 
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 
 	.section {
 		padding-left: 40px;
@@ -129,7 +129,7 @@ a {
 }
 
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 
 	.container {
 		width: 740px;
@@ -149,7 +149,7 @@ a {
 
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
 
 	.container {
 		width: 1000px;
@@ -164,7 +164,7 @@ a {
 	}
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (width >= 1280px) {
 
 
 
@@ -272,7 +272,7 @@ a {
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 
 	.nav__menu {
 		display: none !important;
@@ -303,7 +303,7 @@ a {
 
 }
 
-@media screen and (min-width: 1023px) {
+@media screen and (width >= 1023px) {
 
 	.nav__link {
 		width: auto;
@@ -332,13 +332,13 @@ a {
 	padding-bottom: 20px;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (width >= 767px) {
 	.content-area {
 		padding-top: 40px;
 	}
 }
 
-@media screen and (min-width: 1023px) {
+@media screen and (width >= 1023px) {
 	.main-area {
 		padding-right: 40px;
 	}
@@ -373,7 +373,7 @@ a {
 	margin-bottom: 15px;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (width >= 767px) {
 	.box-a {
 		margin-bottom: 30px;
 	}
@@ -543,7 +543,7 @@ a {
 }
 
 /* Responsive Footer */
-@media screen and (min-width: 480px) {
+@media screen and (width >= 480px) {
 	.footer-content {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 25px;
@@ -563,7 +563,7 @@ a {
 	}
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 	.footer-content {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 40px;
@@ -583,7 +583,7 @@ a {
 	}
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
 	.footer-content {
 		grid-template-columns: repeat(4, 1fr);
 		gap: 30px;
@@ -629,7 +629,7 @@ a {
 .g-col-xs-10 { grid-column: span 10; }
 .g-col-xs-11 { grid-column: span 11; }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 
 	.g-col-sm-1 { grid-column: span 1; }
 	.g-col-sm-2 { grid-column: span 2; }
@@ -646,7 +646,7 @@ a {
 }
 
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
 
 	.g-col-md-1 { grid-column: span 1; }
 	.g-col-md-2 { grid-column: span 2; }
@@ -663,7 +663,7 @@ a {
 }
 
 
-@media screen and (min-width: 1280px) {
+@media screen and (width >= 1280px) {
 
 	.g-col-lg-1 { grid-column: span 1; }
 	.g-col-lg-2 { grid-column: span 2; }

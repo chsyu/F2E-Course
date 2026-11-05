@@ -51,7 +51,7 @@ a {
 }
 
 
-@media screen and (min-width: 480px) {
+@media screen and (width >= 480px) {
 
 	.show-large {
 		display: block;
@@ -75,14 +75,14 @@ a {
 	padding-right: 20px;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (width >= 480px) {
 	.container {
 		padding-left: 30px;
 		padding-right: 30px;
 	}
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 	.container {
 		max-width: 1040px;
 		margin: 0 auto;
@@ -132,13 +132,13 @@ a {
 	background-color: #4e5a33;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (width >= 480px) {
 	.nav__link {
 		width: calc((100% - 10px) / 3);
 	}
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 	.nav__link {
 		width: auto;
 		padding: 10px 20px;
@@ -155,7 +155,7 @@ a {
 	padding-top: 20px;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (width >= 480px) {
 	.content-area {
 		padding-top: 40px;
 	}
@@ -169,7 +169,7 @@ a {
 	font-size: 85%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 
 	.main-area {
 		width: 66%;

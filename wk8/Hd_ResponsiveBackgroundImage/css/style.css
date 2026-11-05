@@ -6,13 +6,13 @@
    height: 400px;
 }
 
-@media (min-width: 740px) {
+@media (width >= 740px) {
    .header {
       background-image: url(../imgs/bg_700.png);
    }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
    .header {
       background-image: url(../imgs/bg_1000.png);
    }

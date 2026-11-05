@@ -104,7 +104,7 @@ a {
 }
 
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 
 	.section {
 		padding-left: 40px;
@@ -128,7 +128,7 @@ a {
 }
 
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 
 	.container {
 		width: 740px;
@@ -148,7 +148,7 @@ a {
 
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
 
 	.container {
 		width: 1000px;
@@ -163,7 +163,7 @@ a {
 	}
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (width >= 1280px) {
 
 
 
@@ -240,7 +240,7 @@ a {
 	background-color: #2c465a;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 
 	.nav__menu {
 		display: none;
@@ -257,7 +257,7 @@ a {
 
 }
 
-@media screen and (min-width: 1023px) {
+@media screen and (width >= 1023px) {
 
 	.nav__link {
 		width: auto;
@@ -278,13 +278,13 @@ a {
 	padding-bottom: 20px;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (width >= 767px) {
 	.content-area {
 		padding-top: 40px;
 	}
 }
 
-@media screen and (min-width: 1023px) {
+@media screen and (width >= 1023px) {
 	.main-area {
 		padding-right: 40px;
 	}
@@ -319,7 +319,7 @@ a {
 	margin-bottom: 15px;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (width >= 767px) {
 	.box-a {
 		margin-bottom: 30px;
 	}
@@ -369,7 +369,7 @@ a {
 	grid-template-columns: 1fr 1fr;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 	.layout__content {
 		grid-template-areas:
 			"feat1 feat2"
@@ -379,14 +379,14 @@ a {
 	}
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
 	.layout {
 		grid-template-areas: "main sidebar";
 		grid-template-columns: 2fr 1fr;
 	}
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (width >= 1280px) {
 	.layout__content {
 		grid-template-areas:
 			"feat1 feat2 feat3 feat4"

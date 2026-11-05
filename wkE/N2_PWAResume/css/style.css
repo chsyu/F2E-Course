@@ -28,7 +28,7 @@
    padding-bottom: 10px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
    .nav__brand {
       font-size: 2em;
    }
@@ -52,7 +52,7 @@
    font-size: 0.8rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
    .header {
       padding-top: 184px;
       padding-bottom: 100px;
@@ -104,7 +104,7 @@
    color: white;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
    .resume {
       padding-top: 100px;
       padding-bottom: 100px;
@@ -150,7 +150,7 @@
    align-self: center;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (width >= 992px) {
    .footer__description {
          padding: 0px;
          text-align: justify;

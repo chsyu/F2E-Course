@@ -34,7 +34,7 @@
    padding-bottom: 10px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
    .nav__brand {
       font-size: 2em;
    }
@@ -49,7 +49,7 @@
    font-size: 0.8rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
    .header {
       padding-top: 184px;
       padding-bottom: 100px;

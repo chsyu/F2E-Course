@@ -195,7 +195,7 @@ body {
 }
  
 
-@media (min-width: 700px) {
+@media (width >= 700px) {
   .instagram,
   .nav-header__container {
     width: 598px;

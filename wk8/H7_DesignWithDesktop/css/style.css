@@ -107,7 +107,7 @@ a {
 }
 
 
-@media screen and (min-width: 767px) {
+@media screen and (width >= 767px) {
 
 	.section {
 		padding-left: 40px;
@@ -131,7 +131,7 @@ a {
 }
 
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 
 	.container {
 		width: 740px;
@@ -151,7 +151,7 @@ a {
 
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
 
 	.container {
 		width: 1000px;
@@ -166,7 +166,7 @@ a {
 	}
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (width >= 1280px) {
 	.container {
 		width: 1200px;
 	}
@@ -215,7 +215,7 @@ a {
 	background-color: #2c465a;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 
 	.nav {
 		grid-template-columns: repeat(3, 1fr);
@@ -223,7 +223,7 @@ a {
 
 }
 
-@media screen and (min-width: 1023px) {
+@media screen and (width >= 1023px) {
 
 	.nav {
 		display: flex;
@@ -249,13 +249,13 @@ a {
 	padding-bottom: 20px;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (width >= 767px) {
 	.content-area {
 		padding-top: 40px;
 	}
 }
 
-@media screen and (min-width: 1023px) {
+@media screen and (width >= 1023px) {
 	.main-area {
 		padding-right: 40px;
 	}
@@ -321,7 +321,7 @@ a {
 .g-col-xs-10 { grid-column: span 10; }
 .g-col-xs-11 { grid-column: span 11; }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 
 	.g-col-sm-1 { grid-column: span 1; }
 	.g-col-sm-2 { grid-column: span 2; }
@@ -338,7 +338,7 @@ a {
 }
 
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
 
 	.g-col-md-1 { grid-column: span 1; }
 	.g-col-md-2 { grid-column: span 2; }
@@ -355,7 +355,7 @@ a {
 }
 
 
-@media screen and (min-width: 1280px) {
+@media screen and (width >= 1280px) {
 
 	.g-col-lg-1 { grid-column: span 1; }
 	.g-col-lg-2 { grid-column: span 2; }

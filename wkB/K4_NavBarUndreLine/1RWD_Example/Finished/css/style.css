@@ -86,7 +86,7 @@ a {
 }
 
 
-@media screen and (min-width: 767px) {
+@media screen and (width >= 767px) {
 
 	.section {
 		padding-left: 40px;
@@ -110,7 +110,7 @@ a {
 }
 
 
-@media screen and (min-width: 767px) {
+@media screen and (width >= 767px) {
 
 	.show-large {
 		display: block;
@@ -124,7 +124,7 @@ a {
 
 }
 
-@media screen and (min-width: 1023px) {
+@media screen and (width >= 1023px) {
 
 	.container {
 		max-width: 1000px;
@@ -139,7 +139,7 @@ a {
 	}
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (width >= 1280px) {
 
 
 
@@ -247,7 +247,7 @@ a {
 	background-color: #2c465a;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 
 	.navbar__icon-bar {
 		display: none;
@@ -275,7 +275,7 @@ a {
 
 }
 
-@media screen and (min-width: 1023px) {
+@media screen and (width >= 1023px) {
 
 
 	.nav__list {
@@ -324,13 +324,13 @@ a {
 	padding-top: 20px;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (width >= 767px) {
 	.content-area {
 		padding-top: 40px;
 	}
 }
 
-@media screen and (min-width: 1023px) {
+@media screen and (width >= 1023px) {
 	.main-area {
 		padding-right: 40px;
 	}
@@ -361,7 +361,7 @@ a {
 	margin-bottom: 15px;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (width >= 767px) {
 	.box-a {
 		margin-bottom: 30px;
 	}
@@ -400,7 +400,7 @@ a {
 .col-xs-2 {width: 16.662%;}
 .col-xs-1 {width: 8.332%;}
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
 
 	.col-sm-11 {width: 91.662%}
 	.col-sm-10 {width: 83.332%;}
@@ -417,7 +417,7 @@ a {
 }
 
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
 
 	.col-md-11 {width: 91.662%}
 	.col-md-10 {width: 83.332%;}
@@ -433,7 +433,7 @@ a {
 
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (width >= 1280px) {
 
 	.col-lg-11 {width: 91.662%}
 	.col-lg-10 {width: 83.332%;}

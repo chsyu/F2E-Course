@@ -1,4 +1,3 @@
-// jQuery 的 'fast' 等於 200ms
 document.querySelectorAll(".nav__item").forEach(function (item) {
   const submenu = item.querySelector(".nav__list--submenu");
   if (!submenu) return;
