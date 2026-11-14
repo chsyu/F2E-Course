@@ -26,18 +26,13 @@
 - wk17:期末專題企劃報告
 - wk18:期末專題DEMO
 
-## Cursor Rules（AI 輔助開發規範）
+## AI 輔助開發規範（AGENTS.md）
 
-本專案在 `.cursor/rules/` 提供前端開發規範，使用 [Cursor](https://cursor.com/) 開啟專案根目錄後會自動套用。
+本專案在根目錄提供 [`AGENTS.md`](./AGENTS.md) 作為前端開發規範（HTML5、現代 CSS、Vanilla JS）。
 
-> 注意：`.cursor` 是隱藏資料夾。macOS Finder 可按 `Cmd + Shift + .` 顯示；或在終端機執行 `ls -la .cursor/rules`。
+- [Cursor](https://cursor.com/) 與 VS Code（GitHub Copilot）都會讀取此檔
+- 檔案在專案根目錄，非隱藏路徑，可直接在 GitHub 或編輯器中開啟
+- 同學只要 `git clone` 或 `git pull` 即可取得，無需另外下載
 
-| 檔案 | 內容 |
-|------|------|
-| `frontend-core.mdc` | 技術棧限制、禁止 jQuery、程式碼輸出風格 |
-| `javascript.mdc` | 現代 Vanilla JS、原生 Web API、DOM／事件委派 |
-| `css-tailwind.mdc` | CSS Grid 優先、Tailwind CSS v4 |
-| `a11y-performance.mdc` | Core Web Vitals、語意化 HTML、無障礙 |
-
-同學只要 `git clone` 或 `git pull` 取得最新程式碼即可，無需另外下載規則檔。
+主要內容包含：技術棧限制、現代 JavaScript、CSS Grid／Tailwind v4、Core Web Vitals 與無障礙。
 
