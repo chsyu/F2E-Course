@@ -1,34 +1,54 @@
 // Firebase 已在 firebaseConfig.js 中初始化
-// 使用全域 db 變數（從 firebaseConfig.js 匯出）
 let blogsRef = db.collection("blogs");
 
-// 註冊 DOM 元素
+document.querySelector('#mobileMenuBtn').addEventListener('click', function () {
+  document.querySelector('#navbarNav').classList.toggle('is-open');
+});
+
 const blogCardsContainer = document.querySelector('#blogCardsContainer');
 const loadingIndicator = document.querySelector('#loadingIndicator');
 
-// 顯示空狀態
-function showEmptyState() {
-  const emptyStateHtml = `
-    <div class="col-span-full text-center my-12">
-      <i class="fas fa-inbox text-6xl text-gray-400 mb-4"></i>
-      <h3 class="text-gray-600 text-xl mb-2">尚無文章</h3>
-      <p class="text-gray-500 mb-4">請先上傳blog資料</p>
-      <a href="upload.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg transition duration-300 hover:-translate-y-1 shadow-md">
-        <i class="fas fa-upload"></i> 前往上傳頁面
-      </a>
-    </div>
-  `;
-  blogCardsContainer.innerHTML = emptyStateHtml;
+function isSafeImageUrl(value) {
+  if (!value || typeof value !== 'string') return false;
+  try {
+    const parsed = new URL(value, window.location.href);
+    return parsed.protocol === 'https:' || parsed.protocol === 'http:';
+  } catch {
+    return false;
+  }
 }
 
-// 載入並顯示部落格
+function showLoadError(message) {
+  blogCardsContainer.replaceChildren();
+  const box = document.createElement('div');
+  box.className = 'alert';
+  box.textContent = `載入文章時發生錯誤：${message}`;
+  blogCardsContainer.append(box);
+}
+
+function showEmptyState() {
+  blogCardsContainer.replaceChildren();
+  const empty = document.createElement('div');
+  empty.className = 'empty-state';
+  const heading = document.createElement('h2');
+  heading.textContent = '尚無文章';
+  const note = document.createElement('p');
+  note.textContent = '請先上傳 blog 資料';
+  const link = document.createElement('a');
+  link.href = 'upload.html';
+  link.className = 'article-back';
+  link.textContent = '前往上傳 →';
+  empty.append(heading, note, link);
+  blogCardsContainer.append(empty);
+}
+
 function loadBlogs() {
   try {
     blogsRef
       .orderBy('createdAt', 'desc')
       .get()
       .then((querySnapshot) => {
-        loadingIndicator.classList.add('hidden');
+        loadingIndicator.classList.add('is-hidden', 'hidden');
 
         if (querySnapshot.empty) {
           showEmptyState();
@@ -36,76 +56,71 @@ function loadBlogs() {
         }
 
         blogCardsContainer.innerHTML = '';
-
         querySnapshot.forEach((doc) => {
-          const blog = doc.data();
-          const blogId = doc.id;
-          createBlogCard(blog, blogId);
+          createBlogCard(doc.data(), doc.id);
         });
       })
       .catch((error) => {
-        loadingIndicator.classList.add('hidden');
-        blogCardsContainer.innerHTML = `
-          <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-            <i class="fas fa-exclamation-circle"></i> 載入文章時發生錯誤：${error.message}
-          </div>
-        `;
+        loadingIndicator.classList.add('is-hidden', 'hidden');
+        showLoadError(error.message);
       });
   } catch (error) {
-    loadingIndicator.classList.add('hidden');
-    blogCardsContainer.innerHTML = `
-      <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-        <i class="fas fa-exclamation-circle"></i> 載入文章時發生錯誤：${error.message}
-      </div>
-    `;
+    loadingIndicator.classList.add('is-hidden', 'hidden');
+    showLoadError(error.message);
   }
 }
 
-// 建立部落格卡片
 function createBlogCard(blog, blogId) {
-  // 使用原始日期資料（已在 blogs.js 中格式化）
   const dateStr = blog.date || '未知日期';
-
-  // 截斷內容作為預覽 - 只顯示 10 個字元
   let contentPreview = '';
   if (blog.content) {
-    if (blog.content.length > 10) {
-      contentPreview = blog.content.substring(0, 10) + '... 更多';
-    } else {
-      contentPreview = blog.content;
-    }
+    contentPreview = blog.content.length > 90
+      ? `${blog.content.substring(0, 90)}…`
+      : blog.content;
   }
 
-  const cardHtml = `
-    <div class="mb-6">
-      <div class="group transition-all duration-300 cursor-pointer bg-white rounded-lg shadow-md overflow-hidden h-full flex flex-col">
-        <img src="${blog.image}" class="transition-transform duration-300  w-full h-48 object-cover" alt="${blog.title || ''}">
-        <div class="p-6 flex flex-col grow">
-          <div class="mb-3">
-            <span class="inline-block bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">${blog.category || '未分類'}</span>
-          </div>
-          <h5 class="text-xl font-semibold text-gray-800 mb-3 line-clamp-2 min-h-[3em]">${blog.title || '無標題'}</h5>
-          <p class="text-gray-600 text-sm grow mb-4 min-h-[2.5em]">${contentPreview}</p>
-          <div class="mt-auto">
-            <div class="flex justify-between items-center mb-4 text-sm text-gray-500">
-              <span>
-                <i class="fas fa-user"></i> ${blog.author || '匿名'}
-              </span>
-              <span>
-                <i class="fas fa-calendar"></i> ${dateStr}
-              </span>
-            </div>
-            <a href="blog.html?id=${blogId}" class="block text-center w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 hover:-translate-y-1 shadow-md">
-              <i class="fas fa-arrow-right"></i> 閱讀更多
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
+  const row = document.createElement('article');
+  row.className = 'post-row';
 
-  blogCardsContainer.insertAdjacentHTML('beforeend', cardHtml);
+  const link = document.createElement('a');
+  link.className = 'post-row__link';
+  link.href = `blog.html?id=${encodeURIComponent(blogId)}`;
+
+  const media = document.createElement('div');
+  media.className = 'post-row__media';
+  if (blog.image && isSafeImageUrl(blog.image)) {
+    const img = document.createElement('img');
+    img.src = blog.image;
+    img.alt = blog.title || '';
+    img.width = 640;
+    img.height = 400;
+    img.loading = 'lazy';
+    media.append(img);
+  }
+
+  const body = document.createElement('div');
+  body.className = 'post-row__body';
+
+  const category = document.createElement('span');
+  category.className = 'post-row__category';
+  category.textContent = blog.category || '未分類';
+
+  const title = document.createElement('h2');
+  title.className = 'post-row__title';
+  title.textContent = blog.title || '無標題';
+
+  const preview = document.createElement('p');
+  preview.className = 'post-row__preview';
+  preview.textContent = contentPreview;
+
+  const meta = document.createElement('p');
+  meta.className = 'post-row__meta';
+  meta.textContent = `${blog.author || '匿名'} · ${dateStr}`;
+
+  body.append(category, title, preview, meta);
+  link.append(media, body);
+  row.append(link);
+  blogCardsContainer.append(row);
 }
 
-// 初始載入
 loadBlogs();

@@ -1,15 +1,6 @@
-// Initialize Firebase
-firebase.initializeApp({
-  apiKey: "AIzaSyBBixpAodVLz3GxDGQooTYYjUUXeyu9bzA",
-  authDomain: "f2e2021-44d38.firebaseapp.com",
-  projectId: "f2e2021-44d38",
-  storageBucket: "f2e2021-44d38.appspot.com",
-  messagingSenderId: "657878254604",
-  appId: "1:657878254604:web:50f895d5225f3006c81a29",
-});
-
+// Firebase 已在 firebaseConfig.js 中初始化
 // Reference chatroom document
-const docRef = firebase.firestore()
+const docRef = db
   .collection("chatrooms")
   .doc("chatroom1");
 // Reference chatroom messages
@@ -26,6 +17,17 @@ const queryRef = messagesRef
 let profile_Name, 
     profile_photoURL;
 
+// 為何驗證 scheme：避免 javascript: 等危險 URL 寫入 img.src 造成 XSS
+const isSafeHttpUrl = function (value) {
+  if (!value) return false;
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === "https:" || parsed.protocol === "http:";
+  } catch {
+    return false;
+  }
+};
+
 // REGISTER DOM ELEMENTS
 // index.html、signup.html、firechat.html 共用此檔案，元素不一定存在，使用前要先檢查
 const email = document.querySelector('#email');
@@ -41,7 +43,7 @@ const userName = document.querySelector('#user-name');
 const userPhoto = document.querySelector('#user-photo');
 const userNameField = document.querySelector('#userName');
 const photoURLField = document.querySelector('#photoURL');
-if (signInfo) signInfo.innerHTML = "";
+if (signInfo) signInfo.textContent = "";
 
 // SignIn
 if (btnSignIn) {
@@ -55,7 +57,7 @@ if (btnSignIn) {
       .catch(function (e) {
         btnSignIn.innerHTML = `Sign In`;
         console.log(e.message);
-        if (signInfo) signInfo.innerHTML = e.message;
+        if (signInfo) signInfo.textContent = e.message;
       });
   });
 }
@@ -88,7 +90,7 @@ if (btnSignUp) {
       })
       .catch(function (e) {
         console.log(e.message);
-        if (signInfo) signInfo.innerHTML = e.message;
+        if (signInfo) signInfo.textContent = e.message;
       });
   });
 }
@@ -97,11 +99,13 @@ if (btnSignUp) {
 auth.onAuthStateChanged(function (user) {
   if (user) {
     console.log(user);
-    if (signInfo) signInfo.innerHTML = `${user.email} is login...`;
+    if (signInfo) signInfo.textContent = `${user.email} is login...`;
     user.providerData.forEach(function (profile) {
       profile_Name = profile.displayName;
-      if (userName) userName.innerHTML = profile.displayName;
-      if (userPhoto) userPhoto.setAttribute("src", profile.photoURL);
+      if (userName) userName.textContent = profile.displayName;
+      if (userPhoto && isSafeHttpUrl(profile.photoURL)) {
+        userPhoto.src = profile.photoURL;
+      }
     });
   } else {
     console.log("not logged in");
@@ -115,14 +119,14 @@ if (btnSignOut) {
     auth.signOut();
     if (email) email.value = '';
     if (password) password.value = '';
-    if (signInfo) signInfo.innerHTML = 'No one login...';
+    if (signInfo) signInfo.textContent = 'No one login...';
     window.location.href = "./index.html";
   });
 }
 
 // SET CHAT ROOM TITLE
 docRef.get().then(function (doc) {
-  if (cardHeader) cardHeader.innerHTML = doc.data().name;
+  if (cardHeader) cardHeader.textContent = doc.data().name;
 });
 
 // LISTEN FOR KEYPRESS EVENT
@@ -149,17 +153,20 @@ if (messageField) {
 queryRef.onSnapshot(function (querySnapshot) {
   if (!messageList) return;
   messageList.innerHTML = '';
-  //MONITOR CHAT MESSAGE AND RENDER SCREEN
+  // 為何用 createElement + textContent：聊天內容不可信，避免 XSS
   querySnapshot.forEach(function (doc) {
-    let senderName = doc.data().senderName || "anonymous";
-    let message = doc.data().message;
-    let messageItem = `
-      <li class="message-item">
-        <strong class="chat-username">${senderName}:</strong>
-        ${message}
-      </li>
-      `;
-    messageList.insertAdjacentHTML('beforeend', messageItem);
+    const senderName = doc.data().senderName || "anonymous";
+    const message = doc.data().message;
+
+    const messageElement = document.createElement("li");
+    messageElement.className = "message-item";
+
+    const nameElement = document.createElement("strong");
+    nameElement.className = "chat-username";
+    nameElement.textContent = `${senderName}:`;
+
+    messageElement.append(nameElement, document.createTextNode(` ${message ?? ""}`));
+    messageList.append(messageElement);
   });
   //SCROLL TO BOTTOM OF MESSAGE LIST
   messageList.scrollTop = messageList.scrollHeight;

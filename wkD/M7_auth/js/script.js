@@ -1,12 +1,4 @@
-// Initialize Firebase
-firebase.initializeApp({
-  apiKey: "AIzaSyBBixpAodVLz3GxDGQooTYYjUUXeyu9bzA",
-  authDomain: "f2e2021-44d38.firebaseapp.com",
-  projectId: "f2e2021-44d38",
-  storageBucket: "f2e2021-44d38.appspot.com",
-  messagingSenderId: "657878254604",
-  appId: "1:657878254604:web:50f895d5225f3006c81a29",
-});
+// Firebase 已在 firebaseConfig.js 中初始化
 // Reference Firebase Auth
 const auth = firebase.auth();
 
@@ -22,7 +14,7 @@ const signInfo = document.querySelector('#sign-info');
 btnSignIn.addEventListener('click', function(e){
   auth.signInWithEmailAndPassword(email.value, password.value)
   .catch(function(e){
-    signInfo.innerHTML = e.message;
+    signInfo.textContent = e.message;
   });
 });
 
@@ -30,14 +22,14 @@ btnSignIn.addEventListener('click', function(e){
 btnSignUp.addEventListener('click', function(e){
   auth.createUserWithEmailAndPassword(email.value, password.value)
   .catch(function(e){
-    signInfo.innerHTML = e.message;
+    signInfo.textContent = e.message;
   });
 });
 
 // Listening Login User
 auth.onAuthStateChanged(function(user){
   if(user) {
-    signInfo.innerHTML = `${user.email} is login...`;
+    signInfo.textContent = `${user.email} is login...`;
     console.log(user);
   } else {
     console.log("not logged in");
@@ -49,5 +41,5 @@ btnSignOut.addEventListener('click', function(){
   auth.signOut();
   email.value = '';
   password.value = '';
-  signInfo.innerHTML = 'No one login...';
+  signInfo.textContent = 'No one login...';
 });

@@ -26,7 +26,8 @@ let usersRef = db.collection("users");
 let docRef = usersRef.doc("1167");
 
 docRef.get().then(function(doc){
-  docElement.innerHTML = `doc 1167 name = ${doc.data().name}`;
+  // 為何用 textContent：Firestore 欄位可能含惡意字串，不可當 HTML 插入
+  docElement.textContent = `doc 1167 name = ${doc.data().name}`;
 });
 
 docRef.set({
@@ -44,6 +45,6 @@ docRef.set({
 
 // docRef.onSnapshot(
 //   function(doc){
-//     title.innerHTML = `user name = ${doc.data().name}, user age = ${doc.data().age}`;
+//     title.textContent = `user name = ${doc.data().name}, user age = ${doc.data().age}`;
 //   }
 // );

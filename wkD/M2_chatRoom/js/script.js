@@ -47,16 +47,20 @@ messageField.addEventListener('keypress', function (e) {
 queryMessagesCollectionRef.onSnapshot(function (querySnapshot) {
   messageList.innerHTML = "";
   //MONITOR CHAT MESSAGE AND RENDER SCREEN
+  // 為何用 createElement + textContent：訊息來自使用者／Firestore，不可當 HTML 插入以免 XSS
   querySnapshot.forEach(function (doc) {
-    let senderName = doc.data().senderName || "anonymous";
-    let message = doc.data().message;
-    let messageItem = `
-    <li class="message-item">
-      <strong class="chat-username">${senderName}:</strong>
-      ${message}
-    </li>
-    `;
-    messageList.insertAdjacentHTML('beforeend', messageItem);
+    const senderName = doc.data().senderName || "anonymous";
+    const message = doc.data().message;
+
+    const messageElement = document.createElement("li");
+    messageElement.className = "message-item";
+
+    const nameElement = document.createElement("strong");
+    nameElement.className = "chat-username";
+    nameElement.textContent = `${senderName}:`;
+
+    messageElement.append(nameElement, document.createTextNode(` ${message ?? ""}`));
+    messageList.append(messageElement);
   });
   //SCROLL TO BOTTOM OF MESSAGE LIST
   messageList.scrollTop = messageList.scrollHeight;
