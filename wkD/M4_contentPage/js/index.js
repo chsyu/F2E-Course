@@ -1,17 +1,6 @@
 // 註冊 DOM 元素
 const blogCardsContainer = document.querySelector('#blogCardsContainer');
 
-// 為何用 URL + 基底：相對路徑可解析成 http(s)，並擋掉 javascript: 等危險 scheme
-function isSafeImageUrl(value) {
-  if (!value || typeof value !== 'string') return false;
-  try {
-    const parsed = new URL(value, window.location.href);
-    return parsed.protocol === 'https:' || parsed.protocol === 'http:';
-  } catch {
-    return false;
-  }
-}
-
 function showEmptyState() {
   blogCardsContainer.replaceChildren();
   const empty = document.createElement('div');
@@ -55,7 +44,7 @@ function createBlogCard(blog, index) {
 
   const media = document.createElement('div');
   media.className = 'post-row__media';
-  if (blog.image && isSafeImageUrl(blog.image)) {
+  if (blog.image) {
     const img = document.createElement('img');
     img.src = blog.image;
     img.alt = blog.title || '';

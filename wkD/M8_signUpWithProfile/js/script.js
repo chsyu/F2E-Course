@@ -6,17 +6,6 @@ const auth = firebase.auth();
 let profile_Name, 
     profile_photoURL;
 
-// 為何驗證 scheme：避免 javascript: 等危險 URL 寫入 img.src 造成 XSS
-const isSafeHttpUrl = function (value) {
-  if (!value) return false;
-  try {
-    const parsed = new URL(value);
-    return parsed.protocol === "https:" || parsed.protocol === "http:";
-  } catch {
-    return false;
-  }
-};
-
 // REGISTER DOM ELEMENTS
 // index.html、signup.html、profile.html 共用此檔案，元素不一定存在，使用前要先檢查
 const email = document.querySelector('#email');
@@ -92,7 +81,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       profile_photoURL = profile.email;
       if (avatarName) avatarName.textContent = profile.displayName;
       if (avatarEmail) avatarEmail.textContent = profile.email;
-      if (avatarImage && isSafeHttpUrl(profile.photoURL)) {
+      if (avatarImage && profile.photoURL) {
         avatarImage.src = profile.photoURL;
       }
     });

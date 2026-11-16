@@ -59,17 +59,6 @@ function loadBlog() {
   }
 }
 
-// 為何用 URL + 基底：相對路徑可解析成 http(s)，並擋掉 javascript: 等危險 scheme
-function isSafeImageUrl(value) {
-  if (!value || typeof value !== 'string') return false;
-  try {
-    const parsed = new URL(value, window.location.href);
-    return parsed.protocol === 'https:' || parsed.protocol === 'http:';
-  } catch {
-    return false;
-  }
-}
-
 // 為何用 DOM 組裝：內文來自 Firestore，不可拼進 HTML 字串以免 XSS；仍保留段落／換行結構
 function renderContent(container, content) {
   container.replaceChildren();
@@ -115,7 +104,7 @@ function displayBlog(blog) {
   document.title = (blog.title || 'Blog 文章') + ' - FireBlog';
 
   blogImageContainer.replaceChildren();
-  if (blog.image && isSafeImageUrl(blog.image)) {
+  if (blog.image) {
     const img = document.createElement('img');
     img.src = blog.image;
     img.alt = blog.title || '';

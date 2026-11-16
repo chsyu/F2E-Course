@@ -8,16 +8,6 @@ document.querySelector('#mobileMenuBtn').addEventListener('click', function () {
 const blogCardsContainer = document.querySelector('#blogCardsContainer');
 const loadingIndicator = document.querySelector('#loadingIndicator');
 
-function isSafeImageUrl(value) {
-  if (!value || typeof value !== 'string') return false;
-  try {
-    const parsed = new URL(value, window.location.href);
-    return parsed.protocol === 'https:' || parsed.protocol === 'http:';
-  } catch {
-    return false;
-  }
-}
-
 function showLoadError(message) {
   blogCardsContainer.replaceChildren();
   const box = document.createElement('div');
@@ -88,7 +78,7 @@ function createBlogCard(blog, blogId) {
 
   const media = document.createElement('div');
   media.className = 'post-row__media';
-  if (blog.image && isSafeImageUrl(blog.image)) {
+  if (blog.image) {
     const img = document.createElement('img');
     img.src = blog.image;
     img.alt = blog.title || '';

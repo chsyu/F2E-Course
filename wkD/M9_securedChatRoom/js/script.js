@@ -17,17 +17,6 @@ const queryRef = messagesRef
 let profile_Name, 
     profile_photoURL;
 
-// 為何驗證 scheme：避免 javascript: 等危險 URL 寫入 img.src 造成 XSS
-const isSafeHttpUrl = function (value) {
-  if (!value) return false;
-  try {
-    const parsed = new URL(value);
-    return parsed.protocol === "https:" || parsed.protocol === "http:";
-  } catch {
-    return false;
-  }
-};
-
 // REGISTER DOM ELEMENTS
 // index.html、signup.html、firechat.html 共用此檔案，元素不一定存在，使用前要先檢查
 const email = document.querySelector('#email');
@@ -103,7 +92,7 @@ auth.onAuthStateChanged(function (user) {
     user.providerData.forEach(function (profile) {
       profile_Name = profile.displayName;
       if (userName) userName.textContent = profile.displayName;
-      if (userPhoto && isSafeHttpUrl(profile.photoURL)) {
+      if (userPhoto && profile.photoURL) {
         userPhoto.src = profile.photoURL;
       }
     });
