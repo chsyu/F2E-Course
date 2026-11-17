@@ -59,65 +59,28 @@ function loadBlog() {
   }
 }
 
-// 為何用 DOM 組裝：內文來自 Firestore，不可拼進 HTML 字串以免 XSS；仍保留段落／換行結構
+// 以空行分段；段落內換行轉成 <br>
 function renderContent(container, content) {
-  container.replaceChildren();
-
   if (!content) {
-    const empty = document.createElement('p');
-    empty.textContent = '無內容';
-    container.append(empty);
+    container.innerHTML = '<p>無內容</p>';
     return;
   }
 
-  const appendParagraph = function (text) {
-    const p = document.createElement('p');
-    const lines = text.split('\n');
-    lines.forEach(function (line, index) {
-      if (index > 0) p.append(document.createElement('br'));
-      p.append(document.createTextNode(line));
-    });
-    container.append(p);
-  };
+  const html = content
+    .split(/\n\s*\n/)
+    .filter((p) => p.trim())
+    .map((p) => `<p>${p.trim().replace(/\n/g, '<br>')}</p>`)
+    .join('');
 
-  const paragraphs = content.split(/\n\s*\n/).filter(function (p) {
-    return p.trim().length > 0;
-  });
-
-  if (paragraphs.length === 0) {
-    content.split(/\n/).filter(function (l) {
-      return l.trim().length > 0;
-    }).forEach(function (line) {
-      appendParagraph(line.trim());
-    });
-    return;
-  }
-
-  paragraphs.forEach(function (para) {
-    appendParagraph(para.trim());
-  });
+  container.innerHTML = html || '<p>無內容</p>';
 }
 
-// 顯示部落格內容
 function displayBlog(blog) {
-  // 設定頁面標題
   document.title = (blog.title || 'Blog 文章') + ' - FireBlog';
 
-  blogImageContainer.replaceChildren();
-  if (blog.image) {
-    const img = document.createElement('img');
-    img.src = blog.image;
-    img.alt = blog.title || '';
-    img.width = 1600;
-    img.height = 900;
-    img.fetchPriority = 'high';
-    blogImageContainer.append(img);
-  } else {
-    const placeholder = document.createElement('div');
-    placeholder.className = 'article-hero__placeholder';
-    placeholder.textContent = 'No image';
-    blogImageContainer.append(placeholder);
-  }
+  blogImageContainer.innerHTML = blog.image
+    ? `<img src="${blog.image}" alt="${blog.title || ''}" width="1600" height="900" fetchpriority="high">`
+    : '<div class="article-hero__placeholder">No image</div>';
 
   if (blog.category) {
     blogCategory.textContent = blog.category;

@@ -164,34 +164,19 @@ function createBlogListItem(blog, blogId) {
     });
   }
 
-  const item = document.createElement('div');
-  item.className = 'cms-item';
-  item.dataset.blogId = blogId;
-
-  const info = document.createElement('div');
-  const heading = document.createElement('h3');
-  heading.className = 'cms-item__title';
-  const titleLink = document.createElement('a');
-  titleLink.href = `blog.html?id=${encodeURIComponent(blogId)}`;
-  titleLink.textContent = blog.title || '無標題';
-  heading.append(titleLink);
-
-  const meta = document.createElement('p');
-  meta.className = 'cms-item__meta';
   const categoryPart = blog.category ? ` · ${blog.category}` : '';
-  meta.textContent = `${blog.author || '匿名'} · ${blog.date || '未知日期'} · ${uploadTimeStr}${categoryPart}`;
 
-  info.append(heading, meta);
-
-  const deleteBtn = document.createElement('button');
-  deleteBtn.type = 'button';
-  deleteBtn.className = 'delete-blog-btn btn btn-danger btn-sm';
-  deleteBtn.dataset.blogId = blogId;
-  deleteBtn.title = '刪除此文章';
-  deleteBtn.textContent = '刪除';
-
-  item.append(info, deleteBtn);
-  blogListContainer.append(item);
+  blogListContainer.insertAdjacentHTML('beforeend', `
+    <div class="cms-item" data-blog-id="${blogId}">
+      <div>
+        <h3 class="cms-item__title">
+          <a href="blog.html?id=${encodeURIComponent(blogId)}">${blog.title || '無標題'}</a>
+        </h3>
+        <p class="cms-item__meta">${blog.author || '匿名'} · ${blog.date || '未知日期'} · ${uploadTimeStr}${categoryPart}</p>
+      </div>
+      <button type="button" class="delete-blog-btn btn btn-danger btn-sm" data-blog-id="${blogId}" title="刪除此文章">刪除</button>
+    </div>
+  `);
 }
 
 function deleteBlog(blogId) {
