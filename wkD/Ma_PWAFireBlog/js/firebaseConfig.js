@@ -5,12 +5,12 @@
 
 // Firebase 設定物件
 const firebaseConfig = {
-  apiKey: "AIzaSyBBixpAodVLz3GxDGQooTYYjUUXeyu9bzA",
-  authDomain: "f2e2021-44d38.firebaseapp.com",
-  projectId: "f2e2021-44d38",
-  storageBucket: "f2e2021-44d38.appspot.com",
-  messagingSenderId: "657878254604",
-  appId: "1:657878254604:web:50f895d5225f3006c81a29",
+  apiKey: "AIzaSyAwIZ1CqRVFCBLvQhUwfgPSKVKTIm6_ZM",
+  authDomain: "f2e2026.firebaseapp.com",
+  projectId: "f2e2026",
+  storageBucket: "f2e2026.firebasestorage.app",
+  messagingSenderId: "624797846869",
+  appId: "1:624797846869:web:c969830f0f4ddd37eeb3dc",
 };
 
 // 初始化 Firebase（如果尚未初始化）
