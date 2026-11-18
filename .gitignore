@@ -1,7 +1,12 @@
 
-
 # node.js
 #
 node_modules/
 npm-debug.log
 .DS_Store
+
+# Local backend credentials（保留 *.template.js 可推送）
+wkE/_supabase/supabaseConfig.js
+.env
+.env.*
+!.env.example

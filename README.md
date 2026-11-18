@@ -19,7 +19,7 @@
 - wk10:BootStrap＋案例
 - wk11:動畫設計
 - wk12:UX設計
-- wk13:Firebase應用
+- wk13:Firebase應用（補充：`wkE` Supabase 對應範例）
 - wk14:網站企劃教學
 - wk15:服務設計與網頁設計趨勢
 - wk16:資訊圖表設計

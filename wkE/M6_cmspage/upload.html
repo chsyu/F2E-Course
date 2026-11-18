@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理 - SupaBlog</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../_supabase/supabaseConfig.js" defer></script>
+  <script src="js/upload.js" defer></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="brand">SupaBlog</a>
+      <button type="button" id="mobileMenuBtn" class="nav-toggle" aria-label="開啟選單">☰</button>
+      <nav id="navbarNav" class="nav-links" aria-label="主要">
+        <a href="upload.html">管理</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <header class="hero-brand">
+      <h1 class="hero-brand__name">內容管理</h1>
+      <hr class="divider--light">
+      <p class="hero-brand__tag">CMS／Supabase</p>
+    </header>
+
+    <div class="page-shell">
+      <div class="cms-layout">
+        <section class="cms-panel">
+          <p id="blogCount" class="cms-count">總共 <strong>0</strong> 篇文章</p>
+          <p class="cms-panel__hint">上傳種子資料到 Supabase，或刪除雲端文章。</p>
+
+          <div id="loadingIndicator" class="loading-block is-hidden">
+            <div class="loading-spinner" aria-hidden="true"></div>
+            <p>上傳中…</p>
+          </div>
+
+          <div id="uploadStatus"></div>
+          <button type="button" id="uploadBtn" class="btn btn-primary">上傳到 Supabase</button>
+          <button type="button" id="deleteAllBtn" class="btn btn-danger">刪除全部文章</button>
+        </section>
+
+        <section class="cms-panel">
+          <h1>文章列表</h1>
+          <hr class="divider--dark">
+
+          <div id="listLoadingIndicator" class="loading-block">
+            <div class="loading-spinner" aria-hidden="true"></div>
+            <p>載入文章中…</p>
+          </div>
+
+          <div id="blogListContainer" class="cms-list is-hidden"></div>
+
+          <div id="emptyListState" class="empty-state is-hidden">
+            <h2>尚無文章</h2>
+            <p>請先上傳種子資料</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a href="index.html" class="brand">SupaBlog</a>
+      <p class="site-footer__copy">© 2024 SupaBlog. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>

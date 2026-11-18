@@ -1,0 +1,48 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+  background: url('../img/backgroundImage.jpg') no-repeat center fixed;
+  background-size: cover;
+}
+
+.card-header {
+  font-family: 'Noto Serif', serif;
+  font-size: 2.5rem;
+}
+
+.name-field {
+  text-align: center;
+}
+
+.name-field,
+.message-field {
+  padding: 0 0.5em;
+}
+
+.name-field::placeholder,
+.message-field::placeholder {
+  opacity: 0.5;
+}
+
+.message-list {
+  list-style: none;
+  margin: 0px;
+  padding: 20px;
+  height: 40vh;
+  overflow: auto;
+}
+
+.message-item {
+    font-weight: 200;
+    margin-bottom: 10px;
+    line-height: 24px;
+}
+
+.message-item:last-child {
+    margin: 0px;
+}
+
+.chat-username {
+    margin-right: 0.4rem;
+    font-weight: bold;
+}
