@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kb — GSAP SVG 動畫</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/gsap.min.js" defer></script>
+  <script src="js/ScrollTrigger.min.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <header class="page-header">
+    <p class="eyebrow">Kb_SVGAnimations</p>
+    <h1>GSAP × SVG 動畫</h1>
+    <p class="lede">
+      接續 Ka 的互動 SVG：這裡用 GSAP 示範兩種常見手法——
+      <strong>stroke 寫字／畫線</strong>，以及 <strong>ScrollTrigger 捲動連動</strong>。
+    </p>
+  </header>
+
+  <!-- Demo 1：寫字（畫線） -->
+  <section class="demo-block" aria-labelledby="draw-heading">
+    <div class="panel-intro">
+      <h2 id="draw-heading">1. 寫字（畫線）動畫</h2>
+      <p>
+        原理：量出 path 長度，設 <code>stroke-dasharray</code> /
+        <code>stroke-dashoffset</code>，再用 <code>gsap.to</code> 把 offset 推到 0，
+        看起來就像筆尖在畫線。不需付費的 DrawSVGPlugin。
+      </p>
+    </div>
+
+    <div class="stage stage-draw">
+      <svg class="draw-svg" viewBox="0 0 640 220" width="640" height="220" role="img"
+        aria-label="手寫風格路徑依序被畫出">
+        <!-- 手寫感路徑：填色關閉，只靠 stroke 呈現「寫」的過程 -->
+        <g class="draw-group" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <!-- G -->
+          <path class="draw-path" data-delay="0"
+            d="M130 70 C95 70 62 100 62 135 C62 170 95 198 135 198 C170 198 198 172 198 140 L140 140" />
+          <!-- S -->
+          <path class="draw-path" data-delay="0.18"
+            d="M320 78 C290 62 250 72 245 105 C240 138 280 142 300 150 C325 160 340 175 330 195 C315 218 265 215 245 195" />
+          <!-- A -->
+          <path class="draw-path" data-delay="0.36"
+            d="M380 198 L430 62 L480 198 M402 140 H458" />
+          <!-- P -->
+          <path class="draw-path" data-delay="0.52"
+            d="M530 198 L530 62 L590 62 C625 62 645 88 645 118 C645 148 625 172 590 172 L530 172" />
+          <!-- 底線裝飾：最後一筆 sweep -->
+          <path class="draw-path draw-underline" data-delay="0.78"
+            d="M48 208 C180 222 360 198 620 212" />
+        </g>
+      </svg>
+
+      <div class="stage-actions">
+        <button type="button" class="btn-replay" id="replay-draw">重播寫字</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo 2：ScrollTrigger -->
+  <section class="demo-block demo-scroll-intro" aria-labelledby="scroll-heading">
+    <div class="panel-intro">
+      <h2 id="scroll-heading">2. 搭配 Scroll 的 SVG 動畫</h2>
+      <p>
+        用 <code>ScrollTrigger</code> 把時間軸綁在捲動進度上（<code>scrub</code>），
+        並以 <code>pin</code> 固定畫面，讓路徑、地標與移動物件跟著滾輪進度前進。
+        往下捲即可預覽。
+      </p>
+    </div>
+  </section>
+
+  <section class="scroll-scene" id="scroll-scene" aria-label="捲動連動 SVG 場景">
+    <div class="scroll-pin">
+      <div class="scroll-stage">
+        <p class="scroll-progress-label" aria-hidden="true">
+          捲動進度 <span id="scroll-pct">0</span>%
+        </p>
+
+        <svg class="journey-svg" viewBox="0 0 800 420" width="800" height="420" role="img"
+          aria-label="路線隨捲動被畫出，標記與旅人跟著前進">
+          <!-- 遠景山脈（進場淡入＋上移） -->
+          <g class="mountains" fill="#9eb6a8" opacity="0.55">
+            <path class="mountain" d="M0 260 L120 120 L240 260 Z" />
+            <path class="mountain" d="M180 260 L340 80 L500 260 Z" />
+            <path class="mountain" d="M420 260 L580 140 L720 260 Z" />
+            <path class="mountain" d="M640 260 L740 170 L800 260 Z" />
+          </g>
+
+          <!-- 地面 -->
+          <rect class="ground" x="0" y="260" width="800" height="160" fill="#d7e4dc" />
+
+          <!-- 旅程路徑：stroke 畫線 + 旅人沿 path 移動 -->
+          <path id="journey-path" class="journey-path"
+            d="M60 300 C140 300 160 220 240 220 C320 220 340 320 420 320 C500 320 520 200 620 200 C700 200 720 280 760 280"
+            fill="none" stroke="#2f4a3c" stroke-width="4" stroke-linecap="round"
+            stroke-linejoin="round" />
+
+          <!-- 路徑上的站點 -->
+          <g class="markers" fill="#e07a3d" stroke="#2f4a3c" stroke-width="2">
+            <circle class="marker" cx="60" cy="300" r="10" />
+            <circle class="marker" cx="240" cy="220" r="10" />
+            <circle class="marker" cx="420" cy="320" r="10" />
+            <circle class="marker" cx="620" cy="200" r="10" />
+            <circle class="marker" cx="760" cy="280" r="10" />
+          </g>
+
+          <!-- 旅人：用 g 包一組，JS 會沿路徑移動這個 group -->
+          <g id="traveler" class="traveler" transform="translate(60 300)">
+            <circle r="14" fill="#3d5a80" />
+            <circle cx="-4" cy="-3" r="2.5" fill="#f4f6f8" />
+            <circle cx="5" cy="-3" r="2.5" fill="#f4f6f8" />
+            <path d="M-5 5 Q0 10 5 5" fill="none" stroke="#f4f6f8" stroke-width="2"
+              stroke-linecap="round" />
+          </g>
+
+          <!-- 終點旗幟 -->
+          <g class="flag" transform="translate(760 280)">
+            <line x1="0" y1="0" x2="0" y2="-56" stroke="#2f4a3c" stroke-width="3" />
+            <path class="flag-cloth" d="M0 -56 L36 -44 L0 -32 Z" fill="#e07a3d" />
+          </g>
+        </svg>
+
+        <p class="scroll-hint">繼續往下捲，路線會跟著進度畫完</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="after-scroll" aria-labelledby="after-heading">
+    <h2 id="after-heading">捲動段落結束</h2>
+    <p>pin 解除後回到一般文件流。可再往上捲，動畫會依 scrub 倒播。</p>
+  </section>
+
+  <footer class="site-footer">
+    <p>Kb_SVGAnimations · stroke 畫線 + ScrollTrigger（pin / scrub）</p>
+  </footer>
+</body>
+
+</html>

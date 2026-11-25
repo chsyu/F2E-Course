@@ -1,0 +1,253 @@
+:root {
+  --color-ink: #2c2f33;
+  --color-muted: #6b7078;
+  --color-paper: #f3f1ec;
+  --color-surface: #e8e5de;
+  --color-line: #cfc9bf;
+  --color-stage: #2f4a3c;
+  --color-stage-ink: #f4f6f8;
+  --color-accent: #3d5a80;
+  --color-mark: #e07a3d;
+  --font-sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --space-page: clamp(1.25rem, 4vw, 2.5rem);
+  --radius-soft: 0.35rem;
+  --max-content: 52rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-block-size: 100dvh;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-paper);
+  line-height: 1.55;
+}
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 12% 0%, #e4ebe6 0%, transparent 42%),
+    radial-gradient(ellipse at 88% 8%, #e8e4dc 0%, transparent 38%),
+    linear-gradient(180deg, #f7f5f0 0%, var(--color-paper) 55%, #ebe8e1 100%);
+}
+
+.page-header,
+.demo-block,
+.after-scroll,
+.site-footer {
+  max-inline-size: var(--max-content);
+  margin-inline: auto;
+  padding-inline: var(--space-page);
+}
+
+.page-header {
+  padding-block: 2.5rem 1rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.page-header h1 {
+  margin: 0 0 0.65rem;
+  font-size: clamp(1.85rem, 4.5vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.lede {
+  margin: 0;
+  max-inline-size: 40rem;
+  color: var(--color-muted);
+  font-size: 1.02rem;
+}
+
+.lede strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.demo-block {
+  display: grid;
+  gap: 1rem;
+  margin-block: 2rem 0;
+}
+
+.demo-scroll-intro {
+  margin-block-end: 0.5rem;
+}
+
+.panel-intro h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.panel-intro p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.panel-intro code {
+  font-size: 0.88em;
+  padding: 0.1em 0.35em;
+  background: var(--color-surface);
+  border-radius: 0.2rem;
+}
+
+.stage {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--color-stage);
+  color: var(--color-stage-ink);
+  border-radius: var(--radius-soft);
+}
+
+.stage-draw {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: center;
+}
+
+.draw-svg {
+  display: block;
+  inline-size: min(100%, 40rem);
+  block-size: auto;
+  aspect-ratio: 640 / 220;
+}
+
+.draw-path {
+  stroke: var(--color-stage-ink);
+  stroke-width: 8;
+}
+
+.draw-underline {
+  stroke: var(--color-mark);
+  stroke-width: 5;
+}
+
+.stage-actions {
+  justify-self: start;
+}
+
+.btn-replay {
+  appearance: none;
+  border: 1px solid color-mix(in srgb, var(--color-stage-ink) 35%, transparent);
+  border-radius: var(--radius-soft);
+  padding: 0.55rem 1.1rem;
+  background: transparent;
+  color: var(--color-stage-ink);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-replay:hover,
+.btn-replay:focus-visible {
+  background: color-mix(in srgb, var(--color-stage-ink) 12%, transparent);
+  border-color: var(--color-stage-ink);
+}
+
+.btn-replay:focus-visible {
+  outline: 2px solid var(--color-stage-ink);
+  outline-offset: 2px;
+}
+
+/* —— Scroll 場景：外層拉長製造捲動距離，內層被 pin —— */
+.scroll-scene {
+  position: relative;
+  /* 為什麼用 220vh：提供足夠 scrub 距離，讓畫線／移動可細看 */
+  min-block-size: 220vh;
+  margin-block: 1rem 0;
+}
+
+.scroll-pin {
+  display: grid;
+  place-items: center;
+  min-block-size: 100vh;
+  padding-inline: var(--space-page);
+}
+
+.scroll-stage {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: center;
+  inline-size: min(100%, 52rem);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  background: #eef3f0;
+  border: 1px solid #c5d4cb;
+  border-radius: var(--radius-soft);
+}
+
+.scroll-progress-label {
+  margin: 0;
+  justify-self: end;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-muted);
+}
+
+.journey-svg {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 800 / 420;
+  background:
+    linear-gradient(180deg, #c9dde8 0%, #dce8e2 45%, transparent 45%);
+  border-radius: 0.25rem;
+}
+
+.scroll-hint {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+}
+
+.after-scroll {
+  margin-block: 2.5rem;
+  padding-block: 1.5rem;
+  border-block-start: 1px solid var(--color-line);
+}
+
+.after-scroll h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.15rem;
+}
+
+.after-scroll p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.site-footer {
+  padding-block: 1.5rem 2.5rem;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-replay {
+    transition: none;
+  }
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K7 — 文字進入與數字動畫</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/gsap.min.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <!-- Demo 1：導覽列 Hover 底線 + 標題進場 -->
+  <section class="demo-block" aria-labelledby="stage-heading">
+    <div class="panel-intro">
+      <h2 id="stage-heading">文字進入與導覽 Hover</h2>
+      <p>
+        標題用 <code>gsap.from</code>＋<code>stagger</code> 由下往上淡入；
+        導覽用 <code>::before</code> 做底線展開。
+      </p>
+    </div>
+
+    <div class="stage">
+      <header class="stage-header">
+        <nav aria-label="示範導覽">
+          <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="#">Here's</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Some</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Options</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="content">
+        <p class="title">Dramatic</p>
+        <p class="title">Text Effect</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo 2：數字計數動畫 -->
+  <section class="counter-panel" aria-labelledby="counter-heading">
+    <div class="panel-intro">
+      <h2 id="counter-heading">數字計數動畫</h2>
+      <p>用 <code>gsap.to</code> 改變 <code>innerText</code>，並以 <code>snap</code> 讓數字一次加 1。</p>
+    </div>
+
+    <div class="counter-box">
+      <span id="counter">0</span>
+      <span class="counter-unit">counts</span>
+    </div>
+
+    <button type="button" class="btn-replay" id="replay-btn">重播動畫</button>
+  </section>
+
+  <footer class="site-footer">
+    <p>K7_TextAnimations · GSAP 文字進場、導覽 Hover、數字計數</p>
+  </footer>
+</body>
+
+</html>

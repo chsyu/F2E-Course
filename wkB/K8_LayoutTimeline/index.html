@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Timeline — 頁面進場</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/gsap.min.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <p class="brand" data-anim="brand">Northwind Studio</p>
+    <nav class="site-nav" aria-label="主要導覽">
+      <a href="#work" data-anim="nav">作品</a>
+      <a href="#about" data-anim="nav">關於</a>
+      <a href="#contact" data-anim="nav" class="nav-cta">聯絡</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow" data-anim="copy">品牌網站・互動體驗</p>
+        <h1 id="hero-title" data-anim="copy">用一條 Timeline<br>串起整頁進場</h1>
+        <p class="lede" data-anim="copy">
+          取代一堆 delay：把標題、按鈕與卡片排進同一個時間軸，
+          用 stagger 與位置參數控制節奏。
+        </p>
+        <div class="hero-actions" data-anim="cta">
+          <a class="btn-primary" href="#work">查看示範段落</a>
+          <button type="button" class="btn-ghost" id="replay-btn">重播進場</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="features" aria-labelledby="features-title">
+      <h2 id="features-title" class="visually-hidden">功能重點</h2>
+      <ul class="feature-grid">
+        <li class="feature" data-anim="card">
+          <h3>順序清楚</h3>
+          <p>timeline 依寫入順序播放，不用手算 delay。</p>
+        </li>
+        <li class="feature" data-anim="card">
+          <h3>Stagger 群組</h3>
+          <p>同一批元素錯開進場，節奏一致又省程式碼。</p>
+        </li>
+        <li class="feature" data-anim="card">
+          <h3>位置重疊</h3>
+          <p>用 <code>"-=0.3"</code> 讓下一段提早接上，避免卡頓感。</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer id="about" class="site-footer" data-anim="footer">
+    <p>K8_Timeline · GSAP Timeline 實務範例</p>
+  </footer>
+</body>
+
+</html>

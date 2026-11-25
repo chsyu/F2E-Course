@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive SVG Map</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <main class="page">
+    <h1>Interactive SVG Map</h1>
+    <p class="lead">
+      對照 HelloSVG：Kd 教「畫出來」；這裡用多個不規則 <code>&lt;path&gt;</code> 做地圖區塊互動。
+    </p>
+
+    <div class="map-layout">
+      <!-- 為什麼用 path 而非 rect：真實地圖邊界是不規則曲線，hit-testing 跟著填色形狀走 -->
+      <svg id="island-map" class="island-map" viewBox="0 0 400 480" width="400" height="480" role="img"
+        aria-label="簡化島嶼區域地圖，可滑過或點選各區">
+        <path class="region" data-name="北區" tabindex="0" role="button" aria-label="北區"
+          d="M120 40 C160 18 240 18 280 40 C310 58 330 90 318 130 C300 170 250 175 200 168 C150 175 110 160 95 125 C82 92 95 58 120 40 Z" />
+
+        <path class="region" data-name="西區" tabindex="0" role="button" aria-label="西區"
+          d="M70 140 C95 155 120 175 125 210 C130 250 115 290 95 320 C70 355 45 340 40 300 C35 250 42 195 70 140 Z" />
+
+        <path class="region" data-name="中區" tabindex="0" role="button" aria-label="中區"
+          d="M140 175 C185 168 235 168 275 180 C300 195 310 230 295 265 C275 305 220 315 175 305 C135 295 120 250 125 215 C128 195 132 180 140 175 Z" />
+
+        <path class="region" data-name="東區" tabindex="0" role="button" aria-label="東區"
+          d="M290 145 C330 155 355 190 360 235 C365 285 345 330 315 345 C285 358 270 320 275 280 C280 240 278 185 290 145 Z" />
+
+        <path class="region" data-name="南區" tabindex="0" role="button" aria-label="南區"
+          d="M110 320 C155 310 220 315 265 335 C295 350 305 385 285 415 C255 450 175 455 135 430 C105 410 95 360 110 320 Z" />
+
+        <path class="region" data-name="港區" tabindex="0" role="button" aria-label="港區"
+          d="M300 360 C335 370 355 400 345 430 C330 460 295 465 275 445 C255 425 270 385 300 360 Z" />
+      </svg>
+
+      <aside class="map-panel" aria-live="polite">
+        <p class="panel-label">目前游標</p>
+        <p id="hover-name" class="panel-value">—</p>
+        <p class="panel-label">已選取</p>
+        <p id="selected-name" class="panel-value">尚未選取</p>
+        <p class="hint">滑過換色；點擊（或 Enter／空白鍵）選取區域。</p>
+      </aside>
+    </div>
+  </main>
+</body>
+
+</html>

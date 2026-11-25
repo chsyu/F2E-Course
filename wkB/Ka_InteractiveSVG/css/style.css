@@ -1,0 +1,117 @@
+:root {
+  --color-ink: #1a2332;
+  --color-muted: #5c6b7a;
+  --color-sea: #dceef7;
+  --color-region: #7eb8a2;
+  --color-region-hover: #f0c75e;
+  --color-region-selected: #e07a3d;
+  --color-stroke: #2f4a3c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Noto Sans TC", sans-serif;
+  color: var(--color-ink);
+  background:
+    radial-gradient(circle at 20% 10%, #eef6fb 0, transparent 45%),
+    radial-gradient(circle at 80% 0%, #f7f1e6 0, transparent 40%),
+    #f4f7f9;
+}
+
+.page {
+  max-inline-size: 56rem;
+  margin-inline: auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-block: 0 0.5rem;
+}
+
+.lead {
+  color: var(--color-muted);
+  max-inline-size: 40rem;
+  margin-block-end: 1.75rem;
+  line-height: 1.6;
+}
+
+.map-layout {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 720px) {
+  .map-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(12rem, 16rem);
+  }
+}
+
+.island-map {
+  display: block;
+  inline-size: min(100%, 400px);
+  block-size: auto;
+  aspect-ratio: 400 / 480;
+  background: var(--color-sea);
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.region {
+  fill: var(--color-region);
+  stroke: var(--color-stroke);
+  stroke-width: 2;
+  cursor: pointer;
+  transition: fill 160ms ease, stroke-width 160ms ease;
+  outline: none;
+}
+
+.region:hover,
+.region:focus-visible {
+  fill: var(--color-region-hover);
+  stroke-width: 3;
+}
+
+.region.is-selected {
+  fill: var(--color-region-selected);
+  stroke-width: 3;
+}
+
+.region.is-selected:hover,
+.region.is-selected:focus-visible {
+  fill: #c9652c;
+}
+
+.map-panel {
+  background: #fff;
+  border: 1px solid #d7e0e8;
+  border-radius: 0.75rem;
+  padding: 1rem 1.15rem;
+}
+
+.panel-label {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.panel-value {
+  margin: 0.25rem 0 1rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
