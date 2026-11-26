@@ -1,74 +1,20 @@
-/**
- * DOM 渲染模組（js/render.js）
- * 透過相對路徑匯入本地工具模組 ./vendor/format.js。
- */
-import { formatDateZh } from './vendor/format.js';
+// 僅在 render.js 內部使用，不需要 export
+const cardTemplate = (course) => `
+	<article class="card">
+		<img class="card__image" src="${course.image}" alt="${course.title}">
+		<div class="card__body">
+			<span class="card__badge">${course.isOpen ? '開放報名' : '已額滿'}</span>
+			<h2 class="card__title">${course.title}</h2>
+			<p class="card__desc">${course.desc}</p>
+		</div>
+	</article>
+`;
 
-// 與 data.js 同名的內部常數：因為在獨立模組內，不會發生重複宣告錯誤
-const MODULE_TAG = 'render-module';
+export const renderCourses = (container, items) => {
+	if (items.length === 0) {
+		container.innerHTML = '<p class="empty">找不到符合的課程</p>';
+		return;
+	}
 
-export const getRenderModuleTag = () => MODULE_TAG;
-
-export const renderCategoryFilters = (container, categories, activeCategory) => {
-  const fragment = document.createDocumentFragment();
-
-  categories.forEach((category) => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = category === activeCategory ? 'btn-filter is-active' : 'btn-filter';
-    button.dataset.category = category;
-    button.setAttribute('aria-pressed', String(category === activeCategory));
-    button.textContent = category;
-    fragment.append(button);
-  });
-
-  container.replaceChildren(fragment);
-};
-
-const createArticleCard = (article) => {
-  const card = document.createElement('article');
-  card.className = 'card-base';
-
-  const tag = document.createElement('span');
-  tag.className = 'card-base__tag';
-  tag.textContent = article.category;
-
-  const title = document.createElement('h2');
-  title.className = 'card-base__title';
-  title.textContent = article.title;
-
-  const summary = document.createElement('p');
-  summary.className = 'card-base__summary';
-  summary.textContent = article.summary;
-
-  const meta = document.createElement('div');
-  meta.className = 'card-base__meta';
-
-  const author = document.createElement('span');
-  author.textContent = article.author;
-
-  const date = document.createElement('time');
-  date.dateTime = article.date;
-  date.textContent = formatDateZh(article.date);
-
-  meta.append(author, date);
-  card.append(tag, title, summary, meta);
-  return card;
-};
-
-export const renderArticleCards = (container, articles) => {
-  if (!articles.length) {
-    const empty = document.createElement('p');
-    empty.className = 'empty-state';
-    empty.textContent = '目前沒有符合此分類的文章。';
-    container.replaceChildren(empty);
-    return;
-  }
-
-  const fragment = document.createDocumentFragment();
-  articles.forEach((article) => {
-    fragment.append(createArticleCard(article));
-  });
-
-  container.replaceChildren(fragment);
+	container.innerHTML = items.map(cardTemplate).join('');
 };

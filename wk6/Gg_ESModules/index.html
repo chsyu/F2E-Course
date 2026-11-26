@@ -1,51 +1,25 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gg：ES Modules 模組化與變數作用域</title>
-  <link rel="stylesheet" href="css/style.css">
-
-  <!--
-    使用原生 ES Modules（type="module"）：
-    1. 透過相對路徑 import / export 拆分資料、渲染與工具模組，不再依賴 <script> 標籤順序。
-    2. 預設即為 defer 且啟用嚴格模式（strict mode），不需額外寫 defer。
-    注意：ES Modules 需透過 HTTP 伺服器（如 VS Code Live Server）開啟，不可直接雙擊 HTML。
-  -->
-  <script type="module" src="./js/main.js"></script>
+	<meta charset="utf-8">
+	<title>Course List + ES Modules</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!-- type="module" 預設即為 defer，需透過 Live Server 等 HTTP 伺服器開啟 -->
+	<script type="module" src="./js/index.js"></script>
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a href="index.html" class="brand">F2E <span>ESM Lab</span></a>
-      <span class="badge-offline">wk6 / Gg 純離線 No-Build 範例</span>
-    </div>
-  </header>
+	<div class="wrap">
+		<header class="header">
+			<h1 class="title">課程列表</h1>
+			<p class="subtitle">延續 Gf_CourseListTernary：使用 ES Modules（import / export）拆分資料、渲染與主程式</p>
+			<label class="search">
+				<span class="search__label">搜尋</span>
+				<input type="search" id="search" class="search__input" placeholder="例如：JavaScript、排版…">
+			</label>
+		</header>
 
-  <main class="page-shell">
-    <section class="intro-panel" aria-labelledby="pageTitle">
-      <h1 id="pageTitle" class="intro-panel__title">ES Modules 模組化與變數作用域</h1>
-      <p class="intro-panel__desc">
-        延續 <code>Gf_CourseListTernary</code>：當程式變長、需要拆檔並引入工具函式時，透過原生 <code>import</code> / <code>export</code>（<code>./data.js</code>、<code>./render.js</code> 與 <code>./vendor/format.js</code>）管理相依性，並隔離各檔案的變數作用域。
-      </p>
-      <p id="scopeCheck" class="scope-note" aria-live="polite"></p>
-      <p id="vendorInfo" class="vendor-note" aria-live="polite"></p>
-    </section>
-
-    <section class="catalog-section" aria-label="課程文章分類與列表">
-      <div id="filterBar" class="filter-bar" role="group" aria-label="分類篩選"></div>
-      <p id="resultCount" class="result-count" aria-live="polite"></p>
-      <div id="articleGrid" class="article-grid"></div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <p>wk6 / Gg_ESModules — 請透過 VS Code Live Server 開啟（不需打包工具、完全離線可用）</p>
-    </div>
-  </footer>
+		<div id="course-list" class="course-list"></div>
+	</div>
 </body>
-
 </html>
