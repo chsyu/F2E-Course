@@ -12,14 +12,14 @@
 - wk3:CSS3
 - wk4:CSS3
 - wk5:UI設計
-- wk6:JS
+- wk6:JS（含 `Gg_ESModules`：原生 ES Modules 模組化與變數作用域，純離線可執行）
 - wk7:jQuery
 - wk8:RWD簡介
 - wk9:期中專題DEMO
 - wk10:BootStrap＋案例
 - wk11:動畫設計
 - wk12:UX設計
-- wk13:Firebase應用（補充：`wkE` Supabase 對應範例）
+- wk13:Firebase應用（`wkD`：`M1`～`M4` 提供原版與 `index.esm.html` 雙版本對照，`M5`～`Mc` 全面採用 Firebase v13 官方 Modular SDK 瀏覽器模組寫法，請透過 VS Code Live Server 開啟；補充：`wkE` Supabase 對應範例）
 - wk14:網站企劃教學
 - wk15:服務設計與網頁設計趨勢
 - wk16:資訊圖表設計

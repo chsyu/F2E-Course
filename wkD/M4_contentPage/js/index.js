@@ -1,28 +1,17 @@
-// 註冊 DOM 元素
+import { blogsData } from './blogs.js';
+
 const blogCardsContainer = document.querySelector('#blogCardsContainer');
 
-function showEmptyState() {
+const showEmptyState = () => {
   blogCardsContainer.innerHTML = `
     <div class="empty-state">
       <h2>尚無文章</h2>
       <p>目前沒有任何文章</p>
     </div>
   `;
-}
+};
 
-function loadBlogs() {
-  if (typeof blogsData === 'undefined' || !Array.isArray(blogsData) || blogsData.length === 0) {
-    showEmptyState();
-    return;
-  }
-
-  blogCardsContainer.innerHTML = '';
-  blogsData.forEach((blog, index) => {
-    createBlogCard(blog, index);
-  });
-}
-
-function createBlogCard(blog, index) {
+const createBlogCard = (blog, index) => {
   const dateStr = blog.date || '未知日期';
   const contentPreview = blog.content
     ? (blog.content.length > 90 ? `${blog.content.substring(0, 90)}…` : blog.content)
@@ -44,6 +33,18 @@ function createBlogCard(blog, index) {
       </a>
     </article>
   `);
-}
+};
+
+const loadBlogs = () => {
+  if (!Array.isArray(blogsData) || blogsData.length === 0) {
+    showEmptyState();
+    return;
+  }
+
+  blogCardsContainer.innerHTML = '';
+  blogsData.forEach((blog, index) => {
+    createBlogCard(blog, index);
+  });
+};
 
 loadBlogs();

@@ -1,50 +1,58 @@
-// REGISTER DOM ELEMENTS
+// 對照 js/script.conventional.js（Compat）：改用 Modular SDK
+import { db } from './firebaseConfig.js';
+import {
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  onSnapshot,
+  setDoc,
+  updateDoc,
+} from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js';
+
 const title = document.querySelector('#title');
 const docElement = document.querySelector('#doc');
 
-// INITIALIZE FIREBASE
-firebase.initializeApp({
-  apiKey: "AIzaSyAwIZ1CqRVFCBLvQhUwfgPSKVKTIm6_ZM",
-  authDomain: "f2e2026.firebaseapp.com",
-  projectId: "f2e2026",
-  storageBucket: "f2e2026.firebasestorage.app",
-  messagingSenderId: "624797846869",
-  appId: "1:624797846869:web:c969830f0f4ddd37eeb3dc",
-});
-
-let db = firebase.firestore();
-let usersRef = db.collection("users");
-// usersRef.add({
-//   "name": "NTUE",
-//   "age": 13,
-//   "tel": {
-//     "tel1": "111-111",
-//     "tel2": "222-111"
-//   }
+const usersRef = collection(db, 'users');
+// addDoc(usersRef, {
+//   name: 'NTUE',
+//   age: 13,
+//   tel: {
+//     tel1: '111-111',
+//     tel2: '222-111',
+//   },
 // });
 
-let docRef = usersRef.doc("1167");
+const snapshot_getDoc = await getDoc(docRef);
+if (snapshot_getDoc.exists()) {
+  docElement.innerHTML = `doc 1167 name = ${snapshot_getDoc.data().name}`;
+}
 
-docRef.get().then(function(doc){
-  // 為何用 textContent：Firestore 欄位可能含惡意字串，不可當 HTML 插入
-  docElement.textContent = `doc 1167 name = ${doc.data().name}`;
+const docRef = doc(db, 'users', '1167');
+
+setDoc(docRef, {
+  name: 'Alex2',
+  age: 27,
+  tel: {
+    tel1: '111-111',
+    tel2: '222-111',
+  },
 });
 
-docRef.set({
-  "name": "Alex2",
-  "age": 27,
-  "tel": {
-    "tel1": "111-111",
-    "tel2": "222-111"
-  }
-});
+// const snapshot = await getDoc(docRef);
+// if (snapshot.exists()) {
+//   docElement.innerHTML = `doc 1167 name = ${snapshot.data().name}`;
+// }
 
-// docRef.update({
-//   "name": "John Doe"
+// updateDoc(docRef, {
+//   name: 'John Doe',
 // });
 
-// docRef.onSnapshot(
-//   function(doc){
-//     title.textContent = `user name = ${doc.data().name}, user age = ${doc.data().age}`;
-//   }
-// );
+// deleteDoc(docRef);
+
+// 即時監聽文件變化
+onSnapshot(docRef, (snapshot) => {
+  const data = snapshot.data();
+  docElement.innerHTML = `doc 1167 name = ${data.name}`;
+  title.innerHTML = `user name = ${data.name}, user age = ${data.age}`;
+});

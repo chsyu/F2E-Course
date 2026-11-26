@@ -1,7 +1,7 @@
-/**
- * 部落格資料
- * 包含 10 篇部落格文章的資料
- */
+// 匯入本地 firebaseConfig.js 與 Firebase v13 Modular Firestore
+import { db } from './firebaseConfig.js';
+import { collection, doc, serverTimestamp, writeBatch } from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js';
+
 const blogsData = [
   {
     "title": "探索前端開發的無限可能",
@@ -85,61 +85,44 @@ const blogsData = [
   }
 ];
 
-// Firebase 已在 firebaseConfig.js 中初始化
-// 使用全域 db 變數（從 firebaseConfig.js 匯出）
-let blogsRef = db.collection("blogs");
+const blogsRef = collection(db, 'blogs');
 
-document.querySelector('#mobileMenuBtn').addEventListener('click', function () {
-  document.querySelector('#navbarNav').classList.toggle('is-open');
+document.querySelector('#mobileMenuBtn')?.addEventListener('click', () => {
+  document.querySelector('#navbarNav')?.classList.toggle('is-open');
 });
 
 const uploadBtn = document.querySelector('#uploadBtn');
 const uploadStatus = document.querySelector('#uploadStatus');
 const loadingIndicator = document.querySelector('#loadingIndicator');
 
-function showUploadStatus(type, message) {
-  uploadStatus.replaceChildren();
-  const box = document.createElement('div');
-  box.className = type === 'error' ? 'status-box status-box--error' : 'status-box status-box--ok';
-  box.textContent = message;
-  uploadStatus.append(box);
-}
+const showUploadStatus = (type, message) => {
+  const statusClass = type === 'error' ? 'status-box status-box--error' : 'status-box status-box--ok';
+  uploadStatus.innerHTML = `<div class="${statusClass}">${message}</div>`;
+};
 
-uploadBtn.addEventListener('click', function () {
-  try {
-    loadingIndicator.classList.remove('is-hidden', 'hidden');
-    uploadBtn.disabled = true;
-    uploadStatus.innerHTML = '';
-    uploadBlogs(blogsData);
-  } catch (error) {
-    loadingIndicator.classList.add('is-hidden', 'hidden');
-    uploadBtn.disabled = false;
-    showUploadStatus('error', `上傳時發生錯誤：${error.message}`);
-  }
-});
-
-function uploadBlogs(blogs) {
-  let batch = db.batch();
+const uploadBlogs = async (blogs) => {
+  const batch = writeBatch(db);
 
   blogs.forEach((blog) => {
     const blogData = {
       ...blog,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
     };
-    const docRef = blogsRef.doc();
+    const docRef = doc(blogsRef);
     batch.set(docRef, blogData);
   });
 
-  batch.commit()
-    .then(() => {
-      loadingIndicator.classList.add('is-hidden', 'hidden');
-      uploadBtn.disabled = false;
-      showUploadStatus('success', `成功上傳 ${blogs.length} 篇文章到 Firestore！`);
-    })
-    .catch((error) => {
-      loadingIndicator.classList.add('is-hidden', 'hidden');
-      uploadBtn.disabled = false;
-      showUploadStatus('error', `上傳時發生錯誤：${error.message}`);
-    });
-}
+  await batch.commit();
+};
+
+uploadBtn.addEventListener('click', async () => {
+  loadingIndicator.classList.remove('is-hidden', 'hidden');
+  uploadBtn.disabled = true;
+  uploadStatus.innerHTML = '';
+
+  await uploadBlogs(blogsData);
+  showUploadStatus('success', `成功上傳 ${blogsData.length} 篇文章到 Firestore！`);
+  loadingIndicator.classList.add('is-hidden', 'hidden');
+  uploadBtn.disabled = false;
+});

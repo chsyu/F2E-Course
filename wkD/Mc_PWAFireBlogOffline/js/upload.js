@@ -1,7 +1,17 @@
-/**
- * 部落格資料
- * 包含 10 篇部落格文章的資料
- */
+// 匯入本地 firebaseConfig.js 與 Firebase v13 Modular Firestore
+import { db } from './firebaseConfig.js';
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  onSnapshot,
+  orderBy,
+  query,
+  serverTimestamp,
+  writeBatch,
+} from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js';
+
 const blogsData = [
   {
     "title": "探索前端開發的無限可能",
@@ -85,11 +95,10 @@ const blogsData = [
   }
 ];
 
-// Firebase 已在 firebaseConfig.js 中初始化
-let blogsRef = db.collection("blogs");
+const blogsRef = collection(db, 'blogs');
 
-document.querySelector('#mobileMenuBtn').addEventListener('click', function () {
-  document.querySelector('#navbarNav').classList.toggle('is-open');
+document.querySelector('#mobileMenuBtn')?.addEventListener('click', () => {
+  document.querySelector('#navbarNav')?.classList.toggle('is-open');
 });
 
 const uploadBtn = document.querySelector('#uploadBtn');
@@ -101,58 +110,17 @@ const emptyListState = document.querySelector('#emptyListState');
 const blogCount = document.querySelector('#blogCount strong');
 const deleteAllBtn = document.querySelector('#deleteAllBtn');
 
-function showUploadStatus(type, message) {
-  uploadStatus.replaceChildren();
-  const box = document.createElement('div');
-  box.className = type === 'error' ? 'status-box status-box--error' : 'status-box status-box--ok';
-  box.textContent = message;
-  uploadStatus.append(box);
-}
+const showUploadStatus = (type, message) => {
+  const statusClass = type === 'error' ? 'status-box status-box--error' : 'status-box status-box--ok';
+  uploadStatus.innerHTML = `<div class="${statusClass}">${message}</div>`;
+};
 
-function showListError(message) {
-  blogListContainer.replaceChildren();
+const showListError = (message) => {
   blogListContainer.classList.remove('is-hidden', 'hidden');
-  const box = document.createElement('div');
-  box.className = 'alert';
-  box.textContent = `載入文章列表時發生錯誤：${message}`;
-  blogListContainer.append(box);
-}
+  blogListContainer.innerHTML = `<div class="alert">載入文章列表時發生錯誤：${message}</div>`;
+};
 
-function setupBlogListListener() {
-  listLoadingIndicator.classList.remove('is-hidden', 'hidden');
-  blogListContainer.classList.add('is-hidden', 'hidden');
-  emptyListState.classList.add('is-hidden', 'hidden');
-
-  blogsRef
-    .orderBy('createdAt', 'desc')
-    .onSnapshot(
-      (querySnapshot) => {
-        listLoadingIndicator.classList.add('is-hidden', 'hidden');
-        blogCount.textContent = querySnapshot.size;
-
-        if (querySnapshot.empty) {
-          emptyListState.classList.remove('is-hidden', 'hidden');
-          blogListContainer.classList.add('is-hidden', 'hidden');
-          return;
-        }
-
-        emptyListState.classList.add('is-hidden', 'hidden');
-        blogListContainer.classList.remove('is-hidden', 'hidden');
-        blogListContainer.innerHTML = '';
-
-        querySnapshot.forEach((doc) => {
-          createBlogListItem(doc.data(), doc.id);
-        });
-      },
-      (error) => {
-        console.error('監聽文章列表時發生錯誤:', error);
-        listLoadingIndicator.classList.add('is-hidden', 'hidden');
-        showListError(error.message);
-      }
-    );
-}
-
-function createBlogListItem(blog, blogId) {
+const createBlogListItem = (blog, blogId) => {
   let uploadTimeStr = '未知時間';
   if (blog.createdAt && blog.createdAt.toDate) {
     uploadTimeStr = blog.createdAt.toDate().toLocaleString('zh-TW', {
@@ -160,7 +128,7 @@ function createBlogListItem(blog, blogId) {
       month: '2-digit',
       day: '2-digit',
       hour: '2-digit',
-      minute: '2-digit'
+      minute: '2-digit',
     });
   }
 
@@ -177,26 +145,49 @@ function createBlogListItem(blog, blogId) {
       <button type="button" class="delete-blog-btn btn btn-danger btn-sm" data-blog-id="${blogId}" title="刪除此文章">刪除</button>
     </div>
   `);
-}
+};
 
-function deleteBlog(blogId) {
+const setupBlogListListener = () => {
+  listLoadingIndicator.classList.remove('is-hidden', 'hidden');
+  blogListContainer.classList.add('is-hidden', 'hidden');
+  emptyListState.classList.add('is-hidden', 'hidden');
+
+  const blogsQuery = query(blogsRef, orderBy('createdAt', 'desc'));
+  onSnapshot(
+    blogsQuery,
+    (querySnapshot) => {
+      listLoadingIndicator.classList.add('is-hidden', 'hidden');
+      blogCount.textContent = querySnapshot.size;
+
+      if (querySnapshot.empty) {
+        emptyListState.classList.remove('is-hidden', 'hidden');
+        blogListContainer.classList.add('is-hidden', 'hidden');
+        return;
+      }
+
+      emptyListState.classList.add('is-hidden', 'hidden');
+      blogListContainer.classList.remove('is-hidden', 'hidden');
+      blogListContainer.innerHTML = '';
+
+      querySnapshot.forEach((item) => {
+        createBlogListItem(item.data(), item.id);
+      });
+    },
+    (error) => {
+      console.error('監聽文章列表時發生錯誤:', error);
+      listLoadingIndicator.classList.add('is-hidden', 'hidden');
+      showListError(error.message);
+    },
+  );
+};
+
+const deleteBlog = (blogId) => {
   if (!confirm('確定要刪除此文章嗎？')) return;
+  deleteDoc(doc(db, 'blogs', blogId));
+};
 
-  blogsRef
-    .doc(blogId)
-    .delete()
-    .then(() => {
-      console.log('文章已刪除');
-    })
-    .catch((error) => {
-      console.error('刪除文章時發生錯誤:', error);
-      alert('刪除文章時發生錯誤：' + error.message);
-    });
-}
-
-function deleteAllBlogs() {
+const deleteAllBlogs = async () => {
   const totalCount = parseInt(blogCount.textContent, 10) || 0;
-
   if (totalCount === 0) {
     alert('目前沒有任何文章可以刪除');
     return;
@@ -209,82 +200,53 @@ function deleteAllBlogs() {
   deleteAllBtn.disabled = true;
   deleteAllBtn.textContent = '刪除中…';
 
-  blogsRef
-    .get()
-    .then((querySnapshot) => {
-      if (querySnapshot.empty) {
-        alert('目前沒有任何文章可以刪除');
-        deleteAllBtn.disabled = false;
-        deleteAllBtn.textContent = '刪除全部文章';
-        return;
-      }
+  const querySnapshot = await getDocs(blogsRef);
+  if (querySnapshot.empty) {
+    alert('目前沒有任何文章可以刪除');
+    deleteAllBtn.disabled = false;
+    deleteAllBtn.textContent = '刪除全部文章';
+    return;
+  }
 
-      let batch = db.batch();
-      querySnapshot.forEach((doc) => {
-        batch.delete(doc.ref);
-      });
-      return batch.commit();
-    })
-    .then(() => {
-      deleteAllBtn.disabled = false;
-      deleteAllBtn.textContent = '刪除全部文章';
-      alert('所有文章已成功刪除');
-    })
-    .catch((error) => {
-      console.error('刪除全部文章時發生錯誤:', error);
-      alert('刪除全部文章時發生錯誤：' + error.message);
-      deleteAllBtn.disabled = false;
-      deleteAllBtn.textContent = '刪除全部文章';
-    });
-}
+  const batch = writeBatch(db);
+  querySnapshot.forEach((item) => {
+    batch.delete(item.ref);
+  });
+  await batch.commit();
+  alert('所有文章已成功刪除');
 
-blogListContainer.addEventListener('click', function (e) {
-  const deleteBtn = e.target.closest('.delete-blog-btn');
+  deleteAllBtn.disabled = false;
+  deleteAllBtn.textContent = '刪除全部文章';
+};
+
+blogListContainer.addEventListener('click', (event) => {
+  const deleteBtn = event.target.closest('.delete-blog-btn');
   if (!deleteBtn) return;
   const blogId = deleteBtn.dataset.blogId;
   if (blogId) deleteBlog(blogId);
 });
 
-deleteAllBtn.addEventListener('click', function () {
-  deleteAllBlogs();
-});
+deleteAllBtn.addEventListener('click', deleteAllBlogs);
 
-uploadBtn.addEventListener('click', function () {
-  try {
-    loadingIndicator.classList.remove('is-hidden', 'hidden');
-    uploadBtn.disabled = true;
-    uploadStatus.innerHTML = '';
-    uploadBlogs(blogsData);
-  } catch (error) {
-    loadingIndicator.classList.add('is-hidden', 'hidden');
-    uploadBtn.disabled = false;
-    showUploadStatus('error', `上傳時發生錯誤：${error.message}`);
-  }
-});
+uploadBtn.addEventListener('click', async () => {
+  loadingIndicator.classList.remove('is-hidden', 'hidden');
+  uploadBtn.disabled = true;
+  uploadStatus.innerHTML = '';
 
-function uploadBlogs(blogs) {
-  let batch = db.batch();
-
-  blogs.forEach((blog) => {
+  const batch = writeBatch(db);
+  blogsData.forEach((blog) => {
     const blogData = {
       ...blog,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
     };
-    batch.set(blogsRef.doc(), blogData);
+    batch.set(doc(blogsRef), blogData);
   });
+  await batch.commit();
+  showUploadStatus('success', `成功上傳 ${blogsData.length} 篇文章到 Firestore！`);
 
-  batch.commit()
-    .then(() => {
-      loadingIndicator.classList.add('is-hidden', 'hidden');
-      uploadBtn.disabled = false;
-      showUploadStatus('success', `成功上傳 ${blogs.length} 篇文章到 Firestore！`);
-    })
-    .catch((error) => {
-      loadingIndicator.classList.add('is-hidden', 'hidden');
-      uploadBtn.disabled = false;
-      showUploadStatus('error', `上傳時發生錯誤：${error.message}`);
-    });
-}
+  loadingIndicator.classList.add('is-hidden', 'hidden');
+  uploadBtn.disabled = false;
+});
 
 setupBlogListListener();

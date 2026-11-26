@@ -2,7 +2,7 @@
  * Mc：App Shell 預快取 + 執行期快取策略。
  * 靜態資源 cache-first；導航 network-first（失敗回殼或 offline.html）。
  */
-const SHELL_CACHE = "fireblog-shell-v1";
+const SHELL_CACHE = "fireblog-shell-v2";
 const IMAGE_CACHE = "fireblog-images-v1";
 
 const SHELL_ASSETS = [

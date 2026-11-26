@@ -1,22 +1,21 @@
-// Firebase 已在 firebaseConfig.js 中初始化
-let blogsRef = db.collection("blogs");
+// 匯入本地 firebaseConfig.js 與 Firebase v13 Modular Firestore
+import { db } from './firebaseConfig.js';
+import { collection, getDocs, orderBy, query } from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js';
 
-document.querySelector('#mobileMenuBtn').addEventListener('click', function () {
-  document.querySelector('#navbarNav').classList.toggle('is-open');
+const blogsRef = collection(db, 'blogs');
+
+document.querySelector('#mobileMenuBtn')?.addEventListener('click', () => {
+  document.querySelector('#navbarNav')?.classList.toggle('is-open');
 });
 
 const blogCardsContainer = document.querySelector('#blogCardsContainer');
 const loadingIndicator = document.querySelector('#loadingIndicator');
 
-function showLoadError(message) {
-  blogCardsContainer.replaceChildren();
-  const box = document.createElement('div');
-  box.className = 'alert';
-  box.textContent = `載入文章時發生錯誤：${message}`;
-  blogCardsContainer.append(box);
-}
+const showLoadError = (message) => {
+  blogCardsContainer.innerHTML = `<div class="alert">載入文章時發生錯誤：${message}</div>`;
+};
 
-function showEmptyState() {
+const showEmptyState = () => {
   blogCardsContainer.innerHTML = `
     <div class="empty-state">
       <h2>尚無文章</h2>
@@ -24,37 +23,9 @@ function showEmptyState() {
       <a href="upload.html" class="article-back">前往上傳 →</a>
     </div>
   `;
-}
+};
 
-function loadBlogs() {
-  try {
-    blogsRef
-      .orderBy('createdAt', 'desc')
-      .get()
-      .then((querySnapshot) => {
-        loadingIndicator.classList.add('is-hidden', 'hidden');
-
-        if (querySnapshot.empty) {
-          showEmptyState();
-          return;
-        }
-
-        blogCardsContainer.innerHTML = '';
-        querySnapshot.forEach((doc) => {
-          createBlogCard(doc.data(), doc.id);
-        });
-      })
-      .catch((error) => {
-        loadingIndicator.classList.add('is-hidden', 'hidden');
-        showLoadError(error.message);
-      });
-  } catch (error) {
-    loadingIndicator.classList.add('is-hidden', 'hidden');
-    showLoadError(error.message);
-  }
-}
-
-function createBlogCard(blog, blogId) {
+const createBlogCard = (blog, blogId) => {
   const dateStr = blog.date || '未知日期';
   const contentPreview = blog.content
     ? (blog.content.length > 90 ? `${blog.content.substring(0, 90)}…` : blog.content)
@@ -76,6 +47,22 @@ function createBlogCard(blog, blogId) {
       </a>
     </article>
   `);
-}
+};
+
+const loadBlogs = async () => {
+  const blogsQuery = query(blogsRef, orderBy('createdAt', 'desc'));
+  const querySnapshot = await getDocs(blogsQuery);
+  loadingIndicator.classList.add('is-hidden', 'hidden');
+
+  if (querySnapshot.empty) {
+    showEmptyState();
+    return;
+  }
+
+  blogCardsContainer.innerHTML = '';
+  querySnapshot.forEach((item) => {
+    createBlogCard(item.data(), item.id);
+  });
+};
 
 loadBlogs();

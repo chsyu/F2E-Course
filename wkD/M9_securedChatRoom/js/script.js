@@ -1,24 +1,28 @@
-// Firebase 已在 firebaseConfig.js 中初始化
-// Reference chatroom document
-const docRef = db
-  .collection("chatrooms")
-  .doc("chatroom1");
-// Reference chatroom messages
-const messagesRef = docRef.collection("messages");
+// index.html、signup.html、firechat.html 共用此模組，元素不一定存在，使用前要先檢查
+import { auth, db } from './firebaseConfig.js';
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+  updateProfile,
+} from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-auth.js';
+import {
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  onSnapshot,
+  orderBy,
+  query,
+} from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js';
 
-// Referenct authentifacation
-const auth = firebase.auth();
+const chatroomDocRef = doc(db, 'chatrooms', 'chatroom1');
+const messagesRef = collection(db, 'chatrooms', 'chatroom1', 'messages');
+const messagesQuery = query(messagesRef, orderBy('timeStamp', 'asc'));
 
-// Reference chatroom messages query
-const queryRef = messagesRef
-  .orderBy("timeStamp", "asc");
+let profileName = '';
 
-// Store Profile Info
-let profile_Name, 
-    profile_photoURL;
-
-// REGISTER DOM ELEMENTS
-// index.html、signup.html、firechat.html 共用此檔案，元素不一定存在，使用前要先檢查
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
 const btnSignIn = document.querySelector('#btnSignIn');
@@ -32,131 +36,112 @@ const userName = document.querySelector('#user-name');
 const userPhoto = document.querySelector('#user-photo');
 const userNameField = document.querySelector('#userName');
 const photoURLField = document.querySelector('#photoURL');
-if (signInfo) signInfo.textContent = "";
+if (signInfo) signInfo.textContent = '';
 
-// SignIn
 if (btnSignIn) {
-  btnSignIn.addEventListener('click', function (e) {
-    btnSignIn.innerHTML = `<span class="spinner-border spinner-border-sm"></span>`;
-    auth.signInWithEmailAndPassword(email.value, password.value)
-      .then(function (e) {
-        btnSignIn.innerHTML = `Sign In`;
-        window.location.href = "./firechat.html";
-      })
-      .catch(function (e) {
-        btnSignIn.innerHTML = `Sign In`;
-        console.log(e.message);
-        if (signInfo) signInfo.textContent = e.message;
-      });
+  btnSignIn.addEventListener('click', async () => {
+    btnSignIn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
+    try {
+      await signInWithEmailAndPassword(auth, email.value, password.value);
+      btnSignIn.textContent = 'Sign In';
+      window.location.href = './firechat.html';
+    } catch (error) {
+      btnSignIn.textContent = 'Sign In';
+      console.error(error.message);
+      if (signInfo) signInfo.textContent = error.message;
+    }
   });
 }
 
-// SignUp
 if (btnSignUp) {
-  btnSignUp.addEventListener('click', function (e) {
-    console.log('sign up now ...');
-    btnSignUp.innerHTML = `<span class="spinner-border spinner-border-sm"></span>`;
-    auth.createUserWithEmailAndPassword(email.value, password.value)
-      .then(function () {
-        const user = auth.currentUser;
-        profile_Name = userNameField.value;
-        profile_photoURL = photoURLField.value;
-        console.log(user);
-
-        user.updateProfile({
-          displayName: profile_Name,
-          photoURL: profile_photoURL
-        })
-          .then(function () {
-            btnSignUp.innerHTML = `Sign Up`;
-            email.value = '';
-            password.value = '';
-            userNameField.value = '';
-            photoURLField.value = '';
-            console.log("Update successful.");
-            window.location.href = "./firechat.html";
-          });
-      })
-      .catch(function (e) {
-        console.log(e.message);
-        if (signInfo) signInfo.textContent = e.message;
+  btnSignUp.addEventListener('click', async () => {
+    btnSignUp.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
+    try {
+      const credential = await createUserWithEmailAndPassword(auth, email.value, password.value);
+      profileName = userNameField.value;
+      await updateProfile(credential.user, {
+        displayName: profileName,
+        photoURL: photoURLField.value,
       });
+      btnSignUp.textContent = 'Sign Up';
+      email.value = '';
+      password.value = '';
+      userNameField.value = '';
+      photoURLField.value = '';
+      window.location.href = './firechat.html';
+    } catch (error) {
+      btnSignUp.textContent = 'Sign Up';
+      console.error(error.message);
+      if (signInfo) signInfo.textContent = error.message;
+    }
   });
 }
 
-// Listening Login User
-auth.onAuthStateChanged(function (user) {
+onAuthStateChanged(auth, (user) => {
   if (user) {
-    console.log(user);
     if (signInfo) signInfo.textContent = `${user.email} is login...`;
-    user.providerData.forEach(function (profile) {
-      profile_Name = profile.displayName;
-      if (userName) userName.textContent = profile.displayName;
+    user.providerData.forEach((profile) => {
+      profileName = profile.displayName ?? '';
+      if (userName) userName.textContent = profileName;
       if (userPhoto && profile.photoURL) {
         userPhoto.src = profile.photoURL;
       }
     });
   } else {
-    console.log("not logged in");
+    console.log('not logged in');
   }
 });
 
-
-// Signout
 if (btnSignOut) {
-  btnSignOut.addEventListener('click', function () {
-    auth.signOut();
-    if (email) email.value = '';
-    if (password) password.value = '';
-    if (signInfo) signInfo.textContent = 'No one login...';
-    window.location.href = "./index.html";
-  });
-}
-
-// SET CHAT ROOM TITLE
-docRef.get().then(function (doc) {
-  if (cardHeader) cardHeader.textContent = doc.data().name;
-});
-
-// LISTEN FOR KEYPRESS EVENT
-if (messageField) {
-  messageField.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-      //FIELD VALUES
-      let message = messageField.value;
-
-      //SAVE DATA TO FIREBASE
-      messagesRef.add({
-        "senderName": profile_Name,
-        "message": message,
-        "timeStamp": Date.now()
-      });
-
-      // EMPTY INPUT FIELD
-      messageField.value = '';
+  btnSignOut.addEventListener('click', async () => {
+    try {
+      await signOut(auth);
+      if (email) email.value = '';
+      if (password) password.value = '';
+      if (signInfo) signInfo.textContent = 'No one login...';
+      window.location.href = './index.html';
+    } catch (error) {
+      console.error(error.message);
     }
   });
 }
 
-// A RENDER SCREEN CALLBACK THAT IS TRIGGERED FOR EACH CHAT MESSAGE
-queryRef.onSnapshot(function (querySnapshot) {
-  if (!messageList) return;
-  messageList.innerHTML = '';
-  // 為何用 createElement + textContent：聊天內容不可信，避免 XSS
-  querySnapshot.forEach(function (doc) {
-    const senderName = doc.data().senderName || "anonymous";
-    const message = doc.data().message;
+const loadChatroomTitle = async () => {
+  if (!cardHeader) return;
+  const snapshot = await getDoc(chatroomDocRef);
+  if (snapshot.exists() && snapshot.data().name) {
+    cardHeader.innerHTML = snapshot.data().name;
+  }
+};
 
-    const messageElement = document.createElement("li");
-    messageElement.className = "message-item";
+loadChatroomTitle();
 
-    const nameElement = document.createElement("strong");
-    nameElement.className = "chat-username";
-    nameElement.textContent = `${senderName}:`;
+if (messageField) {
+  messageField.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter') return;
+    const message = messageField.value.trim();
+    if (!message) return;
 
-    messageElement.append(nameElement, document.createTextNode(` ${message ?? ""}`));
-    messageList.append(messageElement);
+    messageField.value = '';
+    addDoc(messagesRef, {
+      senderName: profileName || 'anonymous',
+      message,
+      timeStamp: Date.now(),
+    });
   });
-  //SCROLL TO BOTTOM OF MESSAGE LIST
-  messageList.scrollTop = messageList.scrollHeight;
-});
+}
+
+if (messageList) {
+  onSnapshot(messagesQuery, (querySnapshot) => {
+    let html = '';
+    querySnapshot.forEach((item) => {
+      const data = item.data();
+      const senderName = data.senderName || 'anonymous';
+      const message = data.message ?? '';
+
+      html += `<li class="message-item"><strong class="chat-username">${senderName}:</strong> ${message}</li>`;
+    });
+    messageList.innerHTML = html;
+    messageList.scrollTop = messageList.scrollHeight;
+  });
+}

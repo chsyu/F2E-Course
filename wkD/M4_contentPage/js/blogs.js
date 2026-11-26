@@ -2,7 +2,7 @@
  * 部落格資料
  * 包含 10 篇部落格文章的資料
  */
-const blogsData = [
+export const blogsData = [
   {
     "title": "探索前端開發的無限可能",
     "author": "張小明",
