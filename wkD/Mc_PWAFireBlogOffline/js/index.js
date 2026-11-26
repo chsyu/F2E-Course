@@ -53,25 +53,20 @@ const createBlogCard = (blog, blogId) => {
   `);
 };
 
-const loadBlogs = async () => {
-  try {
-    const blogsQuery = query(blogsRef, orderBy('createdAt', 'desc'));
-    const querySnapshot = await getDocs(blogsQuery);
-    loadingIndicator.classList.add('is-hidden', 'hidden');
+try {
+  const blogsQuery = query(blogsRef, orderBy('createdAt', 'desc'));
+  const querySnapshot = await getDocs(blogsQuery);
+  loadingIndicator.classList.add('is-hidden', 'hidden');
 
-    if (querySnapshot.empty) {
-      showEmptyState();
-      return;
-    }
-
+  if (querySnapshot.empty) {
+    showEmptyState();
+  } else {
     blogCardsContainer.innerHTML = '';
     querySnapshot.forEach((item) => {
       createBlogCard(item.data(), item.id);
     });
-  } catch (error) {
-    loadingIndicator.classList.add('is-hidden', 'hidden');
-    showLoadError(error.message);
   }
-};
-
-loadBlogs();
+} catch (error) {
+  loadingIndicator.classList.add('is-hidden', 'hidden');
+  showLoadError(error.message);
+}

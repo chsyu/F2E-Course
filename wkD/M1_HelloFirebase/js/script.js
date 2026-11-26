@@ -39,17 +39,6 @@ setDoc(docRef, {
   },
 });
 
-// const snapshot = await getDoc(docRef);
-// if (snapshot.exists()) {
-//   docElement.innerHTML = `doc 1167 name = ${snapshot.data().name}`;
-// }
-
-// updateDoc(docRef, {
-//   name: 'John Doe',
-// });
-
-// deleteDoc(docRef);
-
 // 即時監聽文件變化
 onSnapshot(docRef, (snapshot) => {
   const data = snapshot.data();

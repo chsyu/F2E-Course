@@ -147,40 +147,6 @@ const createBlogListItem = (blog, blogId) => {
   `);
 };
 
-const setupBlogListListener = () => {
-  listLoadingIndicator.classList.remove('is-hidden', 'hidden');
-  blogListContainer.classList.add('is-hidden', 'hidden');
-  emptyListState.classList.add('is-hidden', 'hidden');
-
-  const blogsQuery = query(blogsRef, orderBy('createdAt', 'desc'));
-  onSnapshot(
-    blogsQuery,
-    (querySnapshot) => {
-      listLoadingIndicator.classList.add('is-hidden', 'hidden');
-      blogCount.textContent = querySnapshot.size;
-
-      if (querySnapshot.empty) {
-        emptyListState.classList.remove('is-hidden', 'hidden');
-        blogListContainer.classList.add('is-hidden', 'hidden');
-        return;
-      }
-
-      emptyListState.classList.add('is-hidden', 'hidden');
-      blogListContainer.classList.remove('is-hidden', 'hidden');
-      blogListContainer.innerHTML = '';
-
-      querySnapshot.forEach((item) => {
-        createBlogListItem(item.data(), item.id);
-      });
-    },
-    (error) => {
-      console.error('監聽文章列表時發生錯誤:', error);
-      listLoadingIndicator.classList.add('is-hidden', 'hidden');
-      showListError(error.message);
-    },
-  );
-};
-
 const deleteBlog = (blogId) => {
   if (!confirm('確定要刪除此文章嗎？')) return;
   deleteDoc(doc(db, 'blogs', blogId));
@@ -249,4 +215,34 @@ uploadBtn.addEventListener('click', async () => {
   uploadBtn.disabled = false;
 });
 
-setupBlogListListener();
+listLoadingIndicator.classList.remove('is-hidden', 'hidden');
+blogListContainer.classList.add('is-hidden', 'hidden');
+emptyListState.classList.add('is-hidden', 'hidden');
+
+const blogsQuery = query(blogsRef, orderBy('createdAt', 'desc'));
+onSnapshot(
+  blogsQuery,
+  (querySnapshot) => {
+    listLoadingIndicator.classList.add('is-hidden', 'hidden');
+    blogCount.textContent = querySnapshot.size;
+
+    if (querySnapshot.empty) {
+      emptyListState.classList.remove('is-hidden', 'hidden');
+      blogListContainer.classList.add('is-hidden', 'hidden');
+      return;
+    }
+
+    emptyListState.classList.add('is-hidden', 'hidden');
+    blogListContainer.classList.remove('is-hidden', 'hidden');
+    blogListContainer.innerHTML = '';
+
+    querySnapshot.forEach((item) => {
+      createBlogListItem(item.data(), item.id);
+    });
+  },
+  (error) => {
+    console.error('監聽文章列表時發生錯誤:', error);
+    listLoadingIndicator.classList.add('is-hidden', 'hidden');
+    showListError(error.message);
+  },
+);

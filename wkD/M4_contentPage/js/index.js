@@ -35,16 +35,11 @@ const createBlogCard = (blog, index) => {
   `);
 };
 
-const loadBlogs = () => {
-  if (!Array.isArray(blogsData) || blogsData.length === 0) {
-    showEmptyState();
-    return;
-  }
-
+if (!Array.isArray(blogsData) || blogsData.length === 0) {
+  showEmptyState();
+} else {
   blogCardsContainer.innerHTML = '';
   blogsData.forEach((blog, index) => {
     createBlogCard(blog, index);
   });
-};
-
-loadBlogs();
+}

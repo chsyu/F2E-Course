@@ -67,26 +67,20 @@ const displayBlog = (blog) => {
   blogContent.classList.remove('is-hidden', 'hidden');
 };
 
-const loadBlog = async () => {
-  const blogId = getBlogIdFromUrl();
-  if (!blogId) {
-    showError('缺少文章ID參數');
-    return;
-  }
-
+const blogId = getBlogIdFromUrl();
+if (!blogId) {
+  showError('缺少文章ID參數');
+} else {
   try {
     const snapshot = await getDoc(doc(db, 'blogs', blogId));
     loadingIndicator.classList.add('is-hidden', 'hidden');
 
     if (!snapshot.exists()) {
       showError('找不到指定的文章');
-      return;
+    } else {
+      displayBlog(snapshot.data());
     }
-
-    displayBlog(snapshot.data());
   } catch (error) {
     showError(`載入文章時發生錯誤：${error.message}`);
   }
-};
-
-loadBlog();
+}

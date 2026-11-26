@@ -58,20 +58,12 @@ const displayBlog = (blog) => {
   blogContent.classList.remove('is-hidden', 'hidden');
 };
 
-const loadBlog = () => {
-  const blogIndex = getBlogIndexFromUrl();
+const blogIndex = getBlogIndexFromUrl();
 
-  if (blogIndex === null) {
-    showError('缺少文章ID參數');
-    return;
-  }
-
-  if (!Array.isArray(blogsData) || Number.isNaN(blogIndex) || blogIndex < 0 || blogIndex >= blogsData.length) {
-    showError('找不到指定的文章');
-    return;
-  }
-
+if (blogIndex === null) {
+  showError('缺少文章ID參數');
+} else if (!Array.isArray(blogsData) || Number.isNaN(blogIndex) || blogIndex < 0 || blogIndex >= blogsData.length) {
+  showError('找不到指定的文章');
+} else {
   displayBlog(blogsData[blogIndex]);
-};
-
-loadBlog();
+}

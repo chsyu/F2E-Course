@@ -106,16 +106,6 @@ if (btnSignOut) {
   });
 }
 
-const loadChatroomTitle = async () => {
-  if (!cardHeader) return;
-  const snapshot = await getDoc(chatroomDocRef);
-  if (snapshot.exists() && snapshot.data().name) {
-    cardHeader.innerHTML = snapshot.data().name;
-  }
-};
-
-loadChatroomTitle();
-
 if (messageField) {
   messageField.addEventListener('keydown', (event) => {
     if (event.key !== 'Enter') return;
@@ -144,4 +134,12 @@ if (messageList) {
     messageList.innerHTML = html;
     messageList.scrollTop = messageList.scrollHeight;
   });
+}
+
+// 放在監聽器註冊之後，避免 top-level await 阻塞訊息輸入與即時監聽
+if (cardHeader) {
+  const snapshot = await getDoc(chatroomDocRef);
+  if (snapshot.exists() && snapshot.data().name) {
+    cardHeader.innerHTML = snapshot.data().name;
+  }
 }
